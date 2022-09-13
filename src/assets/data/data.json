@@ -1,0 +1,117 @@
+  {
+"banner": {
+    "imagenBanner": "/assets/imagenes/banner-marmolado.jpg",
+    "imagenperfil": "/assets/imagenes/cvpato.png",
+    "nombre":"Patricia Cayo"
+},
+"letrasefecto":{
+    "titulo":"Full stack Jr."
+},
+"acercaDeMi":{
+    "descripcion": "Me considero una apasionada por la programación web y la automatización de procesos.Soy detallista y perfeccionista en lo que hago y me gusta cooperar con mis compañeros ya que se logra una retroalimentación"
+},
+"experiencia":[
+{
+    "icono": "/assets/imagenes/logocensys.png",
+    "empresa": "Censys SA",
+    "descripcion":"Jefa Sector Documentación",
+    "inicio":"03/03/2008",
+    "fin":"15/12/2012"
+},
+{
+    "icono": "/assets/imagenes/logocensys.png",
+    "empresa": "Censys SA",
+    "descripcion":"Programadora Power Builder - Sybase",
+    "inicio":"13/01/2013",
+    "fin":"15/12/2013"
+    }],
+"proyectos" : {
+    "nombre": "Encriptador oracle-alura",
+    "enlace": "https://mp1214.github.io/DesafioONE-Encriptador/"
+   },
+   "educacion": [
+    { "tipoeducacion": "Profesional",
+    "titulo":"Ing. En sistemas de Información",
+    "institucion": "UTN-FRT",
+    "icono":"/assets/imagenes/utn.png",
+    "inicio":"03/03/2001",
+    "fin":"12/06/2011"
+    },
+    { "tipoeducacion": "Informal - Curso",
+    "titulo":"Programación Web inicial: HTML5- CSS3 - JavaScript - GIT",
+    "institucion": "ORACLE-ALURA",
+    "icono":"/assets/imagenes/Vector.png",
+    "inicio":"03/03/2001",
+    "fin":"12/06/2011"
+    },
+   
+    { "tipoeducacion": "Informal- Bootcamp",
+    "titulo":"Devops introducción: GIT - Docker - Kubernetes - Terraform",
+    "institucion": "Instructora - Rossana suarez",
+    "icono":"/assets/imagenes/devops.png",
+    "inicio":"03/03/2001",
+    "fin":"12/06/2011"
+    }],
+
+"Certificados":[
+    {
+    "titulo":"introduccion containers",
+    "enlace":"/assets/imagenes/conteiners,kubernetes,openshift.png"
+    },
+
+    {
+    "titulo":"Docker essentials",
+    "enlace":"/assets/imagenes/gas.png"
+    },
+    {
+    "titulo":"Se programar",
+    "enlace":"/assets/imagenes/argentina-programa.png"
+    },
+    {
+    "titulo":"Egg- programación desde cero",
+    "enlace":"/assets/imagenes/egg.png"
+    },
+    {
+    "titulo":"Devops",
+    "enlace":"/assets/imagenes/37.jpg"
+    },
+    {
+    "titulo":"html5 y css3 parte 1- alura",
+    "enlace":"/assets/imagenes/html5css3-parte1.png"
+    },
+    {
+    "titulo":"html5 y css3 parte 2- alura",
+    "enlace":"/assets/imagenes/html5css3-parte2.png"
+    },
+    {
+        "titulo":"html5 y css3 parte 3- alura",
+        "enlace":"/assets/imagenes/html5css3-parte3.png"
+    },
+    {
+    "titulo":"logica de programacion parte 3",
+    "enlace":"/assets/imagenes/logicaProgramacion-parte31.png"
+    },
+    {
+    "titulo":"logica de programacion parte 1",
+    "enlace":"/assets/imagenes/logicaProgramacion1.png"
+    }
+],
+"skills":[
+        {
+        "habilidad":"HTML",
+        "porcentaje":80
+        },
+        {
+        "habilidad":"GIT",
+        "porcentaje":60
+        },
+        {
+        "habilidad":"BOOTSTRAP",
+        "porcentaje":70
+        },
+        {
+        "habilidad":"CSS",
+        "porcentaje":80
+        }
+] 
+}

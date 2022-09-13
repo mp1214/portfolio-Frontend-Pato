@@ -1,0 +1,26 @@
+<div class="estudios m-2" style="border:2px solid #7e78d0 ;">
+    
+    <h1>Estudios</h1>
+    <ul class="list-group" style="list-style:none">
+        <li *ngFor="let estudio of estudiosList" class="list-group"> 
+            <h2 style="text-decoration:underline;">{{estudio.tipoeducacion}}</h2>
+            
+            <h2 class="titulo"><img [src]="estudio.icono"  alt="" width="2%">
+                {{estudio.titulo}}</h2>
+            <h4 class="titulo">{{estudio.institucion}}</h4>
+            <h4 class="titulo">{{estudio.inicio}}-{{estudio.fin}} </h4>
+            
+        </li>
+    </ul>
+    <!--<h1>Cursos</h1>
+    <ul class="list-group" style="list-style:none">
+    <li> <img src="/assets/imagenes/Vector.png"  alt="" height="1.5%" width="1.5%">
+    <h2 class="titulo">Programación Web inicial: HTML5- CSS3 - JavaScript - GIT (Oracle-Alura)</h2> </li>
+    </ul>
+    <h1>Bootcamps</h1>
+    <ul class="list-group" style="list-style:none">
+    <li> <img src="/assets/imagenes/devops.png"  alt="" height="4.5%" width="4.5%">
+    <h2 class="titulo">Devops introducción: GIT - Docker - Kubernetes - Terraform (Instructora: Rossana Suarez)</h2> </li>
+    
+</ul>  -->  
+    </div>

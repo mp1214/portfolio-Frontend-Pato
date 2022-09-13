@@ -1,0 +1,48 @@
+i.fa-brands.fa-lg.fa-2x1{
+    font-size: 2rem;
+   
+  }
+  .list-group-item{
+    background: transparent;
+    font-size: 2rem;
+    padding: 0;
+    
+    
+  }
+  .fa-user-lock{
+    font-size: 3vh;
+    padding-top: 0.2vh;
+    margin-left: 0.2vh;
+  }
+  .fa-brands{
+    color: white;
+   
+  }
+  
+  i.fa-brands.fa-facebook.fa-lg.fa-2x1:hover{
+    color: #1708e7;
+  }
+  i.fa-brands.fa-linkedin.fa-lg.fa-2x1:hover{
+    color: #1102af;
+  }
+  i.fa-brands.fa-whatsapp.fa-lg.fa-2x1:hover{
+    color: #8adf13;
+  }
+  i.fa-solid.fa-user.fa-2x1:hover{
+    color: #f78708;
+  }
+  i.fa-solid.fa-user-lock.fa-2x1{
+    color: #e7e6f5;
+    
+   
+  }
+  i.fa-brands.fa-github.fa-lg.fa-2x1{
+    color: #e7e6f5;
+  }
+  i.fa-brands.fa-github.fa-lg.fa-2x1:hover{
+  color:#d51212d1;
+  }
+  i.fa-solid.fa-user-lock.fa-2x1:hover{
+    color: #7e78d0;
+   
+  }

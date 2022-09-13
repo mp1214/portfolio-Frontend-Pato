@@ -1,0 +1,12 @@
+.footer{
+    margin-top: 1vh;
+    width: 100%;
+   margin-bottom: 1vh;
+   padding-top: 1vh;
+   padding-bottom: 1vh;
+    background: linear-gradient(450deg,rgb(171, 171, 247),black);
+    border-radius:10px;
+    box-shadow: 0,20px,30px darkblue;
+    color: white;
+    text-align: center;
+  }

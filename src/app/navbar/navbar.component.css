@@ -1,0 +1,13 @@
+.navbar {
+    margin-top: 1vh;
+    width: 100%;
+    
+   padding-left: 2vh;
+   padding-right: 2vh;
+    background: linear-gradient(450deg,rgb(171, 171, 247),black);
+    border-radius:2rem;
+    box-shadow: 0,2rem,3rem darkblue;
+    color: white;
+    
+  }
+  

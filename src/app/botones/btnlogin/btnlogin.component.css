@@ -1,0 +1,33 @@
+.btn{  
+    border-radius: 4px;
+    height: 44px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+ 
+    padding: 0 30px;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: none;
+    background-color: #ffeba7;
+    color: #102770;
+    box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
+    
+  }
+  .btn-primary{
+    margin-top: 3vh;
+  }
+  .btn:active,
+  .btn:focus{  
+    background-color: #102770;
+    color: #ffeba7;
+    box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+  }
+  .btn:hover{  
+    background-color: #102770;
+    color: #ffeba7;
+    box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+  }

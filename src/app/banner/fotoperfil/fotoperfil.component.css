@@ -1,0 +1,14 @@
+.imagen-pato img{
+     
+    width: 30vh;
+    height: auto;
+    border-style:solid;
+    border-color: rgba(145, 145, 6, 0.722);
+    margin-top: 10vh;
+    margin-left: 7vh;
+    z-index:30000;
+    position:static;
+    box-shadow: 6px 6px 5px 2px #0b0a09;
+    
+  }
+  

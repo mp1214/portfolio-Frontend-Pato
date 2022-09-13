@@ -1,0 +1,33 @@
+.estudios img{
+    background-color:#73a4eed1
+  }
+  .estudios{
+    border-color: #7972d3;
+     
+     border-radius: 5vh;
+     margin: 2%;
+     padding: 2%;
+     
+     
+   }
+   
+   img,.titulo{
+    display: inline;
+    margin-left: 10px;
+    vertical-align: middle;
+    padding-bottom: 2vh;
+   
+  }
+   .estudios h1{
+    color: #0e076b;
+    font-size: 4vh;
+    
+  }
+  .estudios h2{
+   
+    font-size: 3vh;
+   }
+   .lista-experiencia{
+margin: 3vh 0;
+   }
+   

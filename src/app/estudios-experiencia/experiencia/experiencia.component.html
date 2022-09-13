@@ -1,0 +1,13 @@
+<div class="estudios m-2" style="border:2px solid #7e78d0; ">
+    <h1>Experiencia</h1>
+    <ul style="list-style:none">
+   
+    <li *ngFor="let experiencia of experienciaList" class="lista-experiencia"> 
+        <img [src]="experiencia.icono"  alt="" height="5%" width="6%">  
+        <h2 class="titulo">{{experiencia.empresa}}</h2>
+        <h3>{{experiencia.descripcion}}</h3>
+        <h4>{{experiencia.inicio}}-  {{experiencia.fin}}</h4>
+        </li>
+   
+</ul>
+</div>

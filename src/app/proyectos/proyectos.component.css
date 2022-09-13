@@ -1,0 +1,40 @@
+.proyectos{
+    border-color: #7972d3;
+    border-radius: 5vh;
+     margin: 2%;
+     padding: 2%;
+     
+   }
+  
+   .proyectos h1{
+     color: #0e076b;
+     font-size: 4vh;
+     
+   }
+  img,.titulo{
+    display: inline;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+  ul{
+    margin-left: 2vh;
+  } 
+   
+   .proyectos h2{
+   
+    font-size: 3vh;
+   }
+   .proyecto{
+    margin-top: 1vh;
+    background-image: url(/assets/imagenes/fondo\ dorado.jpg);
+    border-radius: 3%;
+    padding-left: 2vh;
+    background-repeat: repeat;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+   }
+   .enlace{
+    
+    font-size: 30px;
+    margin-left: 5vh;
+   }

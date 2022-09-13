@@ -1,0 +1,16 @@
+.contenedor {
+margin-top: 1vh;
+width: 100%;
+padding: 30px 30px 50px;
+border-radius:10px;
+color: white;
+z-index: 2000;
+background-image: url(/assets/imagenes/pared-negra.png);
+
+}
+div .contenedor{
+margin: 10px;
+}
+div .titulo{
+margin-top: 15vh;
+}

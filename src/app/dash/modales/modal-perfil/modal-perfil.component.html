@@ -1,0 +1,29 @@
+ <!-- Modal perfil-->
+ <div>
+    <div class="modal fade" id="exampleModal-foto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      
+        <div class="container modal-dialog">
+          <h1 id="title">Formulario </h1>
+          <app-fotoperfil></app-fotoperfil>
+          <p id="description">Cambiar Foto de Perfil</p>
+        
+            
+              <div class="imagen modal-content">
+              <label id="imagen-user" for="imagen-user">Cambiar foto</label>
+            <form name="imagen-user" type="POST" enctype="multipart/formdata" >
+              <input type="file" name="imagen-user" />
+              </form>
+            
+           
+            </div>
+                 
+             
+            <div class="form-group">
+              <button type="submit" id="submit">
+                Guardar
+              </button>
+            </div>
+          
+        </div>
+      </div>
+    </div>

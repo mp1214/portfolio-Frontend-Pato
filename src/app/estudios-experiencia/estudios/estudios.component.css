@@ -1,0 +1,28 @@
+.estudios{
+    border-color: #7972d3;
+    border-radius: 5vh;
+     margin: 2%;
+     padding: 2%;
+     
+   }
+  
+   .estudios h1{
+     color: #0e076b;
+     font-size: 4vh;
+     
+   }
+  img,.titulo{
+    display: inline;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+ .list-group{
+    margin-left: 2vh;
+    padding-bottom: 2vh;
+    
+  } 
+   
+   .estudios h2{
+   
+    font-size: 3vh;
+   }
