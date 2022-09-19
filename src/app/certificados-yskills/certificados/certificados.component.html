@@ -1,6 +1,27 @@
 
-  
-   <h1 style="color: #0e076b;">Mis Certificados</h1>
+ <h1 class="certificados">Mis Certificados</h1>
+ 
+ <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+   <div   class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" *ngFor="let item of certificadoList;let index = index;let isFirst = first" [attr.aria-label]="index" [attr.data-bs-slide-to]="index"  
+    [ngClass]="isFirst ? 'aria-current true' : 'aria-current'" [ngClass]="isFirst ? 'class active' : 'class'" 
+    ></button>
+        
+    
+   </div>
+   <div class="carousel-inner">
+     <div  class="carousel-item" *ngFor="let item of certificadoList;let index = index;let isFirst = first" [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item' ">
+       <img [src]="item.enlace" class="d-block w-100" alt="...">
+       <div class="carousel-caption d-none d-md-block">
+         
+         
+       </div>
+     </div>
+        
+   </div>
+ 
+ <!--
+   <h1 class="certificados">Mis Certificados</h1>
 <div class="carrousel">
   
     <section id="carrousel">
@@ -20,7 +41,7 @@
       <div *ngFor="let certificado of certificadoList" class="item"  >
          <img [src]="certificado.enlace" width="100%" height="100%" alt="">
       </div>
-     <!-- <div class="item"><img [src]="certificadoList.enlace" width="100%" height="100%"  ></div>
+     <div class="item"><img [src]="certificadoList.enlace" width="100%" height="100%"  ></div>
       <div class="item"><img src="/assets/imagenes/gas.png" width="100%" height="100%"  ></div>
       <div class="item"><img src="/assets/imagenes/argentina-programa.png" width="100%" height="100%"  ></div>
       <div class="item"><img src="/assets/imagenes/egg.png" width="100%" height="100%"  ></div>
@@ -30,7 +51,7 @@
       <div class="item"><img src="/assets/imagenes/html5css3-parte3.png" width="100%" height="100%"  ></div>
       <div class="item"><img src="/assets/imagenes/logicaProgramacion-parte31.png" width="100%" height="100%"  ></div>
       <div class="item"><img src="/assets/imagenes/logicaProgramacion1.png" width="100%" height="100%"  ></div>
-     -->
+     
 </main>
 </section>>
-</div>
+</div>-->

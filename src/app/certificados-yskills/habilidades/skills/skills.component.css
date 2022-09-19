@@ -6,9 +6,16 @@
       margin: 10px 0;
       box-shadow: 0 0  10px rgba(142, 154, 169, 0.7);
     }
+    .habilidad{
+      font-size: 2vh;
+      
+    }
+    .certificados{
+      margin-bottom: 4vh;
+    }
     .progress{
       height: 27px;
-      margin: 3vh;
+      margin: 2vh;
       overflow: visible;
       border-radius: 50px;
       background: #eaedf3;
@@ -22,9 +29,7 @@
     }
     .progress .progress-value{
       position: relative;
-      left: -45px;
-      top: 4px;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: bold;
       color: #fff;
       letter-spacing: 2px;

@@ -3,13 +3,16 @@
     
     <h1>Proyectos</h1>
     <ul class="list-group" style="list-style:none">
-      
+      <li *ngFor="let proyecto of miPortfolio" class="lista">
+        <h2 class="titulo">{{proyecto.nombre}}</h2> 
+        <a class="enlace" [href]="proyecto.enlace" target="_blanK">Enlace al proyecto</a>
+      </li>
        
    
-    <li> <img src="/assets/imagenes/Vector.png"  alt="" height="1.5%" width="1.5%">
+   <!-- <li> <img src="/assets/imagenes/Vector.png"  alt="" height="1.5%" width="1.5%">
     <h2 class="titulo">{{miPortfolio.proyectos.nombre}}</h2> 
     <a class="enlace" [href]="miPortfolio.proyectos.enlace" target="_blanK">Enlace al proyecto</a>
-    </li>
+    </li>-->
 </ul>
     </div>
 </div>

@@ -39,6 +39,7 @@ import { LetrasEfectosComponent } from './dash/modales/letras-efectos/letras-efe
 import { ProyectosComponent } from './proyectos/proyectos.component';
 import { HttpClientModule} from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,14 +77,17 @@ import { HttpClientModule} from '@angular/common/http';
     FortalezasydebilidadesComponent,
     LetrasEfectosComponent,
     ProyectosComponent,
+    
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

@@ -4,9 +4,8 @@
    
     <li *ngFor="let experiencia of experienciaList" class="lista-experiencia"> 
         <img [src]="experiencia.icono"  alt="" height="5%" width="6%">  
-        <h2 class="titulo">{{experiencia.empresa}}</h2>
-        <h3>{{experiencia.descripcion}}</h3>
-        <h4>{{experiencia.inicio}}-  {{experiencia.fin}}</h4>
+        <h2 class="titulo">{{experiencia.empresa}} - {{experiencia.descripcion}} ({{experiencia.inicio}}-  {{experiencia.fin}})</h2>
+       
         </li>
    
 </ul>

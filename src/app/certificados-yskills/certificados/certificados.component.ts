@@ -6,10 +6,13 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
   templateUrl: './certificados.component.html',
   styleUrls: ['./certificados.component.css']
 })
+
 export class CertificadosComponent implements OnInit {
 certificadoList:any;
-  constructor(private certificados:PortfolioService) { }
 
+  constructor(private certificados:PortfolioService) { }
+  
+  
   ngOnInit(): void {
     this.certificados.obtenerDatos().subscribe(data =>{
       this.certificadoList= data.Certificados;

@@ -1,19 +1,32 @@
 
-  section#carrousel {
+ /* section#carrousel {
       height: 600px;
       margin: 0;
       display:grid;
       display: flexbox;
       grid-auto-flow: column;
-      grid-template-rows:500px 200px; /*largo filas*/
+      grid-template-rows:500px 200px;
       
       align-items:flex-start;
       justify-items:flex-start;
          
       
+    }*/
+    #carouselExampleDark{
+    /* margin-top: 7.5vh;*/
+      margin: 7vh 5vh ;
     }
-  
-    
+  .certificados{
+    color: #0e076b;
+    font-size: 4vh;
+  }
+  @media screen and (max-width: 500px) {
+    #carouselExampleDark {
+      margin: 2vh 1vh ;
+      
+    }
+  }
+   /* 
     main#carousel {
    
       grid-column: 1/11;
@@ -168,7 +181,7 @@
     }
 
   
-    @media screen and (max-width: 300px) {
+    @media screen and (max-width: 400px) {
       div.item {
         width: 60%;
         height: 60%;
@@ -179,9 +192,9 @@
         grid-template-columns: 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px;
       }
     }
-    @media screen and(min-width:301px){
+    @media screen and(min-width:401px){
       section#carrousel{
         
         grid-template-columns: 50px 5px 50px 50px 50px 50px 50px 50px 50px 50px;
       }
-    }
+    }*/

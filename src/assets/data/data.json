@@ -25,12 +25,18 @@
     "inicio":"13/01/2013",
     "fin":"15/12/2013"
     }],
-"proyectos" : {
+
+"proyectos" : [{
     "nombre": "Encriptador oracle-alura",
     "enlace": "https://mp1214.github.io/DesafioONE-Encriptador/"
    },
+   {
+    "nombre": "Juego del Ahorcado oracle-alura",
+    "enlace": "https://mp1214.github.io/Dasafio2-Alura-Ahorcado/"
+   }],
+
    "educacion": [
-    { "tipoeducacion": "Profesional",
+    { "tipoeducacion": "Formal",
     "titulo":"Ing. En sistemas de Información",
     "institucion": "UTN-FRT",
     "icono":"/assets/imagenes/utn.png",
@@ -55,43 +61,53 @@
 
 "Certificados":[
     {
+     "id": 0,   
     "titulo":"introduccion containers",
     "enlace":"/assets/imagenes/conteiners,kubernetes,openshift.png"
     },
 
     {
+    "id": 1,
     "titulo":"Docker essentials",
     "enlace":"/assets/imagenes/gas.png"
     },
     {
+    "id": 2,    
     "titulo":"Se programar",
     "enlace":"/assets/imagenes/argentina-programa.png"
     },
     {
+    "id": 3,
     "titulo":"Egg- programación desde cero",
     "enlace":"/assets/imagenes/egg.png"
     },
     {
+    "id": 4,
     "titulo":"Devops",
     "enlace":"/assets/imagenes/37.jpg"
     },
     {
+    "id": 5,
     "titulo":"html5 y css3 parte 1- alura",
     "enlace":"/assets/imagenes/html5css3-parte1.png"
     },
     {
+    "id": 6,
     "titulo":"html5 y css3 parte 2- alura",
     "enlace":"/assets/imagenes/html5css3-parte2.png"
     },
     {
-        "titulo":"html5 y css3 parte 3- alura",
-        "enlace":"/assets/imagenes/html5css3-parte3.png"
+    "id": 7,
+    "titulo":"html5 y css3 parte 3- alura",
+    "enlace":"/assets/imagenes/html5css3-parte3.png"
     },
     {
+    "id": 8,
     "titulo":"logica de programacion parte 3",
     "enlace":"/assets/imagenes/logicaProgramacion-parte31.png"
     },
     {
+    "id": 9,
     "titulo":"logica de programacion parte 1",
     "enlace":"/assets/imagenes/logicaProgramacion1.png"
     }
@@ -99,7 +115,7 @@
 "skills":[
         {
         "habilidad":"HTML",
-        "porcentaje":80
+        "porcentaje":10
         },
         {
         "habilidad":"GIT",
@@ -107,7 +123,7 @@
         },
         {
         "habilidad":"BOOTSTRAP",
-        "porcentaje":70
+        "porcentaje":90
         },
         {
         "habilidad":"CSS",
