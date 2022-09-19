@@ -53,3 +53,9 @@ svg {
 @keyframes stroke-offset{
 	100% {stroke-dashoffset: -35%;}
 }
+@media screen and (max-width: 600px) {
+  .letras-moviendose{
+    margin-left: 10vh ;
+    
+  }
+}

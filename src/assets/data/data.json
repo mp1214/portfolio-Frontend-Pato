@@ -115,7 +115,7 @@
 "skills":[
         {
         "habilidad":"HTML",
-        "porcentaje":10
+        "porcentaje":80
         },
         {
         "habilidad":"GIT",
@@ -129,5 +129,11 @@
         "habilidad":"CSS",
         "porcentaje":80
         }
-] 
+] ,
+"datosPersonales":{
+    "provincia":"Tucumán",
+    "telefono":"3814466079",
+    "fechaNacimiento":"07/07/1983",
+    "estadoCivil": "casada"
+}
 }

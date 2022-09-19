@@ -11,6 +11,9 @@
      font-size: 4vh;
      
    }
+   .titulo{
+    font-size: 3vh;
+   }
   img,.titulo{
     display: inline;
     margin-left: 10px;
