@@ -3,5 +3,15 @@
     font-size: 3vh;
     }
     
-    .modal .modal-dialog { width: 50%; }
+    .modal .modal-dialog {
+        width: 50%; 
+        
+    }
+    .modal-header{
+        background-color: beige;
+    }
+    .modal-content{
+        background-color: rgb(202, 180, 208);
+    }
+ 
     

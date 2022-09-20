@@ -15,7 +15,12 @@
     perspective: 1000px;
     
   }
-  
+  h1{
+    margin-top: 4vh;
+  }
+  h3{
+    font-family:cursive;
+  }
   .flip-card-inner {
     position: relative;
     width: 100%;
@@ -24,6 +29,7 @@
     transition: transform 0.6s;
     transform-style: preserve-3d;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+   
   }
   
   .flip-card:hover .flip-card-inner {

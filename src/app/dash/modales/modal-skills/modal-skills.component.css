@@ -14,7 +14,7 @@
   padding: 0.75rem;
   background: #8e6ca4;
   color: inherit;
-  border-radius: 2px;
+  border-radius: 4px;
   cursor: pointer;
 
 }
@@ -74,7 +74,10 @@ input, buttom, select, textarea {
   font-size: inherit;
   line-height: inherit;
 }
-
+input{
+  border: none;
+  border-radius: 0.5vh;
+}
 button {
   border: none;
   

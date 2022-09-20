@@ -38,6 +38,7 @@ import { FortalezasydebilidadesComponent } from './dash/modales/fortalezasydebil
 import { LetrasEfectosComponent } from './dash/modales/letras-efectos/letras-efectos.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
 import { HttpClientModule} from '@angular/common/http';
+import { ModalProyectosComponent } from './dash/modales/modal-proyectos/modal-proyectos.component';
 
 
 @NgModule({
@@ -77,6 +78,7 @@ import { HttpClientModule} from '@angular/common/http';
     FortalezasydebilidadesComponent,
     LetrasEfectosComponent,
     ProyectosComponent,
+    ModalProyectosComponent,
     
    
   ],

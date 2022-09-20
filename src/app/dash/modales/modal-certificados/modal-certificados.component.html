@@ -1,32 +1,25 @@
    <!--modal certificados-->
    <div>
-    <div class="modal fade" id="exampleModal-certificados" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div style="height: 100%;overflow-y: auto;" class="modal fade" id="exampleModal-certificados" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       
         <div class="container modal-dialog">
-          <h1 id="title">Formulario </h1>
-          <p id="description">Modificar  Certificados</p>
+          <h1 id="title">Certificados </h1>
+          <hr>
+          <p id="description">Modificar Certificados</p>
           <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-4 certif" *ngFor="let certificado of certificadoList">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Argentina programa</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Egg</h5>
+                  <h5 class="card-title">{{certificado.titulo}}</h5>
                   <div class="contenedor">
-                  <img src="./assets/imagenes/egg.png" height="200vh">
+                  <img [src]="certificado.enlace" height="100vh">
                    
                   <a href="#" class="btn btn-primary quitar">Quitar</a>
                     </div>
                 </div>
               </div>
             </div>
+          
           </div>
             <div class="imagen modal-content">
               <label id="number-label" for="number">Agregar Certificado</label>

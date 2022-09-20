@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-modal-perfil',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal-perfil.component.css']
 })
 export class ModalPerfilComponent implements OnInit {
-
-  constructor() { }
+fotoperfil:any;
+  constructor(private foto:PortfolioService) { }
 
   ngOnInit(): void {
+    this.foto.obtenerDatos().subscribe(data =>{
+      this.fotoperfil= data.banner.imagenperfil;
+      
+    })
   }
 
 }

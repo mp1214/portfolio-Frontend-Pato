@@ -1,21 +1,30 @@
   <!-- Modal estudios-->
   <div>
-    <div class="modal fade" id="exampleModal-estudios" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"style="overflow-y:auto" >
+    <div class="modal fade" id="exampleModal-estudios" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:auto" >
       
         <div class="container modal-dialog">
           <h1 id="title" style="text-decoration:underline;">Formulario </h1>
           <app-estudios></app-estudios>
           <p id="description">Agregar Estudios</p>
           <div class="imagen modal-content">
-            <label id="estudio-curso" for="number">Titulo</label>
+            <label for="tipo-estudio" class="label">Tipo de Estudio realizado:</label>
+            <select id="tipo-estudio" class="form-control" name="tipo-estudio" style="width: 100%;">
+              <option value="0">Seleccione...</option>
+              <option value="1">Formal</option>
+              <option value="2">Informal-curso</option>
+              <option value="2">Informal-bootcamp</option>
+            </select>
+            <label id="estudio-curso" for="number" class="label">Titulo</label>
             <input type="text" name="estudio-curso" />
-            <label>Fecha en que fue realizado:</label>
+            <label class="label">Fecha en que fue realizado:</label>
+            <div class="fecha">
             <label> Inicio</label>
             <input type="date" name="fecha1" id="fecha1"/>
-            <label>Fin</label>
+            <label class="label">Fin</label>
             <input type="date" name="fecha2"id="fecha2" />
-            <label><input type="checkbox">En curso</label>
-            <label id="number-label" for="number">Institución</label>
+            <label class="label"><input type="checkbox">En curso</label>
+            </div>
+            <label id="number-label" for="number" class="label">Institución</label>
             <input type="text" name="institucion" />
           </div>
        

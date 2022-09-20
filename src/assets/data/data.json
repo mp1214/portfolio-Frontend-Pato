@@ -47,16 +47,16 @@
     "titulo":"Programación Web inicial: HTML5- CSS3 - JavaScript - GIT",
     "institucion": "ORACLE-ALURA",
     "icono":"/assets/imagenes/Vector.png",
-    "inicio":"03/03/2001",
-    "fin":"12/06/2011"
+    "inicio":"03/08/2022",
+    "fin":"12/09/2022"
     },
    
     { "tipoeducacion": "Informal- Bootcamp",
     "titulo":"Devops introducción: GIT - Docker - Kubernetes - Terraform",
     "institucion": "Instructora - Rossana suarez",
     "icono":"/assets/imagenes/devops.png",
-    "inicio":"03/03/2001",
-    "fin":"12/06/2011"
+    "inicio":"03/03/2022",
+    "fin":"14/05/2022"
     }],
 
 "Certificados":[
@@ -131,9 +131,14 @@
         }
 ] ,
 "datosPersonales":{
-    "provincia":"Tucumán",
+    "provincia":"Tucumán - Argentina",
     "telefono":"3814466079",
     "fechaNacimiento":"07/07/1983",
-    "estadoCivil": "casada"
+    "estadoCivil": "casada",
+    "mail":"madepato3@gmail.com"
+},
+"DebilidadesFortalezas":{
+    "debilidades":" La Integridad y la Nobleza",
+    "fortalezas":"El Ingenio y la Constancia"
 }
 }

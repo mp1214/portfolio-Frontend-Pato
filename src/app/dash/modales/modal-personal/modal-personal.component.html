@@ -1,22 +1,30 @@
 <div>
-    <div class="modal fade" id="exampleModal-personal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal-personal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:auto">
       
         <div class="container modal-dialog">
           <h1 id="title">Formulario Información Personal</h1>
-          <app-boton-personal></app-boton-personal>
+          <div class="body">
+            <h3>Fecha de nacimiento: {{nacimiento}} </h3>
+            <h3>Provincia: {{provincia}}</h3>
+            <h3>Telefono: {{telefono}}</h3>
+            <h3>E-mail: {{mail}}</h3>
+            <h3>Estado Civil: {{estadoCivil}}</h3>
+          </div>
           <p id="description">Agregar Datos personales</p>
           
             <div class="imagen modal-content">
-              <label id="nombre" for="number">Nombre</label>
-              <input type="text" name="nombre" />
-              <label id="direccion" for="number">Direccion</label>
-              <input type="text" name="direccion" />
+              
+              <label id="nacimiento" for="number">Fecha Nacimiento</label>
+              <input type="date" name="nacimiento" />
+              <label id="ubicacion" for="number">Provincia - País </label>
+              <input type="text" name="ubicacion" />
+              <label id="telefono" for="number">Telefono</label>
+              <input type="number" name="telefono" />
               <label id="email" for="number">Email</label>
               <input type="text" name="email" />
-              <label id="telefono" for="number">Telefono</label>
-              <input type="text" name="telefono" />
-              <label id="ubicacion" for="number">Ubicacion</label>
-              <input type="text" name="ubicacion" />
+              <label id="estadocivil" for="number">Estado Civil</label>
+              <input type="text" name="estadocivil" />
+             
             </div>
              
             <div class="form-group">

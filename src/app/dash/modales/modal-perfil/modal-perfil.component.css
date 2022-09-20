@@ -4,6 +4,7 @@
   height: 200rem;
    
 }
+
 .imagen.modal-content{
   background-color: rgba(233, 233, 243, 0.341);
   padding: 2vh 2vh 2vh 2vh;
@@ -80,6 +81,9 @@ button {
   margin: 3.125rem auto 0 auto;
   padding: 0%;
   
+}
+div img{
+  margin-left: 20vh;
 }
 
 #title {

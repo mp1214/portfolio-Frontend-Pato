@@ -8,7 +8,7 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 
 export class CertificadosComponent implements OnInit {
-certificadoList:any;
+  certificadoList:any;
 
   constructor(private certificados:PortfolioService) { }
   
