@@ -39,6 +39,7 @@ import { LetrasEfectosComponent } from './dash/modales/letras-efectos/letras-efe
 import { ProyectosComponent } from './proyectos/proyectos.component';
 import { HttpClientModule} from '@angular/common/http';
 import { ModalProyectosComponent } from './dash/modales/modal-proyectos/modal-proyectos.component';
+import { ModalRedesComponent } from './dash/modales/modal-redes/modal-redes.component';
 
 
 @NgModule({
@@ -79,6 +80,7 @@ import { ModalProyectosComponent } from './dash/modales/modal-proyectos/modal-pr
     LetrasEfectosComponent,
     ProyectosComponent,
     ModalProyectosComponent,
+    ModalRedesComponent,
     
    
   ],
