@@ -1,15 +1,18 @@
 
-    <h1 style="color: #0e076b;">Mis Habilidades</h1>
+    <h1 class="titulo">Mis Habilidades</h1>
     <br>
     <br>
    <div class="progress-outer">
         <div *ngFor="let skill of skillsList" class="certificados" >
             <h4 class="habilidad"> {{skill.habilidad}}</h4>
+            
             <div class="progress">
+                <img [src]="skill.icono"  alt="" width="30rem" height="30rem" > 
             <div class=" progress-value progress-bar progress-bar-success progress-bar-striped active" 
+            
             [style.width.%]="skill.porcentaje" 
             [ngStyle]="{'box-shadow': '-1px 10px 10px rgba(240, 173, 78,0.7)'}" 
-            >{{skill.porcentaje}} </div>
+            >{{skill.porcentaje}}% </div>
             </div>
            <!-- <div class="progress progress-value">{{skill.porcentaje}}</div>-->
         </div>    

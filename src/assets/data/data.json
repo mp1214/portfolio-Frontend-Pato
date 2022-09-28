@@ -115,20 +115,33 @@
 "skills":[
         {
         "habilidad":"HTML",
-        "porcentaje":80
+        "porcentaje":80,
+        "icono":"/assets/imagenes/html5.png"
         },
         {
         "habilidad":"GIT",
-        "porcentaje":60
+        "porcentaje":60,
+        "icono":"/assets/imagenes/git.png"
         },
         {
         "habilidad":"BOOTSTRAP",
-        "porcentaje":90
+        "porcentaje":90,
+        "icono":"/assets/imagenes/bootstrap.png"
         },
         {
         "habilidad":"CSS",
-        "porcentaje":80
+        "porcentaje":80,
+        "icono":"/assets/imagenes/css3.png"
+        },
+        {"habilidad":"Angular",
+        "porcentaje":60,
+        "icono":"/assets/imagenes/angular.png"
+        },
+        {"habilidad":"Javascript",
+        "porcentaje":60,
+        "icono":"/assets/imagenes/javascript.png"
         }
+        
 ] ,
 "datosPersonales":{
     "provincia":"Tucumán - Argentina",
