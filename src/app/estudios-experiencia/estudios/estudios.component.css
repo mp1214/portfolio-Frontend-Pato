@@ -1,11 +1,17 @@
-.estudios{
-    border-color: #7972d3;
-    border-radius: 5vh;
-     margin: 2%;
-     padding: 2%;
-     
-   }
+
+   .estudio{
   
+    background-color: #f6f1f8ea;
+    
+    
+    padding: 1vh 2vh;
+   
+   }
+   .estudios{
+    border-left:3px solid rgb(187, 126, 201) ;
+    padding: 2vh 2vh;
+  
+   }
    .estudios h1{
      color: #0e076b;
      font-size: 4vh;

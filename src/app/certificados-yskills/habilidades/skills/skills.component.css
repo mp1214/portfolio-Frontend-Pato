@@ -5,6 +5,8 @@
       padding: 25px;
       margin: 10px 0;
       box-shadow: 0 0  10px rgba(142, 154, 169, 0.7);
+      width: 70%;
+      
     }
     .habilidad{
       font-size: 2vh;
@@ -12,9 +14,20 @@
     }
     .titulo{
       color: #0e076b;
+      margin: 3vh 2vh;
       }
+
+     
     .certificados{
-      margin-bottom: 4vh;
+      background-image: url(/assets/imagenes/fondo\ dorado.jpg);
+     
+      background-repeat: repeat;
+      padding: 1vh 2vh;
+     
+    }
+    .certificados .progress-outer{
+     margin: auto;
+      
     }
     .progress{
       height: 27px;
@@ -46,8 +59,4 @@
     @keyframes animate-positive {
       0% { width: 0%; }
     }
-    /*dahsboard*/
-    .btn.btn-primary.btn-lg.p-5{
-      width: 30rem;
-      font-size: 2rem;
-    }
+ 

@@ -1,13 +1,28 @@
+.certificados{
+  
+  background-color: #f6f1f8ea;
+ border-color: #0e076b;
+
+ 
+  padding: 1vh 2vh;
+  
+}
+.carouselExample{
+  border-left:3px solid rgb(187, 126, 201) ;
+  padding: 1vh 1vh;
+  
+}
 
 
     #carouselExampleDark{
-    /* margin-top: 7.5vh;*/
-      margin: 7vh 5vh ;
-      
+     
+     width: 50%;
+     margin: auto;
+     
     }
     .titulo{
       color: #0e076b;
-      margin-top: 0%;
+      
       }
   @media screen and (max-width: 500px) {
     #carouselExampleDark {

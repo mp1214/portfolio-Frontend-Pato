@@ -1,14 +1,22 @@
-.estudios img{
+.experiencias img{
     background-color:#73a4eed1
   }
-  .estudios{
-    border-color: #7972d3;
+  .experiencia{
+  
      
-     border-radius: 5vh;
-     margin: 2%;
-     padding: 2%;
+     padding: 1vh 1vh;
+     background-image: url(/assets/imagenes/fondo\ dorado.jpg);
+     background-repeat: no-repeat;
+    
+     background-size: cover;
+    
+    
      
-     
+   }
+   .experiencias{
+    border-radius: 5vh;
+    margin: 1%;
+    padding: 1%;
    }
    
    img,.titulo{
@@ -18,12 +26,12 @@
     padding-bottom: 2vh;
    
   }
-   .estudios h1{
+   .experiencia h1{
     color: #0e076b;
     font-size: 4vh;
     
   }
-  .estudios h2{
+  .experiencia h2{
    
     font-size: 3vh;
    }

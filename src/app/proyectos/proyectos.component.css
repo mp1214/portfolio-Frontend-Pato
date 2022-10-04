@@ -1,8 +1,8 @@
 .proyectos{
-    border-color: #7972d3;
-    border-radius: 5vh;
-     margin: 2%;
-     padding: 2%;
+  border-left:3px solid rgb(187, 126, 201) ;
+   
+    
+     padding: 1%;
      
    }
   
@@ -25,13 +25,13 @@
     font-size: 3vh;
    }
    .proyecto{
-    margin-top: 1vh;
-    background-image: url(/assets/imagenes/fondo\ dorado.jpg);
-    border-radius: 3%;
-    padding-left: 2vh;
-    background-repeat: repeat;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
+  
+    background-color: #f6f1f8ea;
+    
+    
+    padding: 1vh 1vh;
+   
+    
    }
    .enlace{
     

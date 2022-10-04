@@ -11,9 +11,7 @@ import { LetrasFullStackComponent } from './efectos/letras-full-stack/letras-ful
 import { AcercadeMiComponent } from './acercade-mi/acercade-mi.component';
 import { ImagenPatoComponent } from './efectos/imagen-pato/imagen-pato.component';
 import { TarjetaFortalezasComponent } from './efectos/tarjeta-fortalezas/tarjeta-fortalezas.component';
-import { EstudiosExperienciaComponent } from './estudios-experiencia/estudios-experiencia.component';
 import { BotonPersonalComponent } from './botones/boton-personal/boton-personal.component';
-import { CertificadosYskillsComponent } from './certificados-yskills/certificados-yskills.component';
 import { FooterComponent } from './footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ErrorComponent } from './error/error.component';
@@ -53,9 +51,7 @@ import { ModalRedesComponent } from './dash/modales/modal-redes/modal-redes.comp
     AcercadeMiComponent,
     ImagenPatoComponent,
     TarjetaFortalezasComponent,
-    EstudiosExperienciaComponent,
     BotonPersonalComponent,
-    CertificadosYskillsComponent,
     FooterComponent,
     DashboardComponent,
     ErrorComponent,
@@ -88,7 +84,7 @@ import { ModalRedesComponent } from './dash/modales/modal-redes/modal-redes.comp
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]

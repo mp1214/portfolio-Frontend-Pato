@@ -63,13 +63,13 @@
     {
      "id": 0,   
     "titulo":"introduccion containers",
-    "enlace":"/assets/imagenes/conteiners,kubernetes,openshift.png"
+    "enlace":"/assets/imagenes/gas.png"
     },
-
+    
     {
     "id": 1,
     "titulo":"Docker essentials",
-    "enlace":"/assets/imagenes/gas.png"
+    "enlace":"/assets/imagenes/conteiners,kubernetes,openshift.png"
     },
     {
     "id": 2,    
