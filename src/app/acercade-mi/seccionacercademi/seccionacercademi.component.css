@@ -14,3 +14,16 @@ margin: 10px;
 div .titulo{
 margin-top: 15vh;
 }
+@media screen and (max-width: 400px) {
+ 
+    .contenedor{
+      margin-top: 1vh;  
+     
+      }
+  }
+  @media screen and(min-width:401) and (max-width: 800px){
+    .contenedor{
+        margin-top: 1vh;  
+                   
+        }
+  } 

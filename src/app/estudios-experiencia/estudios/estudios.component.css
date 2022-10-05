@@ -1,14 +1,14 @@
 
    .estudio{
   
-    background-color: #f6f1f8ea;
-    
+    /*background-color: #f6f1f8ea;*/
+    background: linear-gradient(300deg,rgb(247, 241, 247),rgba(167, 164, 226, 0.8));
     
     padding: 1vh 2vh;
    
    }
    .estudios{
-    border-left:3px solid rgb(187, 126, 201) ;
+    border-left:3px solid #000 ;
     padding: 2vh 2vh;
   
    }

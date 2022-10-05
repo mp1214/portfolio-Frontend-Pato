@@ -2,11 +2,12 @@
     margin-top: 1vh;  
     
     /*background-image: url(/assets/imagenes/banner-marmolado.jpg);*/
-    height: 60vh;
-    background-size: cover;
+    
+    background-size:cover;
     background-repeat: no-repeat;
-    width:100% ;
-    z-index:1000;
+    min-height: 300px;
+    height: 980px;
+   
     
     }
    
@@ -33,10 +34,39 @@
         margin-left: 40vh;
         margin-top: 0vh;
     }
-    @media screen and (max-width: 600px) {
+  
+
+    @media screen and (min-width:601px) and (max-width: 800px) {
       button {
         margin-left: 15vh ;
         
       }
+      .banner{
+
+        margin-top: 1vh;  
+        background-size:cover;
+        background-repeat: no-repeat;
+        min-height: 200px;
+        max-height: 300px;
+              
+        }
     }
-   
+    @media screen and (min-width:201px) and (max-width: 600px) {
+      .banner{
+   margin-top: 1vh;  
+   background-size:cover;
+   background-repeat: no-repeat;
+   min-height: 150px;
+   max-height: 250px;
+         
+   }
+   @media screen and (min-width:801) {
+    .banner{
+ margin-top: 1vh;  
+ background-size:cover;
+ background-repeat: no-repeat;
+
+       
+ }
+}
+}
