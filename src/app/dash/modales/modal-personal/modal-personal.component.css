@@ -7,6 +7,16 @@
 .imagen.modal-content{
   background-color: rgba(233, 233, 243, 0.341);
   padding: 2vh 2vh 2vh 2vh;
+  margin: 0 1vh;
+}
+.personal{
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 #submit {
   display: block;
@@ -18,18 +28,12 @@
   cursor: pointer;
   margin: 2vh auto;
 }
-.body{
-  margin-left: 3vh;
-  margin-right: 3vh;
-  border: 0.2vh solid;
-  padding: 2vh 2vh;
-  border-radius: 5vh;
-}
+
 .modal {
   font-family: sans-serif;
   line-height: 1.4;
   margin: 0;
-  background-color: rgba(220, 239, 127, 0.8);
+  background-color: rgba(233, 233, 243, 0.948);
   background-position: center;
   color: rgb(9, 3, 3); 
   width: 50%;
@@ -85,8 +89,10 @@ button {
 .container {
   width: 100%;
   margin: 3.125rem auto 0 auto;
-  padding: 0%;
-  
+  padding: 1vh;
+  border: 0.5px solid #c5c3c6;
+  margin: 1vh 1vh;
+  border-radius: 10px;
 }
 
 #title {

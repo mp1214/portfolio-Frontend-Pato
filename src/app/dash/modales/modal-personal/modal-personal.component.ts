@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
@@ -12,6 +12,7 @@ export class ModalPersonalComponent implements OnInit {
   nacimiento: string="";
   estadoCivil: string="";
   mail:string="";
+  @Input() mje:string=""
 
   constructor(private personal:PortfolioService) { }
 

@@ -65,9 +65,9 @@
           <h1 style="text-decoration: underline; font-size: 2.5vh;">Datos Personales</h1> 
           <div class="botonagregar">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-personal">
-              <i class="fa-solid fa-circle-plus"> Agregar </i></button>
+              <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-personal">
-                <i class="fa-solid fa-circle-minus"> Quitar </i></button>
+                <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
             </div> 
         </div>
       </div>
@@ -276,7 +276,7 @@
        <app-modal-certificados></app-modal-certificados>
        <app-modal-estudios></app-modal-estudios>
        <app-modal-perfil></app-modal-perfil>
-       <app-modal-personal></app-modal-personal>
+       <app-modal-personal [mje]="Agregar"></app-modal-personal>
        <app-modal-skills [mje]="Agregar"></app-modal-skills>
        <app-modal-trabajo [mje]="Agregar"></app-modal-trabajo>
        <app-acercademi></app-acercademi>
