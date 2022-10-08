@@ -3,11 +3,29 @@
     <div class="modal fade" id="exampleModal-trabajo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       
         <div class="container modal-dialog">
-          <h1 id="title">Formulario Experiencia</h1>
-          <app-experiencia></app-experiencia>
-          <p id="description">Agregar Experiencia</p>
+          <h1 id="title">Experiencias</h1>
+          <div *ngIf="mje === 'quitar'" class="lista-fortalezaDebilidad">
+            <h2 class="label">Quitar Experiencias</h2>
+          <ul *ngFor="let experiencia of experiencias" style="list-style:none">
+           
+            <li  class="experiencia">
+             
+              {{experiencia.empresa}}
+              <br>
+              {{experiencia.descripcion}}
+              <br>
+              {{experiencia.inicio}} {{experiencia.fin}}
+              <i class="fa-solid fa-xmark"
+              [ngStyle]="{'color':'red'}"
+              ></i>
+            </li>
+            
+          </ul>
+          </div>
+        
          
-            <div class="imagen modal-content">
+            <div *ngIf="mje === 'agregar'" class="imagen modal-content">
+              <p id="title">Agregar Experiencia</p>
               <label id="puesto-trabajo" for="number">Puesto</label>
               <input type="text" name="puesto-trabajo" />
               <label id="empresa" for="number">Empresa</label>

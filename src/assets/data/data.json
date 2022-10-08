@@ -1,4 +1,5 @@
-  {
+
+ {
 "banner": {
     "imagenBanner": "/assets/imagenes/banner-atardecer.png",
     "imagenperfil": "/assets/imagenes/cvpato.png",
@@ -150,8 +151,27 @@
     "estadoCivil": "casada",
     "mail":"madepato3@gmail.com"
 },
-"DebilidadesFortalezas":{
-    "debilidades":" La Integridad y la Nobleza",
-    "fortalezas":"El Ingenio y la Constancia"
-}
+
+"Debilidades":[
+    {
+    "debilidad":" La Integridad"
+   
+    },
+    {
+    "debilidad":"la Nobleza"
+       
+    },
+    {
+        "debilidad":"introversion"
+           
+        }
+
+
+],
+"Fortalezas":[
+    {"fortaleza":"El Ingenio"
+    },
+    {"fortaleza":"la Constancia"
+    }
+]
 }

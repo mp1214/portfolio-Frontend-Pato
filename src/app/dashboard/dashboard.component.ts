@@ -6,10 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+Agregar:string=""
 
   constructor() { }
 
   ngOnInit(): void {
+  
   }
-
+evento(){
+this.Agregar="agregar"
+console.log(this.Agregar)
+}
+quitar(){
+  
+  this.Agregar="quitar"
+  console.log(this.Agregar)
+  }
+  
 }

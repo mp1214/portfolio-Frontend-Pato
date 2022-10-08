@@ -4,10 +4,37 @@
       
         <div class="container modal-dialog">
           <h1 id="title" style="text-decoration:underline;">Formulario </h1>
-          
-          <app-tarjeta-fortalezas></app-tarjeta-fortalezas>
-          <p id="description">Agregar Fortalezas/Debilidades</p>
-          <div class="imagen modal-content">
+          <div *ngIf="mje === 'quitar'" class="lista-fortalezaDebilidad">
+            <h2 class="titulo-fortaleza"> Fortalezas</h2>
+          <ul *ngFor="let fortaleza of fortalezas" style="list-style:none">
+           
+            <li  class="fortDebil">{{fortaleza.fortaleza}}
+              <i class="fa-solid fa-xmark"
+              [ngStyle]="{'color':'red'}"
+              ></i>
+            </li>
+            
+          </ul>
+          <h2 class="titulo-debilidad"> Debilidades</h2>
+          <ul *ngFor="let debilidad of debilidades" style="list-style:none">
+            
+            <li class="fortDebil">{{debilidad.debilidad}}
+              <i class="fa-solid fa-xmark"
+             
+              [ngStyle]="{'color':'red'}"
+              
+              ></i>
+              <!-- <fa-icon 
+              [icon]="faTimes"
+              [ngStyle]="{'color':'red'}"
+              (click)="onDelete(task)" >
+                  
+              </fa-icon>--></li>
+          </ul>
+        </div>
+         
+          <div *ngIf="mje === 'agregar'" class="container modal-content">
+            <p id="description">Agregar Fortalezas/Debilidades</p>
             <label id="fortaleza" for="number">Fortalezas</label>
             <input type="text" name="fortaleza" />
             <label id="debilidades" for="number">Debilidades</label>

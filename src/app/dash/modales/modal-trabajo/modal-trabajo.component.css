@@ -16,18 +16,28 @@
     color: inherit;
     border-radius: 2px;
     cursor: pointer;
+    
   }
   .modal {
     font-family: sans-serif;
     line-height: 1.4;
     margin: 0;
-    background-color: rgba(220, 239, 127, 0.8);
+    background-color: rgba(233, 233, 243, 0.948);
     background-position: center;
     color: rgb(9, 3, 3); 
     width: 50%;
    margin-left: 20%;
     
   }
+  .experiencia{
+    background: #f4f4f4;
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
   input{
     border:none;
     border-radius: 0.5vh;
@@ -54,10 +64,10 @@
   }
   
   
-  h1, p {
+  h1,h2, p {
     margin-top: 0.5;
     margin-bottom: 0.5 rem;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
   }
  
   
@@ -65,7 +75,6 @@
     display: flex;
     align-items: center;
     font-size: 1.125rem;
-    
     margin-top: 0.5rem;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
   }
@@ -87,7 +96,7 @@
   .container {
     width: 100%;
     margin: 3.125rem auto 0 auto;
-    padding: 0%;
+    padding: 2%;
     
   }
   
@@ -96,7 +105,11 @@
     padding: 0 0.625rem;
     margin-bottom: 1.875rem;
   }
-  
+  .lista-fortalezaDebilidad{
+    border:1px solid #8e6ca4;
+    margin: 1vh 1vh;
+    border-radius: 1vh;
+  }
   #description {
     text-align: center;
     font-style: italic;

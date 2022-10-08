@@ -17,10 +17,12 @@
         <div class="botonagregar">
           
           <button class="btn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-skills">
-            <i class="fa-solid fa-circle-plus"> Agregar </i></button>
+            <i class="fa-solid fa-circle-plus"
+            (click)="evento()"> Agregar </i></button>
           
           <button class="btn1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-skills">
-            <i class="fa-solid fa-circle-minus"> Quitar </i></button>
+            <i class="fa-solid fa-circle-minus"
+            (click)="quitar()" > Quitar </i></button>
         </div> 
       </div>
     </div>
@@ -39,9 +41,9 @@
         <h1 style="text-decoration: underline;">Experiencia</h1> 
           <div class="botonagregar">
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-trabajo">
-            <i class="fa-solid fa-circle-plus"> Agregar </i></button>
+            <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-trabajo">
-              <i class="fa-solid fa-circle-minus"> Quitar </i></button>
+              <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
             </div>
          
       </div>
@@ -180,9 +182,9 @@
                   
                     <div class="botonagregar">
                       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-fortalezas-debilidades">
-                        <i class="fa-solid fa-circle-plus"> Agregar </i></button>
+                        <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-fortalezas-debilidades">
-                          <i class="fa-solid fa-circle-minus"> Quitar </i></button>
+                          <i class="fa-solid fa-circle-minus" (click)="quitar()" > Quitar </i></button>
                       </div> 
                   </div>
                 </div>
@@ -275,10 +277,10 @@
        <app-modal-estudios></app-modal-estudios>
        <app-modal-perfil></app-modal-perfil>
        <app-modal-personal></app-modal-personal>
-       <app-modal-skills></app-modal-skills>
-       <app-modal-trabajo></app-modal-trabajo>
+       <app-modal-skills [mje]="Agregar"></app-modal-skills>
+       <app-modal-trabajo [mje]="Agregar"></app-modal-trabajo>
        <app-acercademi></app-acercademi>
-       <app-fortalezasydebilidades></app-fortalezasydebilidades>
+       <app-fortalezasydebilidades [mje]="Agregar"></app-fortalezasydebilidades>
        <app-letras-efectos></app-letras-efectos>
        <app-modal-proyectos></app-modal-proyectos>
        <app-modal-redes></app-modal-redes>

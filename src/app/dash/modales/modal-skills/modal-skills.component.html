@@ -1,19 +1,50 @@
   <!--modal skills-->
   <div>
     <div style="height: 100%;overflow-y: auto;" class="modal fade" id="exampleModal-skills" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      
+     
         <div class="container modal-dialog">
-          <h1 id="title">Habilidades</h1>
-         <hr>
-         <div>
-          <app-skills></app-skills>
-         </div>
-            <div class="imagen modal-content">
-              <p id="description">Agregar</p>
-              <label id="number-label" for="number">Habilidad</label>
+          <div *ngIf="mje === 'quitar'">
+          
+            <h1 id="title">Habilidades</h1>
+              <div *ngFor="let skill of Skills">
+                  <h4 class="habilidad"> {{skill.habilidad}}</h4>
+                  
+                  <div class="progress" class="cuadro">
+                     
+                  <div class="progress-value progress-bar progress-bar-success progress-bar-striped active progreso" 
+                  
+                  [style.width.%]="skill.porcentaje" 
+                  [ngStyle]="{'box-shadow': '-1px 10px 10px rgba(240, 173, 78,0.7)'}" 
+                  >{{skill.porcentaje}}% </div>
+                  <i class="fa-solid fa-xmark"
+             
+                  [ngStyle]="{'color':'red'}"
+                  
+                  ></i></div>
+                 <!-- <div class="progress progress-value">{{skill.porcentaje}}</div>-->
+                  
+          </div>
+          </div>
+            <!--  <h2 class="titulo-fortaleza"> skills</h2>
+          <ul *ngFor="let skill of Skills" style="list-style:none">
+           
+            <li  class="fortDebil">{{skill.habilidad}}
+              <i class="fa-solid fa-xmark"
+              [ngStyle]="{'color':'red'}"
+              ></i>
+            </li>
+            
+          </ul>
+          <h2 class="titulo-debilidad"> Debilidades</h2>
+         
+        </div>-->
+        </div>
+            <div *ngIf="mje === 'agregar'" class="container modal-content">
+              <p id="description">Agregar Habilidad</p>
+              <label id="habilidad" for="number">Habilidad</label>
               <input type="text" name="habilidad" />
-              <label id="number-label" for="number">Porcentaje</label>
-              <input type="text" name="habilidad" />
+              <label id="porcentaje" for="number">Porcentaje</label>
+              <input type="number" name="porcentaje" />
              
               
             </div>
@@ -25,6 +56,6 @@
             </div>
           
         </div>
-       
       </div>
-    </div>
+      
+
