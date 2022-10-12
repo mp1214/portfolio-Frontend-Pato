@@ -88,9 +88,9 @@
            
             <div class="botonagregar">
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-estudios">
-                <i class="fa-solid fa-circle-plus"> Agregar </i></button>
+                <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-estudios">
-                  <i class="fa-solid fa-circle-minus"> Quitar </i></button>
+                  <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
               </div> 
           </div>
         </div>
@@ -111,9 +111,9 @@
              
               <div class="botonagregar">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-foto">
-                  <i class="fa-solid fa-circle-plus"> Agregar </i></button>
+                  <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-foto">
-                    <i class="fa-solid fa-circle-minus"> Quitar </i></button>
+                    <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
                 </div> 
             </div>
           </div>
@@ -133,9 +133,9 @@
                 <h1 style="text-decoration: underline;">Certificados</h1> 
                 <div class="botonagregar">
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-certificados">
-                    <i class="fa-solid fa-circle-plus"> Agregar </i></button>
+                    <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-certificados">
-                      <i class="fa-solid fa-circle-minus"> Quitar </i></button>
+                      <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
                   </div> 
               </div>
             </div>
@@ -158,9 +158,9 @@
                   
                   <div class="botonagregar">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-acercademi">
-                      <i class="fa-solid fa-circle-plus"> Agregar </i>></button>
+                      <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i>></button>
                       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-acercademi">
-                        <i class="fa-solid fa-circle-minus"> Quitar </i></button>
+                        <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
                     </div> 
                 </div>
               </div>
@@ -206,9 +206,9 @@
                       
                       <div class="botonagregar">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-proyectos">
-                          <i class="fa-solid fa-circle-plus"> Agregar </i></button>
+                          <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
                           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-proyectos">
-                            <i class="fa-solid fa-circle-minus"> Quitar </i></button>
+                            <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
                         </div> 
                     </div>
                   </div>
@@ -231,9 +231,9 @@
               
               <div class="botonagregar">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-letras-efectos">
-                  <i class="fa-solid fa-circle-plus"> Agregar </i></button>
+                  <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-letras-efectos">
-                    <i class="fa-solid fa-circle-minus"> Quitar </i></button>
+                    <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
                 </div> 
             </div>
           </div>
@@ -256,9 +256,9 @@
             
             <div class="botonagregar">
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-redes-sociales">
-                <i class="fa-solid fa-circle-plus"> Agregar </i></button>
+                <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-redes-sociales">
-                  <i class="fa-solid fa-circle-minus"> Quitar </i></button>
+                  <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
               </div> 
           </div>
         </div>
@@ -273,15 +273,15 @@
        </section>
        <app-footer></app-footer>
 
-       <app-modal-certificados></app-modal-certificados>
-       <app-modal-estudios></app-modal-estudios>
-       <app-modal-perfil></app-modal-perfil>
+       <app-modal-certificados [mje]="Agregar"></app-modal-certificados>
+       <app-modal-estudios [mje]="Agregar"></app-modal-estudios>
+       <app-modal-perfil [mje]="Agregar"></app-modal-perfil>
        <app-modal-personal [mje]="Agregar"></app-modal-personal>
        <app-modal-skills [mje]="Agregar"></app-modal-skills>
        <app-modal-trabajo [mje]="Agregar"></app-modal-trabajo>
-       <app-acercademi></app-acercademi>
+       <app-acercademi [mje]="Agregar"></app-acercademi>
        <app-fortalezasydebilidades [mje]="Agregar"></app-fortalezasydebilidades>
-       <app-letras-efectos></app-letras-efectos>
-       <app-modal-proyectos></app-modal-proyectos>
-       <app-modal-redes></app-modal-redes>
+       <app-letras-efectos [mje]="Agregar"></app-letras-efectos>
+       <app-modal-proyectos [mje]="Agregar"></app-modal-proyectos>
+       <app-modal-redes [mje]="Agregar"></app-modal-redes>
        

@@ -1,11 +1,12 @@
    <!--modal certificados-->
    <div>
     <div style="height: 100%;overflow-y: auto;" class="modal fade" id="exampleModal-certificados" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      
+      <h1>Certificados</h1>
         <div class="container modal-dialog">
-          <h1 id="title">Certificados </h1>
+          <div *ngIf="mje === 'quitar'" >
+          <h2 id="title">Quitar Certificados </h2>
           <hr>
-          <p id="description">Modificar Certificados</p>
+         
           <div class="row">
             <div class="col-sm-4 certif" *ngFor="let certificado of certificadoList">
               <div class="card">
@@ -21,11 +22,15 @@
             </div>
           
           </div>
-            <div class="imagen modal-content">
-              <label id="number-label" for="number">Agregar Certificado</label>
+        </div>
+            <div *ngIf="mje === 'agregar'" class="imagen modal-content">
+              <h2> Agregar Certificados</h2>
+             
+              <label id="number-label" for="number">Agregar</label>
             <form name="subida-imagenes" type="POST" enctype="multipart/formdata" >
               <input type="file" name="imagen" />
              </form>
+            </div>
             </div>
              
             <div class="form-group">
@@ -36,5 +41,5 @@
           
         </div>
        
-      </div>
+      
     </div>

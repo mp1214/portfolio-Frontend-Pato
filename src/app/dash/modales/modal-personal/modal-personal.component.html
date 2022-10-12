@@ -2,8 +2,9 @@
     <div class="modal fade" id="exampleModal-personal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:auto">
       
         <div class="modal-dialog">
-          <h1 id="title">Información Personal</h1>
+          <h1>Información Personal</h1>
           <div *ngIf="mje === 'quitar'" class="container">
+            <h2>Quitar datos</h2>
             <h4 class="personal" >Fecha de nacimiento: {{nacimiento}}<i class="fa-solid fa-xmark"
               [ngStyle]="{'color':'red'}"
               ></i> </h4>
@@ -23,7 +24,7 @@
           
           
             <div *ngIf="mje === 'agregar'" class="imagen modal-content">
-              <p id="description">Agregar Datos personales</p>
+              <h2>Agregar Datos personales</h2>
               <label id="nacimiento" for="number">Fecha Nacimiento</label>
               <input type="date" name="nacimiento" />
               <label id="ubicacion" for="number">Provincia - País </label>

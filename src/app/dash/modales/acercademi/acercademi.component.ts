@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 export class AcercademiComponent implements OnInit {
 descripcion: string =""
+@Input() mje:string=""
+
   constructor(private acercademi:PortfolioService) { }
 
   ngOnInit(): void {

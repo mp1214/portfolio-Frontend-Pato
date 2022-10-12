@@ -1,15 +1,26 @@
  <!-- Modal perfil-->
  <div>
     <div class="modal fade" id="exampleModal-foto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      
+      <h1>Administrar Foto </h1>
+
         <div class="container modal-dialog">
-          <h1 id="title">Foto Actual </h1>
-          <img [src]="fotoperfil"  class="rounded-circle w-20" alt="">
-          
-          <p id="description">Cambiar Foto de Perfil</p>
+       
         
-            
-              <div class="imagen modal-content">
+          <div *ngIf="mje === 'quitar'" class="contenedor">
+            <h2> Quitar Foto</h2>
+            <div class="perfil" >
+          <img [src]="fotoperfil" [ngStyle]="{'width':'15%'}" class="rounded-circle" alt="">
+          <i class="fa-solid fa-xmark"
+             
+          [ngStyle]="{'color':'red'}"
+          
+          ></i>
+        </div>
+          </div>
+
+         
+              <div *ngIf="mje === 'agregar'" class="imagen modal-content">
+                <h2>Agregar Foto de Perfil</h2>
               <label id="imagen-user" for="imagen-user">Cambiar foto</label>
             <form name="imagen-user" type="POST" enctype="multipart/formdata" >
               <input type="file" name="imagen-user" />

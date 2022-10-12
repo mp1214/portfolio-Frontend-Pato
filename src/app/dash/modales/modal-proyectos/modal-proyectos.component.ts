@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-modal-proyectos',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal-proyectos.component.css']
 })
 export class ModalProyectosComponent implements OnInit {
-
+  @Input() mje:string=""
   constructor() { }
 
   ngOnInit(): void {

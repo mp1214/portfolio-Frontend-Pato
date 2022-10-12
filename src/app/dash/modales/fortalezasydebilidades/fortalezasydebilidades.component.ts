@@ -22,7 +22,7 @@ debilidades:any
     this.fortdebilidades.obtenerDatos().subscribe(data =>{
       this.fortalezas= data.Fortalezas;
       this.debilidades= data.Debilidades;
-    console.log(this.mje)
+    
   })
   }
  

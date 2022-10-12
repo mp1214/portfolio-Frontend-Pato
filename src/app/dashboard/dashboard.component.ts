@@ -15,12 +15,12 @@ Agregar:string=""
   }
 evento(){
 this.Agregar="agregar"
-console.log(this.Agregar)
+
 }
 quitar(){
   
   this.Agregar="quitar"
-  console.log(this.Agregar)
+ 
   }
   
 }

@@ -1,12 +1,24 @@
   <!-- Modal estudios-->
-  <div>
-    <div class="modal fade" id="exampleModal-estudios" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:auto" >
+  
+    <div style="height: 100%;overflow-y: auto;" class="modal fade" id="exampleModal-estudios" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:auto" >
       
         <div class="container modal-dialog">
-          <h1 id="title" style="text-decoration:underline;">Formulario </h1>
-          <app-estudios></app-estudios>
-          <p id="description">Agregar Estudios</p>
-          <div class="imagen modal-content">
+          <h1>Estudios </h1>
+
+          <div *ngIf="mje === 'quitar'" class="lista-estudio">
+            <h2> Quitar Estudio</h2>
+          <ul *ngFor="let estudio of estudios" style="list-style:none">
+            
+            <li  class="estudio">{{estudio.titulo}}
+              <i class="fa-solid fa-xmark"
+              [ngStyle]="{'color':'red'}"
+              ></i>
+            </li>
+          </ul>
+          </div>
+         
+          <div *ngIf="mje === 'agregar'" class="container modal-content">
+            <h2>Agregar Estudios</h2>
             <label for="tipo-estudio" class="label">Tipo de Estudio realizado:</label>
             <select id="tipo-estudio" class="form-control" name="tipo-estudio" style="width: 100%;">
               <option value="0">Seleccione...</option>
@@ -36,6 +48,6 @@
             </div>
           </div>
           </div>
-        </div>
+        
       
 

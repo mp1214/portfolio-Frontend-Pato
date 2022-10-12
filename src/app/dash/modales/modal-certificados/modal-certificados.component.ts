@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 export class ModalCertificadosComponent implements OnInit {
   certificadoList: any;
+  @Input() mje:string=""
 
   constructor(private certificados:PortfolioService) { }
 

@@ -3,8 +3,8 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-modal-skills',
-  templateUrl:'./modal-skills.component.html',
-  styleUrls: ['./modal-skills.component.css']
+  templateUrl: './modal-skills.component.html',
+  styleUrls:['./modal-skills.component.css'] 
 })
 export class ModalSkillsComponent implements OnInit {
 habilidad:string=""

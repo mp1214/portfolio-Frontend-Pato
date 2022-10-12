@@ -1,14 +1,19 @@
 /*modales del dashboard*/
+
 .modal.fade {
   box-sizing: border-box;
   height: 200rem;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
    
 }
 .imagen.modal-content{
-  background-color: rgba(233, 233, 243, 0.341);
-  padding: 2vh 2vh 2vh 2vh;
-  margin: 0 1vh;
+ background-color: transparent;
+  padding: 2vh;
+  margin:1vh;
+  width: 95%;
+  justify-content: center;
 }
+
 .personal{
   background: #f4f4f4;
   margin: 5px;
@@ -27,6 +32,7 @@
   border-radius: 2px;
   cursor: pointer;
   margin: 2vh auto;
+  font-size: 2vh;
 }
 
 .modal {
@@ -50,18 +56,18 @@
 h1 {
   font-weight: 400;
   line-height: 1.2;
-}
-
-p {
-  font-size: 2rem;
-  
-}
-
-
-h1, p {
+  justify-content: center;
   margin-top: 0.5;
   margin-bottom: 0.5 rem;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-align: center;
+}
+h2{
+  font-size: 3vh;
+  text-align: center;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  padding: 2vh;
+
 }
 
 
@@ -71,10 +77,10 @@ label {
   font-size: 1.125rem;
   
   margin-top: 0.5rem;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  
 }
 
-input, buttom, select, textarea {
+input, select, textarea {
   margin: 0,5;
   font-family: inherit;
   font-size: inherit;
@@ -87,7 +93,7 @@ button {
 }
 
 .container {
-  width: 100%;
+  width: 95%;
   margin: 3.125rem auto 0 auto;
   padding: 1vh;
   border: 0.5px solid #c5c3c6;
@@ -101,12 +107,6 @@ button {
   margin-bottom: 1.875rem;
 }
 
-#description {
-  text-align: center;
-  font-style: italic;
-  font-weight: 200;
-  text-shadow: 1px 1px 1px rgb(0 0 0 / 40%);
-}
 .input-textarea {
   min-height: 120px;
   width: 100%;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-modal-redes',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal-redes.component.css']
 })
 export class ModalRedesComponent implements OnInit {
+  @Input() mje:string=""
 
   constructor() { }
 
