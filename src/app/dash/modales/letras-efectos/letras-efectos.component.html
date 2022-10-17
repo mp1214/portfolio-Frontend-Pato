@@ -1,12 +1,23 @@
   <!--modal letras con efectos-->
-  <div>
+  
     <div class="modal fade" id="exampleModal-letras-efectos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      
+      <h1> Texto con efecto</h1>
         <div class="container modal-dialog">
-          <h1 id="title">Efectos </h1>
-          <p id="description">Modificar Texto con efecto</p>
-          <app-letras-full-stack></app-letras-full-stack>
-            <div class="imagen modal-content">
+          <div *ngIf="mje === 'quitar'" class="lista-fortalezaDebilidad">
+          <h2 id="title">Quitar Texto </h2>
+         
+            <h3 class="fortDebil">{{efectosList.titulo}}
+              <i class="fa-solid fa-xmark"
+              [ngStyle]="{'color':'red'}"
+              ></i>
+            </h3>
+            
+        
+         
+        </div>
+
+            <div *ngIf="mje === 'agregar'" class="lista-fortalezaDebilidad modal-content">
+              <h2 id="title">Agregar Texto</h2>
               <label id="number-label" for="number">Cambiar texto</label>
                 <input type="text" name="texto" />
             

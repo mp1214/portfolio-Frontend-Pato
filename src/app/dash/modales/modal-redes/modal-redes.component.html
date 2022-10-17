@@ -2,12 +2,24 @@
     <div class="modal fade" id="exampleModal-redes-sociales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:auto" >
       
         <div class="container modal-dialog">
-          <h1 id="title">Formulario </h1>
-          <hr>
-          <app-redes></app-redes>
-          <p id="description">Agregar Redes</p>
+          <h1>Redes</h1>
+          <div *ngIf="mje === 'quitar'" class="lista-fortalezaDebilidad">
+            <h2 >Quitar Redes</h2>
+            <ul *ngFor="let red of redesList" style="list-style:none">
+           
+              <li  class="fortDebil">{{red.nombre}} -
+                {{red.enlace}}
+                <i class="fa-solid fa-xmark"
+                [ngStyle]="{'color':'red'}"
+                ></i>
+              </li>
+              
+            </ul>
+         </div>
+         
           
-          <div class="imagen modal-content">
+          <div *ngIf="mje === 'agregar'" class="imagen modal-content">
+            <h2>Agregar Redes</h2>
             <label id="estudio-curso" for="number">Redes</label>
             <input type="text" name="estudio-curso" />
            

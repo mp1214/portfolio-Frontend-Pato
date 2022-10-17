@@ -14,7 +14,7 @@
   .estudio{
     background: #f4f4f4;
     margin: 5px;
-    padding: 1vh 2;
+    padding: 1vh 2%;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -64,7 +64,7 @@
     font-weight: 400;
     line-height: 1.2;
     justify-content: center;
-    margin-top: 0.5;
+    margin-top: 0.5rem;
     margin-bottom: 0.5 rem;
     text-align: center;
   }
@@ -86,15 +86,16 @@
  
   }
   .fecha{
-    border: 0.5px solid #000000;
+    border: 0.5px solid #8e6ca4;
     border-radius: 2vh;
-    padding: 1vh;
-    margin: 2vh 2vh;
+    padding: 1%;
+    margin: 1%;
   }
 #fecha1,#fecha2{
     display: flex;
+    width: 40%;
   }
-  input,buttom, select, textarea {
+  input, select {
     margin: 0,5;
     font-family: inherit;
     font-size: inherit;
@@ -114,7 +115,7 @@
   .container {
     width: 98%;
     margin: 3.125rem auto 0 auto;
-    padding: 0%;
+    padding: 2%;
   }
  
    

@@ -1,11 +1,26 @@
-<div>
+
     <div class="modal fade" id="exampleModal-proyectos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:auto" >
       
         <div class="container modal-dialog">
-          <h1 id="title" style="text-decoration:underline;">Formulario </h1>
-          <app-proyectos></app-proyectos>
-          <p id="description">Agregar Proyectos</p>
-          <div class="imagen modal-content">
+          <h1>Proyectos </h1>
+          <div *ngIf="mje === 'quitar'" class="lista-fortalezaDebilidad">
+            <h2 >Quitar Proyecto</h2>
+          <ul *ngFor="let proyecto of proyectoList" style="list-style:none">
+           
+            <li  class="fortDebil">{{proyecto.nombre}}
+              <i class="fa-solid fa-xmark"
+              [ngStyle]="{'color':'red'}"
+              ></i>
+            </li>
+            
+          </ul>
+          </div>
+         
+
+         </div>
+          
+          <div *ngIf="mje === 'agregar'" class="lista-fortalezaDebilidad">
+            <h2>Agregar Proyectos</h2>
             <label id="estudio-curso" for="number">Nombre Proyecto</label>
             <input type="text" name="estudio-curso" />
            
@@ -20,5 +35,5 @@
               </button>
             </div>
           </div>
-          </div>
-        </div>
+  
+        

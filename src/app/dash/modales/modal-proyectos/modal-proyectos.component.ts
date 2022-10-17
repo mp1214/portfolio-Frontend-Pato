@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-modal-proyectos',
@@ -6,10 +7,16 @@ import { Component, OnInit,Input } from '@angular/core';
   styleUrls: ['./modal-proyectos.component.css']
 })
 export class ModalProyectosComponent implements OnInit {
+  proyectoList: any;
   @Input() mje:string=""
-  constructor() { }
+
+  constructor(private proyectos:PortfolioService) { }
 
   ngOnInit(): void {
+    this.proyectos.obtenerDatos().subscribe(data =>{
+      this.proyectoList= data.proyectos;
+      
+    })
   }
 
 }

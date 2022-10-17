@@ -173,5 +173,22 @@
     },
     {"fortaleza":"la Constancia"
     }
+],
+"redes" : [{
+    "nombre": "facebook",
+    "enlace": "http://facebook.com/pcayo1"
+   },
+   {
+    "nombre": "github",
+    "enlace": "https://github.com/mp1214"
+   },
+   {
+    "nombre": "whatsapp",
+    "enlace": "https://api.whatsapp.com/send?phone=543814466079"
+   },
+   {
+    "nombre": "linkedin",
+    "enlace": "http://linkedin.com/in/patricia-cayo-00a86980"
+   }
 ]
 }

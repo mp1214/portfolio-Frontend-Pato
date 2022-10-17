@@ -1,17 +1,26 @@
 <div>
     <div class="modal fade" id="exampleModal-acercademi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      
+      <h1 id="title">Acerca de Mi</h1>
         <div class="container modal-dialog">
-            <h1 id="title">Acerca de Mi</h1>
-            <div class="contenedor">
-              <p>{{descripcion}}</p>
+         
+            <div *ngIf="mje === 'quitar'" >
+              <h2> Quitar Texto</h2>
+              <div class="fortDebil">
+
+              <p>{{descripcion}}  </p>
+              <i class="fa-solid fa-xmark"
+                [ngStyle]="{'color':'red'}"
+                ></i>
           
             </div>
-            <p id="description">Agregar Información</p>
-            <div class="textarea modal-content">
+          </div>
+        <div *ngIf="mje === 'agregar'">
+          <h2 >Agregar Texto</h2>
+            <div  class="textarea modal-content">
               
                 <textarea name="acercedemi" id="acercedemi" cols="70" rows="13"></textarea>
             </div>
+        </div>
             <div class="form-group">
               <button type="submit" id="submit">
                 Guardar

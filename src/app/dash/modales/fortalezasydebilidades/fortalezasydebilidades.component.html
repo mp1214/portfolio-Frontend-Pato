@@ -3,7 +3,7 @@
     <div class="modal fade" id="exampleModal-fortalezas-debilidades" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       
         <div class="container modal-dialog">
-          <h1 id="title" style="text-decoration:underline;">Formulario </h1>
+          <h1 id="title" >Formulario </h1>
           <div *ngIf="mje === 'quitar'" class="lista-fortalezaDebilidad">
             <h2 class="titulo-fortaleza"> Fortalezas</h2>
           <ul *ngFor="let fortaleza of fortalezas" style="list-style:none">
@@ -29,7 +29,7 @@
         </div>
          
           <div *ngIf="mje === 'agregar'" class="container modal-content">
-            <p id="description">Agregar Fortalezas/Debilidades</p>
+            <h2>Agregar Fortalezas/Debilidades</h2>
             <label id="fortaleza" for="number">Fortalezas</label>
             <input type="text" name="fortaleza" />
             <label id="debilidades" for="number">Debilidades</label>
