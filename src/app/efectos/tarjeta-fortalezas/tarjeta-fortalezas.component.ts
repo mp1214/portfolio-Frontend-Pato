@@ -7,15 +7,15 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
   styleUrls: ['./tarjeta-fortalezas.component.css']
 })
 export class TarjetaFortalezasComponent implements OnInit {
-fortalezas: string="";
-debilidades:string="";
+fortalezas: any;
+debilidades:any;
 
   constructor(private tarjetaFortalezas:PortfolioService) { }
 
   ngOnInit(): void {
     this.tarjetaFortalezas.obtenerDatos().subscribe(data =>{
-      this.fortalezas= data.DebilidadesFortalezas.fortalezas;
-      this.debilidades= data.DebilidadesFortalezas.debilidades;
+      this.fortalezas= data.Fortalezas;
+      this.debilidades= data.Debilidades;
     })
   }
 

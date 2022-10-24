@@ -1,6 +1,6 @@
 .dashboard{
     background-image: url(/assets/imagenes/pared-negra.png);
-    height: 120vh;
+    min-height: 120vh;
     
 }
 .flip-card {

@@ -1,4 +1,50 @@
-  <!--modal letras con efectos-->
+<div class="modal fade" id="exampleModal-letras-efectos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 >Texto Efecto</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-10">
+            <form>
+              <div class="mb-3">
+                <div *ngIf="mje === 'quitar'">
+                <h5 class="text-center mb-3">Quitar texto efecto</h5>
+                    <h3 class="fortDebil mb-3">{{efectosList.titulo}}
+                      <i class="fa-solid fa-xmark"
+                      [ngStyle]="{'color':'red'}"
+                      ></i>
+                    </h3>
+                </div>
+              <div *ngIf="mje === 'agregar'">
+                <h5 class="form text-center">Agregar Texto</h5>
+                <form>
+                  <div class="mb-3">
+                    <label id="texto" for="number">Ingrese texto</label>
+                    <input type="text" class="form-control" id="texto-efecto" aria-describedby="fortalezaHelp">
+                    <div id="texto-efecto" class="form-text">Ingrese el texto para dar efecto</div>
+                  </div>
+                 
+               
+              </form>
+              </div>
+                <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
+            </div>
+            </form>
+            </div>
+          <div class="col-1"></div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
+  
+  <!--modal letras con efectos
   
     <div class="modal fade" id="exampleModal-letras-efectos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <h1> Texto con efecto</h1>
@@ -31,4 +77,4 @@
           
         </div>
 
-    </div>
+    </div>-->

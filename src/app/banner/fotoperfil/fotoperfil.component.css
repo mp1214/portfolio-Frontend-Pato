@@ -4,34 +4,12 @@
     border-color: rgba(145, 145, 6, 0.722);
     margin-top: 29%;
     margin-left: 5%;
-    z-index:30000;
+ 
     position:static;
     box-shadow: 6px 6px 5px 2px #0b0a09;
-    width:calc(12*1.5vw);
+    width:calc(10*1.5vw);
+    margin-top: 14%;
   }
  
-  @media screen and (min-width:401px) and (max-width: 900px) {
-    .imagen-pato img{
-      margin-top: calc(10.5*1.5vw);
-      
-    }
-  }
-  @media screen and (min-width:201px) and (max-width: 400px) {
-    .imagen-pato img{
-      margin-top: calc(10.5*1.5vw);
-      
-       
- }
  
-
-}
-@media screen and (min-width:901px) {
-  .imagen-pato img{
-    margin-top: calc(18.5*1.5vw);
-    
-     
-}
-
-
-}
 

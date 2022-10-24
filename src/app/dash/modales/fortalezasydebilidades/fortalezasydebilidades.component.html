@@ -1,4 +1,69 @@
-<!-- Modal fortalezas-debilidades-->
+<div class="modal fade" id="exampleModal-fortalezas-debilidades" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 >Fortalezas y Debilidades</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-10">
+            <form>
+              <div class="mb-3">
+                <div *ngIf="mje === 'quitar'">
+                <h5 class="text-center">Quitar Fortalezas</h5>
+                <ul *ngFor="let fortaleza of fortalezas" style="list-style:none">
+                 
+                  <li  class="fortDebil ms-0">{{fortaleza.fortaleza}}
+                    <i class="fa-solid fa-xmark"
+                    [ngStyle]="{'color':'red'}"
+                    ></i>
+                  </li>
+                  
+                </ul>
+                <h5 class="text-center">Quitar Debilidades</h5>
+                <ul *ngFor="let debilidad of debilidades" style="list-style:none">
+                  
+                  <li class="fortDebil">{{debilidad.debilidad}}
+                    <i class="fa-solid fa-xmark"
+                   
+                    [ngStyle]="{'color':'red'}"
+                    
+                    ></i>
+                   </li>
+                </ul>
+                </div>
+              <div *ngIf="mje === 'agregar'">
+                <h5 class="form text-center">Agregar Fortalezas/Debilidades</h5>
+                <form>
+                  <div class="mb-3">
+                    <label id="fortaleza" for="number">Fortalezas</label>
+                    <input type="text" class="form-control" id="fortaleza" aria-describedby="fortalezaHelp">
+                    <div id="fortalezaHelp" class="form-text">Ingrese la fortaleza que considera poseer</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Debilidad</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1">
+                  </div>
+               
+              </form>
+              </div>
+                <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
+            </div>
+            </form>
+            </div>
+          <div class="col-1"></div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal fortalezas-debilidades
 <div>
     <div class="modal fade" id="exampleModal-fortalezas-debilidades" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       
@@ -43,4 +108,4 @@
           
         </div>
       </div>
-    </div>
+    </div> -->

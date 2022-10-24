@@ -1,4 +1,53 @@
-<div>
+<div class="modal fade" id="exampleModal-acercademi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Acerca de Mi</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-10">
+            <form>
+              <div class="mb-3">
+                <div *ngIf="mje === 'quitar'" >
+                  <h4> Quitar Texto</h4>
+                  <div class="fortDebil mb-5">
+        
+                  <p>{{descripcion}}  </p>
+                  <i class="fa-solid fa-xmark"
+                    [ngStyle]="{'color':'red'}"
+                    ></i>
+              
+                </div>
+              
+              </div>
+              <div *ngIf="mje === 'agregar'">
+                <h4 >Agregar Texto</h4>
+                  <div  class="textarea modal-content pb-4">
+                    
+                    <div class="form-floating">
+                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 300px"></textarea>
+                      <label for="floatingTextarea2">ingrese texto</label>
+                    </div>
+                  </div>
+              </div>
+                <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
+            </div>
+            </form>
+            </div>
+          <div class="col-1"></div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+
+<!--
     <div class="modal fade" id="exampleModal-acercademi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <h1 id="title">Acerca de Mi</h1>
         <div class="container modal-dialog">
@@ -30,4 +79,4 @@
         
       </div>
       </div>
-    </div>
+    -->
