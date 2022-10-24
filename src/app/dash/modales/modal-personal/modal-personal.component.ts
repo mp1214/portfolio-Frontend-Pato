@@ -12,6 +12,7 @@ export class ModalPersonalComponent implements OnInit {
   nacimiento: string="";
   estadoCivil: string="";
   mail:string="";
+ 
   @Input() mje:string=""
 
   constructor(private personal:PortfolioService) { }
@@ -23,6 +24,7 @@ export class ModalPersonalComponent implements OnInit {
       this.nacimiento= data.datosPersonales.fechaNacimiento;
       this.estadoCivil=data.datosPersonales.estadoCivil;
       this.mail=data.datosPersonales.mail;
+     
       
     })
   }

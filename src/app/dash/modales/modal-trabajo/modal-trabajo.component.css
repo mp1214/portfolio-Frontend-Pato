@@ -1,42 +1,8 @@
  /*modales del dashboard*/
- .modal.fade {
-    box-sizing: border-box;
-    height: 200rem;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 2.3vh; 
-  }
-  .imagen.modal-content{
-    background-color: rgba(233, 233, 243, 0.341);
-    padding: 2vh;
-    width: 99%;
-  
-  }
+
  
-  .imagen.modal-content input{
-    margin-bottom: 2vh;
-  
-  }
-  #submit {
-    display: block;
-    width: 100%;
-    padding: 0.75rem;
-    background: #8e6ca4;
-    color: inherit;
-    border-radius: 2px;
-    cursor: pointer;
-    
-  }
-  .modal {
-    font-family: sans-serif;
-    line-height: 1.4;
-    margin: 0;
-    background-color: rgba(233, 233, 243, 0.948);
-    background-position: center;
-    color: rgb(9, 3, 3); 
-    width: 50%;
-   margin-left: 20%;
-    
-  }
+
+
   .experiencia{
     background: #f4f4f4;
     margin: 5px;
@@ -45,72 +11,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-   
-}
-  input{
-    border:none;
-    border-radius: 0.5vh;
   }
-  .form-group.modal-content{
-    background-color:rgba(145, 145, 211, 0.8);
-  }
-  .form-group #submit{
-    width: 50%;
-    margin-left: 22vh;
-    margin-top: 2vh;
-  }
+
   .modal-dialog{
     max-width: 50rem;
   }
-  h1 {
-    font-weight: 400;
-    line-height: 1.2;
-    text-align: center;
-    padding: 0 0.625rem;
-    margin-bottom: 1.875rem;
-  }
-  
-  p {
-    font-size: 2rem;
-    
-  }
-  
-  
-  h1,h2, p {
-    margin: 2vh 2vh;
-    text-align: center;
-  
-  }
  
-  
-  .label {
-    display: flex;
-    text-align: center;
-  
-    margin-top: 1.5vh;
-   
-  }
-  .imagen.modal-content #fecha1,#fecha2{
-    width: 20vh;
-  }
-  input, buttom, select, textarea {
-    margin: 0,5;
-    font-family: inherit;
-    
-    line-height: inherit;
-  }
-  
-  button {
-    border: none;
-    
-  }
-  
-  .container {
-    width: 99%;
-   
-    padding: 2%;
-    
-  }
+
+ 
   
  
   .lista-fortalezaDebilidad{
@@ -122,16 +30,4 @@
       padding: 2%;
       
     
-  }
-  #description {
-    text-align: center;
-    font-style: italic;
-    font-weight: 200;
-    text-shadow: 1px 1px 1px rgb(0 0 0 / 40%);
-  }
-  .input-textarea {
-    min-height: 120px;
-    width: 100%;
-    padding: 0.625rem;
-    resize: vertical;
   }

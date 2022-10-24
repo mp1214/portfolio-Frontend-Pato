@@ -38,6 +38,7 @@ import { ProyectosComponent } from './proyectos/proyectos.component';
 import { HttpClientModule} from '@angular/common/http';
 import { ModalProyectosComponent } from './dash/modales/modal-proyectos/modal-proyectos.component';
 import { ModalRedesComponent } from './dash/modales/modal-redes/modal-redes.component';
+import { DescargarPdfComponent } from './botones/descargar-pdf/descargar-pdf.component';
 
 
 @NgModule({
@@ -77,6 +78,7 @@ import { ModalRedesComponent } from './dash/modales/modal-redes/modal-redes.comp
     ProyectosComponent,
     ModalProyectosComponent,
     ModalRedesComponent,
+    DescargarPdfComponent,
     
    
   ],

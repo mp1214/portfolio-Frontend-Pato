@@ -1,3 +1,61 @@
+<div class="modal fade" id="exampleModal-redes-sociales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 >Redes Sociales</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-10">
+            <form>
+              <div class="mb-3">
+                <div *ngIf="mje === 'quitar'">
+                    <h4 class="text-center mb-3">Quitar Redes</h4>
+                    <ul *ngFor="let red of redesList" style="list-style:none">
+           
+                      <li  class="fortDebil">{{red.nombre}} -
+                        {{red.enlace}}
+                        <i class="fa-solid fa-xmark"
+                        [ngStyle]="{'color':'red'}"
+                        ></i>
+                      </li>
+                      
+                    </ul>
+              </div>
+                
+              <div *ngIf="mje === 'agregar'">
+                <h4 class="form text-center mb-3">Agregar Red Social</h4>
+                <form>
+                  <div class="mb-3">
+                    <label id="habilidad" for="number">Nombre Red</label>
+                    <input type="text" class="form-control" id="habilidad" aria-describedby="fortalezaHelp">
+                    <div id="fortalezaHelp" class="form-text">Ingrese la habilidad que considera poseer</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Enlace</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  
+
+               
+              </form>
+              </div>
+                <button type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
+            </div>
+            </form>
+            </div>
+          <div class="col-1"></div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+<!--
+
 <div>
     <div class="modal fade" id="exampleModal-redes-sociales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:auto" >
       
@@ -35,6 +93,6 @@
             </div>
           </div>
           </div>
-        </div>
+        </div>-->
 
 
