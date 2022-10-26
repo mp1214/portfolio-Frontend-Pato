@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-modal-trabajo',
@@ -15,7 +16,10 @@ descripcion:string=""
 @Input() mje:string=""
 experiencias:any
 
+
   constructor(private experiencia:PortfolioService) { }
+  
+
 
   ngOnInit(): void {
     this.experiencia.obtenerDatos().subscribe(data =>{
@@ -28,5 +32,20 @@ experiencias:any
       console.log(this.mje)
   })
   }
-
+  showModal(){
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire('Saved!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
+  }
 }

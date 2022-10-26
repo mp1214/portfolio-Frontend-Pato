@@ -1,17 +1,21 @@
 .modal-body, .modal-title{
-    color: #0e076b;
-    font-size: 3vh;
+    color: #000;
+    font-size: 1.4rem;
+    
     }
     
-    .modal .modal-dialog {
-        width: 50%; 
-        
-    }
+   
+    .modal-dialog{
+        max-width: 50rem;
+      }
+  
     .modal-header{
-        background-color: beige;
+        background-color: #FFFF;
+        text-align: center;
     }
     .modal-content{
-        background-color: rgb(202, 180, 208);
+        background-color: rgb(218, 160, 234);
+        color: #000;
     }
  
     

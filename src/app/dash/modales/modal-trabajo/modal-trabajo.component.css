@@ -17,8 +17,12 @@
     max-width: 50rem;
   }
  
-
- 
+.label-fecha{
+  margin: 2% 0;
+}
+.input-date{
+  width: 60%;
+}
   
  
   .lista-fortalezaDebilidad{

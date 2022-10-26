@@ -21,15 +21,14 @@
      
       font-weight: 500;
       margin-left: 3rem;
-      font-family:fantasy cursive;
+      
       color: #f9f1f9;
       font-size: calc(2.5*1.5vw);
      }
     .banner h2 {
       color: #f7f1f7;
       font-weight: bold;
-      font-family: Brush Script MT;
-     
+      
     }
    
    button{

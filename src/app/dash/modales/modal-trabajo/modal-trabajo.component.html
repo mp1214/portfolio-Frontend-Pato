@@ -33,18 +33,30 @@
                 <h5 class="form text-center">Agregar Experiencia</h5>
                 <form>
                   <div class="mb-3">
-                    <label id="fortaleza" for="number">Fortalezas</label>
+                    <label id="fortaleza" for="number">Puesto</label>
                     <input type="text" class="form-control" id="fortaleza" aria-describedby="fortalezaHelp">
-                    <div id="fortalezaHelp" class="form-text">Ingrese la fortaleza que considera poseer</div>
+                    <div id="fortalezaHelp" class="form-text">Ingrese el puesto que posee</div>
                   </div>
                   <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Debilidad</label>
+                    <label for="exampleInputPassword1" class="form-label">Empresa</label>
                     <input type="text" class="form-control" id="exampleInputPassword1">
                   </div>
-               
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Descripcion del puesto</label>
+                    <textarea type="text" class="form-control" id="exampleInputPassword1"></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Fecha en la que trabajo:</label>
+                    <br><label class="label-fecha"> Inicio</label>
+                    <input type="date" class="form-control input-date" id="fecha1">
+                    <label class="label-fecha"> Fin</label>
+                    <input type="date" class="form-control input-date" id="fecha2">
+                    <label class="label-fecha"><input type="checkbox">Actualmente trabajo aquí</label>
+                  </div>
+                
               </form>
               </div>
-                <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
+                <button type="button" (click)="showModal()" class="btn btn-primary container-fluid">Guardar Cambios</button>
             </div>
             </form>
             </div>

@@ -1,5 +1,8 @@
 body{
     background-color: rgb(235, 204, 243);
     background: linear-gradient(200deg,rgb(230, 185, 239),#0000);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   
+}
+*{
+    font-family: 'Raleway';
 }

@@ -12,50 +12,50 @@
             <form>
               <div class="mb-3">
                 <div *ngIf="mje === 'quitar'">
-                    <h4 class="text-center mb-3">Quitar Información Personal</h4>
-                      <h5 class="personal" >Fecha de nacimiento: {{nacimiento}}<i class="fa-solid fa-xmark"
+                    <h5 class="text-center mb-3">Quitar Información Personal</h5>
+                      <h6 class="personal" >Fecha de nacimiento: {{nacimiento}}<i class="fa-solid fa-xmark"
                         [ngStyle]="{'color':'red'}"
-                        ></i> </h5>
-                      <h5 class="personal">Provincia: {{provincia}}<i class="fa-solid fa-xmark"
+                        ></i> </h6>
+                      <h6 class="personal">Provincia: {{provincia}}<i class="fa-solid fa-xmark"
                         [ngStyle]="{'color':'red'}"
-                        ></i></h5>
-                      <h5 class="personal">Telefono: {{telefono}}<i class="fa-solid fa-xmark"
+                        ></i></h6>
+                      <h6 class="personal">Telefono: {{telefono}}<i class="fa-solid fa-xmark"
                         [ngStyle]="{'color':'red'}"
-                        ></i></h5>
-                      <h5 class="personal">E-mail: {{mail}}<i class="fa-solid fa-xmark"
+                        ></i></h6>
+                      <h6 class="personal">E-mail: {{mail}}<i class="fa-solid fa-xmark"
                         [ngStyle]="{'color':'red'}"
-                        ></i></h5>
-                      <h5 class="personal">Estado Civil: {{estadoCivil}}<i class="fa-solid fa-xmark"
+                        ></i></h6>
+                      <h6 class="personal">Estado Civil: {{estadoCivil}}<i class="fa-solid fa-xmark"
                         [ngStyle]="{'color':'red'}"
-                        ></i></h5>
+                        ></i></h6>
                    
                       
                   
               </div>
                 
               <div *ngIf="mje === 'agregar'">
-                <h4 class="form text-center mb-3">Agregar Información Personal</h4>
-                <form>
+                <h5 class="form text-center mb-3">Agregar Información Personal</h5>
+                <form action="./registro_concluido.html">
                   <div class="mb-3">
-                    <label id="habilidad" for="number">Fecha Nacimiento</label>
-                    <input type="text" class="form-control" id="habilidad" aria-describedby="fortalezaHelp">
+                    <label id="fnac" for="number">Fecha Nacimiento</label>
+                    <input type="date" class="form-control" id="fnac" aria-describedby="fortalezaHelp" required>
                     <div id="fortalezaHelp" class="form-text">Ingrese la habilidad que considera poseer</div>
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Provincia - País</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1">
+                    <input type="text" class="form-control" id="exampleInputPassword1" required>
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Telefono</label>
-                    <input type="number" class="form-control" id="exampleInputPassword1">
+                    <input type="number" class="form-control" id="exampleInputPassword1" required>
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Email</label>
-                    <input type="mail" class="form-control" id="exampleInputPassword1">
+                    <input type="mail" type="email" class="form-control" id="exampleInputPassword1" required>
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Estado Civil</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1">
+                    <input type="text" class="form-control" id="exampleInputPassword1" required>
                   </div>
 
                

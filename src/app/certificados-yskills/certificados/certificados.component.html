@@ -21,7 +21,7 @@
   <button type="button" (click)="showNavigationIndicators = !showNavigationIndicators" class="btn btn-outline-dark btn-sm">Toggle navigation indicators</button>
 </div>-->
 <div class="carouselExample">
-  <h1 class="titulo">Mis Certificados</h1>
+  <h2 class="titulo">Mis Certificados</h2>
  <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
    <div   class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleDark" *ngFor="let item of certificadoList;let index = index;let isFirst = first" [attr.aria-label]="index" [attr.data-bs-slide-to]="index"  
