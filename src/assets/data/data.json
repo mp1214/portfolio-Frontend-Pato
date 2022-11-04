@@ -34,7 +34,11 @@
    {
     "nombre": "Juego del Ahorcado oracle-alura",
     "enlace": "https://mp1214.github.io/Dasafio2-Alura-Ahorcado/"
-   }],
+   },
+   {
+   "nombre": "Sitio web estatico - Apeperia",
+   "enlace": "https://mp1214.github.io/apeperia/"
+  }],
 
    "educacion": [
     { "tipoeducacion": "Formal",
