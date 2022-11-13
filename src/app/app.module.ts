@@ -39,6 +39,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { ModalProyectosComponent } from './dash/modales/modal-proyectos/modal-proyectos.component';
 import { ModalRedesComponent } from './dash/modales/modal-redes/modal-redes.component';
 import { DescargarPdfComponent } from './botones/descargar-pdf/descargar-pdf.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -86,6 +87,7 @@ import { DescargarPdfComponent } from './botones/descargar-pdf/descargar-pdf.com
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
  
   ],
   providers: [],

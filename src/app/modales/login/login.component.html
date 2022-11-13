@@ -1,5 +1,35 @@
-<section id="login">
-    <div class="section modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Iniciar Sesion</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"> <i class="fa-solid fa-user"></i></span>
+                            <input type="email" name="nombreUsuario" class="form-style" placeholder="Su Usuario" id="nombreUsuario" autocomplete="off" [(ngModel)]="nombreUsuario" required>
+                          </div>
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">  <i class="fa-solid fa-lock"></i></span>
+                            <input type="password" name="password" class="form-style" placeholder="Su password" id="password" autocomplete="off" [(ngModel)]="password" required>
+                          </div>
+                       
+                    </div>	
+                    
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                    <button type="submit" class="btn btn-primary mt-4 btn-lg" data-bs-dismiss="modal" aria-label="Close">login</button>
+                    </div>
+                  </form>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    <!--<div class="section modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="container modal-dialog ">
             <div class="row full-height justify-content-center modal-content">
                 <div class="col-12 text-center align-self-center py-5 modal-header">
@@ -11,16 +41,23 @@
                                     <div class="center-wrap">
                                         <div class="section text-center">
                                             <h4 class="mb-4 pb-3" style="color: #ffeba7;">Logueo</h4>
+                                          <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
                                             <div class="form-group">
                                                
-                                                <input type="email" name="logemail" class="form-style" placeholder="Su E-mail" id="logemail" autocomplete="off">
+                                                <input type="email" name="nombreUsuario" class="form-style" placeholder="Su Usuario" id="nombreUsuario" autocomplete="off" [(ngModel)]="nombreUsuario" required>
 												<i class="fa-solid fa-at"></i>
 											</div>	
 											<div class="form-group mt-2">
-												<input type="password" name="logpass" class="form-style" placeholder="Su password" id="logpass" autocomplete="off">
+												<input type="password" name="password" class="form-style" placeholder="Su password" id="password" autocomplete="off" [(ngModel)]="password" required>
 												<i class="fa-solid fa-lock"></i>
 											</div>
-                                            <app-btnlogin></app-btnlogin>
+                                            <button class="btn btn-primary mt-4" type="submit" data-dismiss="modal" data-backdrop="false">Login</button>
+                                            
+                                          <app-btnlogin></app-btnlogin>
+                                            
+                                              
+                                            
+                                          </form>
                                             
                                           </div>
                                       </div>
@@ -31,5 +68,5 @@
                   </div>
               </div>
         </div>
-    </div>
-    </section>
+    </div>-->
+  

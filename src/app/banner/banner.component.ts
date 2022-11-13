@@ -12,7 +12,7 @@ export class BannerComponent implements OnInit {
 
   ngOnInit(): void {
     this.banerDatos.obtenerDatos().subscribe(data =>{
-      this.banerInfo= data.banner;
+     this.banerInfo= data.banner;
     })
   }
 

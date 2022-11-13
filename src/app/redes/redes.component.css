@@ -1,6 +1,6 @@
 i.fa-brands.fa-lg.fa-2x1{
     font-size: 2rem;
-   
+  
   }
   .list-group-item{
     background: transparent;
@@ -18,7 +18,9 @@ i.fa-brands.fa-lg.fa-2x1{
     color: white;
    
   }
-  
+  .fa-solid{
+    color: #ffff;
+  }
   i.fa-brands.fa-facebook.fa-lg.fa-2x1:hover{
     color: #1708e7;
   }
