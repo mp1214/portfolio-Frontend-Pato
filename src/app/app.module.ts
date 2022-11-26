@@ -22,9 +22,9 @@ import { ModalSkillsComponent } from './dash/modales/modal-skills/modal-skills.c
 import { ModalTrabajoComponent } from './dash/modales/modal-trabajo/modal-trabajo.component';
 import { ModalPersonalComponent } from './dash/modales/modal-personal/modal-personal.component';
 import { IntroComponent } from './intro/intro.component';
-import { BotonlogoutComponent } from './dash/botonlogout/botonlogout.component';
-import { NavbardashComponent } from './dash/navbardash/navbardash.component';
-import { BtnloginComponent } from './botones/btnlogin/btnlogin.component';
+
+
+
 import { CertificadosComponent } from './certificados-yskills/certificados/certificados.component';
 import { SkillsComponent } from './certificados-yskills/habilidades/skills/skills.component';
 import { EstudiosComponent } from './estudios-experiencia/estudios/estudios.component';
@@ -64,9 +64,6 @@ import { FormsModule } from '@angular/forms';
     ModalTrabajoComponent,
     ModalPersonalComponent,
     IntroComponent,
-    BotonlogoutComponent,
-    NavbardashComponent,
-    BtnloginComponent,
     CertificadosComponent,
     SkillsComponent,
     EstudiosComponent,

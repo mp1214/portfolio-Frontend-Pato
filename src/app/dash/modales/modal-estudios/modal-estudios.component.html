@@ -10,60 +10,124 @@
         <div class="row">
           <div class="col-1"></div>
           <div class="col-10">
-            <form>
+            
               <div class="mb-3">
-                <div *ngIf="mje === 'quitar'" class="lista-estudio">
+                <div *ngIf="mje == 'quitar'" class="lista-estudio">
                   <h5 class="form text-center mb-3">Quitar Estudio</h5>
-                <ul *ngFor="let estudio of estudios" style="list-style:none">
+                
+                  <ul *ngFor="let estudio of educacion" style="list-style:none">
                   
-                  <li  class="estudio">{{estudio.titulo}}
+                  <li type="button" class="estudio" (click)="borrar(estudio.id)">{{estudio.titulo}}
                     <i class="fa-solid fa-xmark"
                     [ngStyle]="{'color':'red'}"
                     ></i>
                   </li>
                 </ul>
-                </div>
-              <div *ngIf="mje === 'agregar'">
+               <!-- <button type="submit" class="btn btn-primary container-fluid mt-3" >Guardar Cambios</button>
+              -->  </div>
+              <div *ngIf="mje == 'agregar'">
                 <h5 class="form text-center mb-3">Agregar Estudio</h5>
-                <form>
+                <form (ngSubmit)="OnCreate()" novalidate #f="ngForm">
                   <div class="mb-3">
                     <label for="tipo-estudio" class="label">Tipo de Estudio realizado:</label>
-                    <select id="tipo-estudio" class="form-control mb-3" name="tipo-estudio" style="width: 100%;">
+                  <!--  <select id="tipo-estudio" class="form-control mb-3" id= "tipo-estudio"name="tipo-estudio" [(ngModel)]="tipoeducacion" required style="width: 100%;">
                       <option value="0">Seleccione...</option>
                       <option value="1">Formal</option>
                       <option value="2">Informal-curso</option>
-                      <option value="2">Informal-bootcamp</option>
-                    </select>
+                      <option value="3">Informal-bootcamp</option>
+                    </select>-->
+                    <select [(ngModel)]="opcionSeleccionado" (change)="capturar()" class="form-control mb-3" 
+                    id= "tipo-estudio"name="tipo-estudio" [(ngModel)]="tipoeducacion" required style="width: 100%">
+                      <option value="0">Selecciona una opción</option>
+                      <option *ngFor="let dato of datos">
+                        {{dato}}
+                      </option>
+                  </select>
                     <label id="estudio-curso" for="number" class="label">Titulo</label>
-                    <input type="text" class="form-control" id="estudio-curso" aria-describedby="fortalezaHelp">
+                    <input type="text" class="form-control" id="estudio-curso" aria-describedby="fortalezaHelp" id="titulo" name="titulo" [(ngModel)]="titulo" required>
                     <div id="fortalezaHelp" class="form-text mb-4">Ingrese el titulo que obtuvo</div>
                     
                     
                     <label class="label">Fecha en que fue realizado:</label>
                     <div class="fecha mb-3">
                     <label id="fecha1">Inicio</label>
-                    <input type="date" class="form-control mb-4" id="fecha1" aria-describedby="fortalezaHelp">
+                    <input type="date" class="form-control mb-4" id="fecha1" aria-describedby="fortalezaHelp" name="fecha1" [(ngModel)]="inicio" required>
                    
                     <label id="fecha2">Fin</label>
-                    <input type="date" class="form-control mb-4" id="fecha2" aria-describedby="fortalezaHelp">
+                    <input type="date" class="form-control mb-4" id="fecha2" aria-describedby="fortalezaHelp" name="fecha2"[(ngModel)]="fin" >
                     <div class="mb-3">
                       <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="exampleCheck1">
                         <label class="form-check-label mb-3" for="exampleCheck1">Cursando</label>
                       </div>
                     </div>
                     </div>
                     <label class="label">Institución</label>
-                    <input type="text" class="form-control mb-4" id="institucion" aria-describedby="fortalezaHelp">
+                    <input type="text" class="form-control mb-4" id="institucion" name="institucion" aria-describedby="fortalezaHelp" [(ngModel)]="institucion">
+                    <label class="label">Institución</label>
+                    <input type="file" class="form-control mb-4" id="icono" name="icono" aria-describedby="fortalezaHelp" [(ngModel)]="icono">
                     
                   </div>
-                
-               
-              </form>
-              </div>
-                <button type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
-            </div>
+                 <button type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
             </form>
+              </div>
+              <div *ngIf="mje === 'editar'">
+                <h5 class="form text-center mb-3">Editar Estudio</h5>
+               <div *ngFor="let estudio of educacion" style="list-style:none">
+                <ul>
+                   <li type="button" class="estudio"(click)="cargarDetalle(estudio.id)" >{{estudio.titulo}}
+                    <i class="fa-solid fa-pen"
+                    [ngStyle]="{'color':'green'}"
+                    
+                    ></i>
+                  </li>
+                </ul>
+               
+              </div>
+              <div *ngIf="edu">
+              <form (ngSubmit)="OnUpdate(edu.id)" novalidate #f="ngForm">
+                <div class="mb-3">
+                  <label for="tipo-estudio" class="label">Tipo de Estudio realizado:</label>
+                  <select id="tipo-estudio" class="form-control mb-3" id= "tipo-estudio"name="tipo-estudio" [(ngModel)]="edu.tipoeducacion" required style="width: 100%;">
+                    <option value="0">Seleccione...</option>
+                    <option value="Formal">Formal</option>
+                    <option value="Informal-curso">Informal-curso</option>
+                    <option value="Informal-bootcamp">Informal-bootcamp</option>
+                  </select>
+                  <label id="estudio-curso" for="number" class="label">Titulo</label>
+                  <input type="text" class="form-control" id="estudio-curso" aria-describedby="fortalezaHelp" id="titulo" name="titulo" [(ngModel)]="edu.titulo" required>
+                  <div id="fortalezaHelp" class="form-text mb-4">Ingrese el titulo que obtuvo</div>
+                  
+                  
+                  <label class="label">Fecha en que fue realizado:</label>
+                  <div class="fecha mb-3">
+                  <label id="fecha1">Inicio</label>
+                  <input type="date" class="form-control mb-4" id="fecha1" aria-describedby="fortalezaHelp" name="fecha1" [(ngModel)]="edu.inicio" >
+                
+                  <label id="fecha2">Fin</label>
+                  <input type="date" class="form-control mb-4" id="fecha2" aria-describedby="fortalezaHelp" name="fecha2" [(ngModel)]="edu.fin" >
+                </div>
+                  <div class="mb-3">
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1" name="exampleCheck1">
+                      <label class="form-check-label mb-3" for="exampleCheck1">Cursando</label>
+                    </div>
+                  </div>
+                  
+                  <label class="label">Institución</label>
+                  <input type="text" class="form-control mb-4" id="institucion" name="institucion" aria-describedby="fortalezaHelp" [(ngModel)]="edu.institucion">
+                  <label class="label">Institución</label>
+                  <input type="file" class="form-control mb-4" id="icono" name="icono" aria-describedby="fortalezaHelp" [(ngModel)]="edu.icono">
+                  
+                </div>
+                <button type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
+          </form>
+        </div>
+              </div>
+            </div>
+
+           
+           
             </div>
           <div class="col-1"></div>
         </div>

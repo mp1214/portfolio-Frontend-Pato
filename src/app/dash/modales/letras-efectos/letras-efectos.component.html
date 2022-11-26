@@ -9,34 +9,48 @@
         
         <div class="row">
           <div class="col-1"></div>
-          <div class="col-10">
-            <form>
-              <div class="mb-3">
-                <div *ngIf="mje === 'quitar'">
-                <h5 class="text-center mb-3">Quitar texto efecto</h5>
-                    <h3 class="fortDebil mb-3">{{efectosList.titulo}}
-                      <i class="fa-solid fa-xmark"
-                      [ngStyle]="{'color':'red'}"
-                      ></i>
-                    </h3>
-                </div>
-              <div *ngIf="mje === 'agregar'">
-                <h5 class="form text-center">Agregar Texto</h5>
-                <form>
-                  <div class="mb-3">
-                    <label id="texto" for="number">Ingrese texto</label>
-                    <input type="text" class="form-control" id="texto-efecto" aria-describedby="fortalezaHelp">
-                    <div id="texto-efecto" class="form-text">Ingrese el texto para dar efecto</div>
-                  </div>
-                 
-               
-              </form>
+            <div class="col-10">
+              <div *ngIf="mje == 'quitar'" class="lista-estudio">
+                <h5 class="form text-center mb-3">Quitar titulo con efecto</h5>
+              
+                <ul *ngFor="let letras of efecto" style="list-style:none">
+                
+                <li type="button" class="efecto" (click)="borrar(letras.id)">{{letras.tituloEfecto}}
+                  <i class="fa-solid fa-xmark"
+                  [ngStyle]="{'color':'red'}"
+                  ></i>
+                </li>
+              </ul>
+             
               </div>
-                <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
-            </div>
+              <div class="mb-3">
+                <div *ngIf="mje === 'editar'">
+                  <h5 class="form text-center mb-3">Editar Titulo con efecto</h5>
+                 <div *ngFor="let letras of efecto" style="list-style:none">
+                  <ul>
+                     <li type="button" class="efecto"(click)="cargarDetalle(letras.id)" >{{letras.tituloEfecto}}
+                      <i class="fa-solid fa-pen"
+                      [ngStyle]="{'color':'green'}"
+                      
+                      ></i>
+                    </li>
+                  </ul>
+                 
+                </div>
+                <div *ngIf="efectosList">
+                <form (ngSubmit)="OnUpdate(efectosList.id)" novalidate #f="ngForm">
+                  <div class="mb-3">
+                    <label id="estudio-curso" for="number" class="label">Titulo</label>
+                    <input type="text" class="form-control" id="estudio-curso" aria-describedby="fortalezaHelp" id="titulo" name="titulo" [(ngModel)]="efectosList.tituloEfecto">
+                   </div>
+                  <button type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
             </form>
-            </div>
-          <div class="col-1"></div>
+          </div>
+            
+              </div>
+            <div class="col-1">
+
+          </div>
         </div>
       </div>
     

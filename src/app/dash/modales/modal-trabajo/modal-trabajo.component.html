@@ -10,12 +10,12 @@
         <div class="row">
           <div class="col-1"></div>
           <div class="col-10">
-            <form>
+           
               <div class="mb-3">
                 <div *ngIf="mje === 'quitar'">
                 <h5 class="text-center">Quitar Experiencia</h5>
-                <ul  *ngFor="let experiencia of experiencias">
-                 <li  class="experiencia">
+                <ul  *ngFor="let experiencia of expe">
+                 <li type="button" class="experiencia" (click)="borrar(experiencia.id)">
              
                   {{experiencia.empresa}}
                   <br>
@@ -23,47 +23,87 @@
                   <br>
                   {{experiencia.inicio}}   {{experiencia.fin}}
                   <i class="fa-solid fa-xmark"
-                  [ngStyle]="{'color':'red'}"
+                 
                   ></i>
                 </li> 
                  
                  </ul>
+                 <button type="button" class="btn btn-primary container-fluid">Guardar Cambios</button>
                 </div>
               <div *ngIf="mje === 'agregar'">
                 <h5 class="form text-center">Agregar Experiencia</h5>
-                <form>
+                <form (ngSubmit)="OnCreate()" novalidate #f="ngForm">
                   <div class="mb-3">
                     <label id="fortaleza" for="number">Puesto</label>
-                    <input type="text" class="form-control" id="fortaleza" aria-describedby="fortalezaHelp">
+                    <input type="text" class="form-control" id="cargo" name="cargo" aria-describedby="fortalezaHelp" [(ngModel)]="cargo" required>
                     <div id="fortalezaHelp" class="form-text">Ingrese el puesto que posee</div>
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Empresa</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1">
+                    <input type="text" class="form-control" id="exampleInputPassword1" id="empresa" name="empresa" aria-describedby="fortalezaHelp" [(ngModel)]="empresa" required>
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Descripcion del puesto</label>
-                    <textarea type="text" class="form-control" id="exampleInputPassword1"></textarea>
+                    <textarea type="text" class="form-control" id="exampleInputPassword1" id="descripcion" name="descripcion" aria-describedby="fortalezaHelp" [(ngModel)]="descripcion"></textarea>
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Fecha en la que trabajo:</label>
                     <br><label class="label-fecha"> Inicio</label>
-                    <input type="date" class="form-control input-date" id="fecha1">
+                    <input type="date" class="form-control input-date" id="Finicio" name="Finicio" aria-describedby="fortalezaHelp" [(ngModel)]="inicio" required>
                     <label class="label-fecha"> Fin</label>
-                    <input type="date" class="form-control input-date" id="fecha2">
-                    <label class="label-fecha"><input type="checkbox">Actualmente trabajo aquí</label>
+                    <input type="date" class="form-control input-date" id="Ffin" name="Ffin" [(ngModel)]="fin">
+                    <label class="label-fecha"><input type="checkbox" id="trabajoAqui"  name="trabajoAqui" [(ngModel)]="es_trabajo_actual">Actualmente trabajo aquí</label>
+                    <input type="file" class="form-control mb-4" id="icono" name="icono" aria-describedby="fortalezaHelp" [(ngModel)]="imgE">
                   </div>
-                
+                <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
               </form>
               </div>
-                <button type="button" (click)="showModal()" class="btn btn-primary container-fluid">Guardar Cambios</button>
+              <div *ngIf="mje === 'editar'">
+                 <h5 class="form text-center mb-3">Editar Experiencia</h5>
+                 <div *ngFor="let experiencia of expe" style="list-style:none">
+                  <ul>
+                     <li type="button" class="experiencia" (click)="cargarDetalle(experiencia.id)" >{{experiencia.cargo}}
+                      <i class="fa-solid fa-pen"
+                      [ngStyle]="{'color':'green'}"
+                      ></i>
+                    </li>
+                  </ul>
+                </div>
+                <div *ngIf="experiencia">
+                <h5 class="form text-center">Agregar Experiencia</h5>
+                <form (ngSubmit)="OnUpdate(experiencia.id)" novalidate #f="ngForm">
+                  <div class="mb-3">
+                    <label id="fortaleza" for="number">Puesto</label>
+                    <input type="text" class="form-control" id="cargo" name="cargo" aria-describedby="fortalezaHelp" [(ngModel)]="experiencia.cargo" required>
+                    <div id="fortalezaHelp" class="form-text">Ingrese el puesto que posee</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Empresa</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" id="empresa" name="empresa" aria-describedby="fortalezaHelp" [(ngModel)]="experiencia.empresa" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Descripcion del puesto</label>
+                    <textarea type="text" class="form-control" id="exampleInputPassword1" id="descripcion" name="descripcion" aria-describedby="fortalezaHelp" [(ngModel)]="experiencia.descripcion"></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Fecha en la que trabajo:</label>
+                    <br><label class="label-fecha"> Inicio</label>
+                    <input type="date" class="form-control input-date" id="Finicio" name="Finicio" aria-describedby="fortalezaHelp" [(ngModel)]="experiencia.inicio" required>
+                    <label class="label-fecha"> Fin</label>
+                    <input type="date" class="form-control input-date" id="Ffin" name="Ffin" [(ngModel)]="experiencia.fin">
+                    <label class="label-fecha"><input type="checkbox" id="trabajoAqui"  name="trabajoAqui" [(ngModel)]="es_trabajo_actual">Actualmente trabajo aquí</label>
+                    <input type="file" class="form-control mb-4" id="icono" name="icono" aria-describedby="fortalezaHelp" [(ngModel)]="experiencia.imgE">
+                  </div>
+
+                <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
+              </form>
             </div>
-            </form>
-            </div>
+              </div>
+            
           <div class="col-1"></div>
         </div>
       </div>
-    
+    </div>
     </div>
   </div>
 </div>

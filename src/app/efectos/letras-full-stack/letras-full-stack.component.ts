@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { PersonaService } from 'src/app/servicios/persona.service';
+import { persona } from 'src/app/model/persona';
 
 @Component({
   selector: 'app-letras-full-stack',
@@ -7,12 +8,12 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
   styleUrls: ['./letras-full-stack.component.css']
 })
 export class LetrasFullStackComponent implements OnInit {
-efecto:any;
-  constructor(private letrasEfecto:PortfolioService) { }
+efecto:persona|any=null;
+  constructor(private letrasEfecto:PersonaService) { }
 
   ngOnInit(): void {
-    this.letrasEfecto.obtenerDatos().subscribe(data =>{
-      this.efecto= data.letrasefecto;
+    this.letrasEfecto.detail(2).subscribe(data =>{
+      this.efecto= data;
     })
   }
 

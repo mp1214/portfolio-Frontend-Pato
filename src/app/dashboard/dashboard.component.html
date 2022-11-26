@@ -23,7 +23,10 @@
           <button class="btn1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-skills">
             <i class="fa-solid fa-circle-minus"
             (click)="quitar()" > Quitar </i></button>
-        </div> 
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-skills">
+              <i class="fa-solid fa-pen" (click)="editar()"> Editar </i></button>
+              
+          </div> 
       </div>
     </div>
   </div>
@@ -44,6 +47,8 @@
             <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-trabajo">
               <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-trabajo">
+                <i class="fa-solid fa-pen" (click)="editar()"> Editar </i></button>
             </div>
          
       </div>
@@ -68,7 +73,9 @@
               <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-personal">
                 <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
-            </div> 
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-personal">
+                  <i class="fa-solid fa-pen" (click)="editar()"> Editar </i></button>
+              </div> 
         </div>
       </div>
     </div>
@@ -87,11 +94,13 @@
             <h1 style="text-decoration: underline">Estudios</h1> 
            
             <div class="botonagregar">
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-estudios">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal"  data-bs-target="#exampleModal-estudios">
                 <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-estudios">
-                  <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
-              </div> 
+                <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-estudios">
+                <i class="fa-solid fa-pen" (click)="editar()"> Editar </i></button>
+                </div> 
           </div>
         </div>
         </div>
@@ -114,7 +123,9 @@
                   <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-foto">
                     <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
-                </div> 
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-foto">
+                      <i class="fa-solid fa-pen" (click)="editar()"> Editar </i></button>
+                  </div> 
             </div>
           </div>
         </div>
@@ -136,7 +147,9 @@
                     <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-certificados">
                       <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
-                  </div> 
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-certificados">
+                        <i class="fa-solid fa-pen" (click)="editar()"> Editar </i></button>
+                    </div> 
               </div>
             </div>
           </div>
@@ -159,9 +172,11 @@
                   <div class="botonagregar">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-acercademi">
                       <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i>></button>
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-acercademi">
-                        <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
-                    </div> 
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-acercademi">
+                      <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-acercademi">
+                      <i class="fa-solid fa-pen" (click)="editar()"> Editar </i></button>
+                      </div> 
                 </div>
               </div>
             </div>
@@ -183,9 +198,11 @@
                     <div class="botonagregar">
                       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-fortalezas-debilidades">
                         <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-fortalezas-debilidades">
-                          <i class="fa-solid fa-circle-minus" (click)="quitar()" > Quitar </i></button>
-                      </div> 
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-fortalezas-debilidades">
+                        <i class="fa-solid fa-circle-minus" (click)="quitar()" > Quitar </i></button>
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-fortalezas-debilidades">
+                        <i class="fa-solid fa-pen" (click)="editar()"> Editar </i></button>
+                    </div> 
                   </div>
                 </div>
               </div>
@@ -198,18 +215,17 @@
                   <div class="flip-card-inner">
                     <div class="flip-card-front" >
                       <i class="fa-solid fa-code fa-lg" style="font-size: 15vh;"></i> 
-                     
-                   
                     </div>
                     <div class="flip-card-back">
                       <h1>Proyectos</h1> 
-                      
                       <div class="botonagregar">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-proyectos">
                           <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
-                          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-proyectos">
-                            <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
-                        </div> 
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-proyectos">
+                          <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-proyectos">
+                          <i class="fa-solid fa-pen" (click)="editar()"> Editar </i></button>
+                      </div> 
                     </div>
                   </div>
                 </div>
@@ -233,8 +249,10 @@
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-letras-efectos">
                   <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-letras-efectos">
-                    <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
-                </div> 
+                  <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-letras-efectos">
+                  <i class="fa-solid fa-pen" (click)="editar()"> Editar </i></button>
+              </div> 
             </div>
           </div>
         </div>
@@ -246,20 +264,18 @@
         <div class="row g-2 g-lg-3">
         <div class="flip-card-inner">
           <div class="flip-card-front" >
-            
             <i class="fa-sharp fa-solid fa-share-nodes" style="font-size: 15vh;"></i> 
-           
-         
           </div>
           <div class="flip-card-back">
             <h1>Redes Sociales</h1> 
-            
             <div class="botonagregar">
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-redes-sociales">
                 <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-redes-sociales">
-                  <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
-              </div> 
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-redes-sociales">
+                <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-redes-sociales">
+                <i class="fa-solid fa-pen" (click)="editar()"> Editar </i></button>
+            </div> 
           </div>
         </div>
       </div>

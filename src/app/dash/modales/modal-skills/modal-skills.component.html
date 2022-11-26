@@ -9,56 +9,95 @@
         <div class="row">
           <div class="col-1"></div>
           <div class="col-10">
-            <form>
+            
               <div class="mb-3">
                 <div *ngIf="mje === 'quitar'">
                     <h5 class="text-center">Quitar Habilidad</h5>
-                  <div *ngFor="let skill of Skills">
-                    <h6 > {{skill.habilidad}}</h6>
-                    <div class="progress" class="cuadro">
+                    <ul  *ngFor="let skill of hab">
+                      <li type="button" class="experiencia" (click)="borrar(skill.id)">
+                  
+                       {{skill.habilidad}}
+                       <br>
+                       <div class="progress" class="cuadro">
                      
-                      <div  class="progress-value progress-bar progress-bar-success progress-bar-striped progreso" 
+                        <div  class="progress-value progress-bar progress-bar-success progress-bar-striped progreso" 
+                        
+                        [style.width.%]="skill.porcentaje" 
+                        [ngStyle]="{'box-shadow': '-1px 10px 10px rgba(240, 173, 78,0.7)'}" 
+                        >{{skill.porcentaje}}% 
+                      </div>
+                        <i class="fa-solid fa-xmark"
+                   
+                        [ngStyle]="{'color':'red'}"
+                        
+                        ></i>
+                      </div>
+                     </li> 
                       
-                      [style.width.%]="skill.porcentaje" 
-                      [ngStyle]="{'box-shadow': '-1px 10px 10px rgba(240, 173, 78,0.7)'}" 
-                      >{{skill.porcentaje}}% 
-                    </div>
-                      <i class="fa-solid fa-xmark"
-                 
-                      [ngStyle]="{'color':'red'}"
-                      
-                      ></i>
-                    </div>
-                      
-                   </div>   
+                      </ul>
+                      <button type="button" class="btn btn-primary container-fluid">Guardar Cambios</button>
+                     </div>
+                   
               </div>
                 
               <div *ngIf="mje === 'agregar'">
                 <h5 class="form text-center">Agregar Habilidad</h5>
-                <form>
+                <form (ngSubmit)="OnCreate()" novalidate #f="ngForm">
                   <div class="mb-3">
                     <label id="habilidad" for="number">habilidad</label>
-                    <input type="text" class="form-control" id="habilidad" aria-describedby="fortalezaHelp">
-                    <div id="fortalezaHelp" class="form-text">Ingrese la habilidad que considera poseer</div>
+                    <input type="text" class="form-control" id="habilidad" name="habilidad" aria-describedby="fortalezaHelp" [(ngModel)]="habilidad" required>
+                    <div id="habilidad" class="form-text">Ingrese la habilidad que considera poseer</div>
                   </div>
                   <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Porcentaje</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1">
+                    <label for="porcentaje" class="form-label">Porcentaje</label>
+                    <input type="number" class="form-control" id="porcentaje" name="porcentaje" [(ngModel)]="porcentaje">
                   </div>
-               
+                  <div class="mb-3">
+                    <label for="icono" class="form-label">icono</label>
+                    <input type="file" class="form-control" id="icono" name="icono" [(ngModel)]="icono">
+                  </div>
+                <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
               </form>
+                          
+            </div>
+            <div *ngIf="mje === 'editar'">
+              <h5 class="form text-center mb-3">Editar Experiencia</h5>
+              <div *ngFor="let habilidad of hab" style="list-style:none">
+               <ul>
+                  <li type="button" class="habilidad" (click)="cargarDetalle(habilidad.id)" >{{habilidad.habilidad}}
+                   <i class="fa-solid fa-pen"
+                   [ngStyle]="{'color':'green'}"
+                   ></i>
+                 </li>
+               </ul>
+             </div>
+             <div *ngIf="habilidad">
+             <h5 class="form text-center">Agregar Experiencia</h5>
+             <form (ngSubmit)="OnUpdate(habilidad.id)" novalidate #f="ngForm">
+               <div class="mb-3">
+                 <label id="fortaleza" for="number">Habilidad</label>
+                 <input type="text" class="form-control" id="cargo" name="cargo" aria-describedby="fortalezaHelp" [(ngModel)]="habilidad.habilidad" required>
+                 <div id="fortalezaHelp" class="form-text">Ingrese el puesto que posee</div>
+               </div>
+               <div class="mb-3">
+                 <label for="exampleInputPassword1" class="form-label">porcentaje</label>
+                 <input type="text" class="form-control" id="exampleInputPassword1" id="empresa" name="empresa" aria-describedby="fortalezaHelp" [(ngModel)]="habilidad.porcentaje" required>
+               </div>
+               <div class="mb-3">
+                <label for="icono" class="form-label">icono</label>
+                <input type="text" class="form-control" id="icono" name="icono" aria-describedby="fortalezaHelp" [(ngModel)]="habilidad.icono" required>
               </div>
-                <button type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
-            </div>
-            </form>
-            </div>
+             <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
+           </form>
+         </div>
+           </div>
           <div class="col-1"></div>
         </div>
       </div>
     
     </div>
   </div>
-</div>
+
 
   <!--modal skills
   

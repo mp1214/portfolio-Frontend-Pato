@@ -1,19 +1,17 @@
 <section id="banner">
- 
- 
           <div class="banner" style="background-image: url({{banerInfo.imagenBanner}})">
             <app-letras-full-stack></app-letras-full-stack>
             <app-fotoperfil></app-fotoperfil>
             
             <div class="contenido-banner">
              
-            <h2> {{banerInfo.nombre}} </h2>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-              Información Personal
-            </button>
-              </div>
+              <h2> {{banerInfo.nombre}} {{banerInfo.apellido}}</h2>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Información Personal
+              </button>
+            </div>
     
-                  </div> 
+            </div> 
            
   </section>  
   <app-boton-personal></app-boton-personal>

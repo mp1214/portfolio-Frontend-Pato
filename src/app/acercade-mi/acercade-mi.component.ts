@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { PersonaService } from '../servicios/persona.service';
+import { persona } from '../model/persona';
 
 @Component({
   selector: 'app-acercade-mi',
@@ -7,13 +8,18 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
   styleUrls: ['./acercade-mi.component.css']
 })
 export class AcercadeMiComponent implements OnInit {
-  AboutMe: any;
-  constructor(private acercaDeMi:PortfolioService) { }
+  AboutMe:persona|any=null;
+  constructor(private acercaDeMi:PersonaService) { }
 
   ngOnInit(): void {
-    this.acercaDeMi.obtenerDatos().subscribe(data =>{
-      this.AboutMe= data.acercaDeMi;
-    })
+    this.cargarPersona();
+    }
+    cargarPersona(){
+      this.acercaDeMi.detail(2).subscribe(data=>{
+        this.AboutMe=data;
+        console.log(this.AboutMe);
+      })
+    }
   }
+ 
 
-}

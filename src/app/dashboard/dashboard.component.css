@@ -64,13 +64,13 @@
   }
   .botonagregar>button{
    display:block;
-  
-   margin: 5vh auto ;
+    width: 130px;
+   margin: 12px auto ;
   }
 
   .botonagregar>button:not(:last-child){
   
-    margin: 3vh auto 
+    margin: 20px auto 
   }
  
   /*modales*/

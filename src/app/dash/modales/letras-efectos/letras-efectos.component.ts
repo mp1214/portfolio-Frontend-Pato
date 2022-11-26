@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { persona } from 'src/app/model/persona';
+import { PersonaService } from 'src/app/servicios/persona.service';
 
 @Component({
   selector: 'app-letras-efectos',
@@ -8,19 +9,57 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 
 export class LetrasEfectosComponent implements OnInit {
-efectosList:any
+efectosList:persona|any=null;
+titulo:string="";
+efecto: persona[]=[];
 
 @Input() mje:string=""
 
 
-  constructor(private letras:PortfolioService) { }
+  constructor(private letras:PersonaService) { }
 
   ngOnInit(): void {
-    this.letras.obtenerDatos().subscribe(data =>{
-      this.efectosList= data.letrasefecto;
-     
-    
-  })
+    this.cargarletras();
+  
   }
+  cargarDetalle(id?:number){
+    if(id != undefined){
+    this.letras.detail(id).subscribe(data=>{
+      this.efectosList=data;
+  
+    },err=>{
+      alert("error al modificar");
+    })
+  }
+}
+cargarletras():void{
+  this.letras.lista().subscribe(data =>{this.efecto= data; })
 
+}
+OnUpdate(id?:number):void{
+  // this.ids!=id;
+   // const id=this.activatedRouter.snapshot.params['id'];
+    if(id != undefined){
+       this.letras.update(id,this.efectosList).subscribe(data=>{
+        alert("Estudio modificado"); 
+        this.cargarletras();
+    },err =>{
+      alert("Error al modificar Educacion");
+      
+    })
+  }
+  
+}
+  borrar(id?:number){
+    if(id != undefined){
+      this.letras.delete(id).subscribe(data =>{
+       this.cargarletras();
+        alert("se pudo eliminar satisfactoriamente");
+        this.cargarletras();
+      },err =>{
+        alert("No se pudo eliminar");
+      })
+    }
+   
+  }
 }

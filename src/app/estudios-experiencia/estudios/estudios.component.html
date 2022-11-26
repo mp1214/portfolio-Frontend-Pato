@@ -3,12 +3,12 @@
     
     <h1 class="title">Estudios</h1>
     <ul class="list-group" style="list-style:none">
-        <li *ngFor="let estudio of estudiosList" class="list-group"> 
+        <li *ngFor="let estudio of educacion" class="list-group"> 
             <h2 style="text-decoration:underline;">{{estudio.tipoeducacion}}</h2>
             
             <h2 class="titulo"><img [src]="estudio.icono"  alt="" width="2%">
                 {{estudio.titulo}}</h2>
-            <h2 class="ml-3"><i>{{estudio.institucion}} ({{estudio.inicio}}-{{estudio.fin}})</i></h2>
+            <h2 class="ml-3"><i>{{estudio.institucion}} ({{estudio.inicio}} | {{estudio.fin}})</i></h2>
            
             
         </li>

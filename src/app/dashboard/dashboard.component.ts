@@ -9,7 +9,7 @@ export class DashboardComponent implements OnInit {
 Agregar:string=""
 
   constructor() { }
-
+ 
   ngOnInit(): void {
   
   }
@@ -22,5 +22,7 @@ quitar(){
   this.Agregar="quitar"
  
   }
-  
+  editar(){
+    this.Agregar="editar"
+  }
 }
