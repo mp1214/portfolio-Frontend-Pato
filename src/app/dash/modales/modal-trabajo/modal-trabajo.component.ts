@@ -1,10 +1,8 @@
 import { Component, OnInit,Input } from '@angular/core';
-//import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import Swal from 'sweetalert2';
 import { SExperienciaService } from 'src/app/servicios/s-experiencia.service';
 import { TokenService } from 'src/app/servicios/token.service';
 import { Experiencia } from 'src/app/model/experiencia';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 
 @Component({
@@ -29,9 +27,10 @@ export class ModalTrabajoComponent implements OnInit {
   inicio: string="";
   fin: string="";
   imgE:string="";
+ 
 
   ngOnInit(): void {
-    
+
     this.cargarExperiencia();
     if(this.tokenService.getToken()){
       this.isLogged=true;

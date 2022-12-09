@@ -1,11 +1,14 @@
 <div class="proyecto">
-<div class="proyectos m-2" >
+<div class="proyectos" >
     
     <h1>Proyectos</h1>
+    
     <ul class="list-group" style="list-style:none">
-      <li *ngFor="let proyecto of miPortfolio" class="lista">
-        <h2 class="titulo">{{proyecto.nombre}}</h2> 
-        <a class="enlace" [href]="proyecto.enlace" target="_blanK">Enlace al proyecto</a>
+      <li *ngFor="let proyecto of proyectos" class="lista">
+        <h2 class="titulo">{{proyecto.proyecto}}</h2> 
+        <a class="enlace" [href]="proyecto.path" target="_blanK">Enlace al proyecto</a>
+        <img class="imagen" [src]="proyecto.img" alt="enlace al proyecto">
+        
       </li>
        
    

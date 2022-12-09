@@ -17,6 +17,7 @@ evento(){
 this.Agregar="agregar"
 
 }
+
 quitar(){
   
   this.Agregar="quitar"
@@ -24,5 +25,7 @@ quitar(){
   }
   editar(){
     this.Agregar="editar"
+    
   }
+  
 }

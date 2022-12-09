@@ -12,7 +12,16 @@ margin-top: 2vh;
   .modal-dialog{
     max-width: 50rem;
   }
- 
+  .certificado{
+    background: #f4f4f4;
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+  }
   
   
  

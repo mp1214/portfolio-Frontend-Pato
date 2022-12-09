@@ -54,7 +54,8 @@
                   </div>
                   <div class="mb-3">
                     <label for="icono" class="form-label">icono</label>
-                    <input type="file" class="form-control" id="icono" name="icono" [(ngModel)]="icono">
+                    <input type="file" class="form-control" id="icono" name="icono" [(ngModel)]="icono" (change)="uploadFile($event,false)">
+                    <div class="label" fxFlex="30" *ngIf="completed">Archivo cargado</div>
                   </div>
                 <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
               </form>
@@ -85,7 +86,7 @@
                </div>
                <div class="mb-3">
                 <label for="icono" class="form-label">icono</label>
-                <input type="text" class="form-control" id="icono" name="icono" aria-describedby="fortalezaHelp" [(ngModel)]="habilidad.icono" required>
+               <input type="file" class="form-control" id="icono" name="icono" aria-describedby="fortalezaHelp" [(ngModel)]="habilidad.icono" (change)="uploadFile($event,false)" required>
               </div>
              <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
            </form>

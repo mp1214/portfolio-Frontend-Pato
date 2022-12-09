@@ -7,7 +7,7 @@ import { IntroComponent } from './intro/intro.component';
 
 const routes: Routes = [
 {path: 'intro', component:IntroComponent},
-{path: 'dashboard', component:DashboardComponent, canActivate:[GuardianGuard]},
+{path: 'dashboard', component:DashboardComponent,canActivate:[GuardianGuard]},
 {path: '', redirectTo: '/intro', pathMatch:'full'},
 {path:'**', component:ErrorComponent}];
 

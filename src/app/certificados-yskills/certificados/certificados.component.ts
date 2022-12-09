@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { Certificado } from 'src/app/model/certificado';
+import { persona } from 'src/app/model/persona';
+import { CertificadoService } from 'src/app/servicios/certificado.service';
+
 
 @Component({
   selector: 'app-certificados',
@@ -8,14 +11,14 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 
 export class CertificadosComponent implements OnInit {
-  certificadoList:any;
+  certificados: Certificado[]=[];
 
-  constructor(private certificados:PortfolioService) { }
+  constructor(private certifi:CertificadoService) { }
   
   
   ngOnInit(): void {
-    this.certificados.obtenerDatos().subscribe(data =>{
-      this.certificadoList= data.Certificados;
+    this.certifi.lista().subscribe(data =>{
+      this.certificados= data;
       
     })
   }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -40,6 +40,10 @@ import { ModalProyectosComponent } from './dash/modales/modal-proyectos/modal-pr
 import { ModalRedesComponent } from './dash/modales/modal-redes/modal-redes.component';
 import { DescargarPdfComponent } from './botones/descargar-pdf/descargar-pdf.component';
 import { FormsModule } from '@angular/forms';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -78,6 +82,7 @@ import { FormsModule } from '@angular/forms';
     ModalRedesComponent,
     DescargarPdfComponent,
     
+    
    
   ],
   imports: [
@@ -85,6 +90,10 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage()),
+    FontAwesomeModule,
+    ReactiveFormsModule,
  
   ],
   providers: [],

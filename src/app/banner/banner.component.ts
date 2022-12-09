@@ -14,6 +14,7 @@ export class BannerComponent implements OnInit {
   ngOnInit(): void {
     this.banerDatos.detail(2).subscribe(data =>{
      this.banerInfo= data;
+     
     })
   }
 

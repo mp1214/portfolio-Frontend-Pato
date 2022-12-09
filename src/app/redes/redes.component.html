@@ -1,12 +1,18 @@
 <ul class="list-group list-group-horizontal " style="list-style: none">
-               
-    <li class="list-group-item p-2" ><a href="https://api.whatsapp.com/send?phone=543814466079"><i class="fa-brands fa-lg fa-whatsapp fa-2x1"></i> </a>  </li>
+
+    <li *ngFor="let red of redes" class="lista list-group-item p-2">        
+      
+        <a class="enlace" [href]="red.path" target="_blanK"><i [ngClass]="red.imagen"></i>  </a>
+    <!--    <li class="list-group-item p-2" ><a href="https://api.whatsapp.com/send?phone=543814466079"><i class="fa-brands fa-lg fa-whatsapp fa-2x1"></i> </a>  </li>
     <li class="list-group-item p-2"><a href="http://linkedin.com/in/patricia-cayo-00a86980" target="_blanK"><i class="fa-brands fa-linkedin fa-lg fa-2x1"></i>  </a> </li>
     <li class="list-group-item p-2"> <a href="http://facebook.com/pcayo1" target="_blanK"><i class="fa-brands fa-facebook fa-lg fa-2x1"></i>  </a> </li>
     <li class="list-group-item p-2"> <a href="https://github.com/mp1214" target="_blanK"><i class="fa-brands fa-github fa-lg fa-2x1"></i>  </a> </li>
     <li class="list-group-item p-2">
     <i class="list-group-item p-2 fa-solid fa-user-lock fa-2x1" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="login()" *ngIf="!isLogged"></i>
     <i class="list-group-item p-2 fa-solid fa-arrow-right-from-bracket" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onLogOut()" *ngIf="isLogged"></i>
-    </li>
-    
+    -->
+</li>
+   <li class="lista list-group-item p-2"> <i class="list-group-item p-2 fa-solid fa-user-lock fa-2x1" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="login()" *ngIf="!isLogged"></i>
+    <i class="list-group-item p-2 fa-solid fa-arrow-right-from-bracket" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onLogOut()" *ngIf="isLogged"></i> 
+</li >
 </ul>

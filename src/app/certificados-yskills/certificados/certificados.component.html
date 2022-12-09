@@ -24,7 +24,7 @@
   <h2 class="titulo">Mis Certificados</h2>
  <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
    <div   class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleDark" *ngFor="let item of certificadoList;let index = index;let isFirst = first" [attr.aria-label]="index" [attr.data-bs-slide-to]="index"  
+    <button type="button" data-bs-target="#carouselExampleDark" *ngFor="let item of certificados;let index = index;let isFirst = first" [attr.aria-label]="index" [attr.data-bs-slide-to]="index"  
     [ngClass]="isFirst ? 'aria-current true' : 'aria-current'" [ngClass]="isFirst ? 'class active' : 'class'" 
     [ngStyle]="{'background-color': '#0e076b','margin-bottom': '-1vh', 'height':'0.5vh' }"
     ></button>
@@ -32,8 +32,8 @@
     
    </div>
    <div class="carousel-inner">
-     <div  class="carousel-item" *ngFor="let item of certificadoList;let index = index;let isFirst = first" [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item' ">
-       <img [src]="item.enlace" class="d-block w-100" alt="...">
+     <div  class="carousel-item" *ngFor="let item of certificados;let index = index;let isFirst = first" [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item' ">
+       <img [src]="item.img" class="d-block w-100" style="width: 300px; height:500px;" alt="{{item.titulo}}">
       
       
      </div>

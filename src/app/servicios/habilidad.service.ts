@@ -19,8 +19,8 @@ export class HabilidadService {
     return this.httpClient.get<Habilidad>(this.URL+ `detail/${id}`);
 
   }
-  public save(educacion:Habilidad):Observable<any>{
-return this.httpClient.post<any>(this.URL+ 'create',educacion);
+  public save(habilidad:Habilidad):Observable<any>{
+return this.httpClient.post<any>(this.URL+ 'create',habilidad);
 
   }
 

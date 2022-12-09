@@ -1,5 +1,4 @@
 import { Component, OnInit,Input } from '@angular/core';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { Educacion } from 'src/app/model/educacion';
 import { EducacionService } from 'src/app/servicios/educacion.service';
 import { TokenService } from 'src/app/servicios/token.service';
@@ -13,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ModalEstudiosComponent implements OnInit {
  
   opcionSeleccionado: string  = '0';
-  verSeleccion: string        = '';
+  verSeleccion: string = '';
   educacion: Educacion[]=[];
   titulo: string="";
   edu:Educacion|any=null;

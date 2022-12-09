@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from '../servicios/token.service';
 import { Router } from '@angular/router';
+import { RedesService } from '../servicios/redes.service';
+import { Redes } from '../model/redes';
+import { faLink } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-redes',
@@ -9,22 +12,30 @@ import { Router } from '@angular/router';
 })
 export class RedesComponent implements OnInit {
 isLogged= false;
-  constructor(private router:Router,private tokenService:TokenService ) { }
+redes:Redes[]=[];
+filmIcon = faLink;
+  constructor(private router:Router,private tokenService:TokenService ,private red:RedesService) { }
 
   ngOnInit(): void {
+    this.red.lista().subscribe(data =>{
+      
+      this.redes=data;
+    
+    });
     if(this.tokenService.getToken()){
       this.isLogged=true;
     }else{
       this.isLogged=false;
     }  
-    console.log(this.isLogged)
-  }
-onLogOut():void{
-  this.tokenService.logOut();
-  this.router.navigate(['/intro']);
+    
   
 }
-login(){
-this.router.navigate(['/intro']);
-}
-}
+  onLogOut():void{
+    this.tokenService.logOut();
+    this.router.navigate(['/intro']);
+    
+  }
+  login(){
+  this.router.navigate(['/intro']);
+  }
+  }

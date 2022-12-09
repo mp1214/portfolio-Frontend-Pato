@@ -8,11 +8,11 @@
       
     <div class="flip-card-inner">
       <div class="flip-card-front">
-        <i class="fa-solid fa-screwdriver-wrench fa-lg" style="font-size: 15vh;"></i>
+        <i class="fa-solid fa-screwdriver-wrench fa-lg" style="font-size: 130px;"></i>
         <!--<img src="imagenes/skills.png" alt="Avatar" style="width:20vh;height:20vh;">-->
       </div>
       <div class="flip-card-back">
-        <h1 style="text-decoration: underline;">Habilidades</h1> 
+        <h1 class="pt-3">Habilidades</h1> 
         
         <div class="botonagregar">
           
@@ -37,11 +37,11 @@
       <div class="row g-2 g-lg-3">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <i class="fa-solid fa-briefcase fa-lg" style="font-size: 15vh;"></i>
+          <i class="fa-solid fa-briefcase fa-lg" style="font-size: 130px;"></i>
          <!-- <img src="imagenes/trabajo.png" alt="Avatar" style="width:20vh;height:20vh;">-->
        </div>
       <div class="flip-card-back">
-        <h1 style="text-decoration: underline;">Experiencia</h1> 
+        <h1 class="pt-3">Experiencia</h1> 
           <div class="botonagregar">
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-trabajo">
             <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
@@ -63,11 +63,11 @@
         <div class="row g-2 g-lg-3">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <i class="fa-solid fa-user-pen fa-lg" style="font-size: 15vh;"></i>
+          <i class="fa-solid fa-user-pen fa-lg" style="font-size: 130px;"></i>
          <!-- <img src="imagenes/datosPersonales.png" alt="Avatar" style="width:300px;height:300px;">-->
         </div>
         <div class="flip-card-back">
-          <h1 style="text-decoration: underline; font-size: 2.5vh;">Datos Personales</h1> 
+          <h1 class="pt-3">Datos Personales</h1> 
           <div class="botonagregar">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-personal">
               <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
@@ -87,11 +87,11 @@
           <div class="row g-2 g-lg-3">
         <div class="flip-card-inner">
           <div class="flip-card-front">
-            <i class="fa-solid fa-user-graduate fa-lg" style="font-size: 15vh;"></i>
+            <i class="fa-solid fa-user-graduate fa-lg" style="font-size: 130px;"></i>
            <!-- <img src="imagenes/estudios.png" alt="Avatar" >-->
           </div>
           <div class="flip-card-back">
-            <h1 style="text-decoration: underline">Estudios</h1> 
+            <h1 class="pt-3">Estudios</h1> 
            
             <div class="botonagregar">
               <button type="button" class="btn btn-primary" data-bs-toggle="modal"  data-bs-target="#exampleModal-estudios">
@@ -112,20 +112,17 @@
           <div class="flip-card-inner">
             <div class="flip-card-front" >
               
-              <i class="fa-solid fa-file-image fa-lg" style="font-size: 15vh;"></i>
+              <i class="fa-solid fa-file-image fa-lg" style="font-size: 130px;"></i>
               <!--<img src="imagenes/fotoPerfil.png" alt="Avatar" style="width:300px;height:300px;"-->
             </div>
             <div class="flip-card-back">
-              <h1 style="text-decoration: underline;">Foto Perfil</h1> 
+              <h1 class="pt-3">Foto Perfil</h1> 
              
               <div class="botonagregar">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-foto">
-                  <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-foto">
-                    <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-foto">
-                      <i class="fa-solid fa-pen" (click)="editar()"> Editar </i></button>
-                  </div> 
+                      <i class="fa-solid fa-pen" (click)="editar()"> Cambiar </i>
+                  </button>
+              </div> 
             </div>
           </div>
         </div>
@@ -137,11 +134,11 @@
             <div class="row g-2 g-lg-3">
             <div class="flip-card-inner">
               <div class="flip-card-front" >
-                <i class="fa-solid fa-award" style="font-size: 15vh;"></i>
+                <i class="fa-solid fa-award" style="font-size: 130px;"></i>
                
               </div>
               <div class="flip-card-back">
-                <h1 style="text-decoration: underline;">Certificados</h1> 
+                <h1 class="pt-3">Certificados</h1> 
                 <div class="botonagregar">
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-certificados">
                     <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
@@ -164,14 +161,13 @@
                 <div class="flip-card-front" >
                  <!-- <i class="fa-solid fa-person-dress-simple fa-lg" style="font-size: 20vh;"></i>
                   -->
-                  <i class="fa-solid fa-id-card-clip" style="font-size: 15vh;"></i>
+                  <i class="fa-solid fa-id-card-clip" style="font-size: 130px;"></i>
                 </div>
                 <div class="flip-card-back">
-                  <h1 style="text-decoration: underline;">Acerca de Mi</h1> 
+                  <h1 class="pt-3">Acerca de Mi</h1> 
                   
                   <div class="botonagregar">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-acercademi">
-                      <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i>></button>
+                  
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-acercademi">
                       <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-acercademi">
@@ -189,11 +185,11 @@
                 <div class="flip-card-inner">
                   <div class="flip-card-front" >
                                    
-                    <i class="fa-solid fa-solid fa-scale-balanced fa-lg" style="font-size: 15vh;"></i>
+                    <i class="fa-solid fa-solid fa-scale-balanced fa-lg" style="font-size: 130px;"></i>
                    
                   </div>
                   <div class="flip-card-back">
-                    <h1 style="text-decoration: underline;font-size: 2.5vh;">Fortalezas/<br>Debilidades</h1> 
+                    <h1 class="pt-3">Fortalezas/<br>Debilidades</h1> 
                   
                     <div class="botonagregar">
                       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-fortalezas-debilidades">
@@ -214,10 +210,10 @@
                   <div class="row g-2 g-lg-3">
                   <div class="flip-card-inner">
                     <div class="flip-card-front" >
-                      <i class="fa-solid fa-code fa-lg" style="font-size: 15vh;"></i> 
+                      <i class="fa-solid fa-code fa-lg" style="font-size: 130px;"></i> 
                     </div>
                     <div class="flip-card-back">
-                      <h1>Proyectos</h1> 
+                      <h1 class="pt-3">Proyectos</h1> 
                       <div class="botonagregar">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-proyectos">
                           <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
@@ -238,16 +234,15 @@
           <div class="flip-card-inner">
             <div class="flip-card-front" >
               
-              <i class="fa-solid fa-wand-magic-sparkles" style="font-size: 15vh;"></i> 
+              <i class="fa-solid fa-wand-magic-sparkles" style="font-size: 130px;"></i> 
              
            
             </div>
             <div class="flip-card-back">
-              <h1>Efectos</h1> 
+              <h1 class="pt-3">Efectos</h1> 
               
               <div class="botonagregar">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-letras-efectos">
-                  <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
+              
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-letras-efectos">
                   <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-letras-efectos">
@@ -264,10 +259,10 @@
         <div class="row g-2 g-lg-3">
         <div class="flip-card-inner">
           <div class="flip-card-front" >
-            <i class="fa-sharp fa-solid fa-share-nodes" style="font-size: 15vh;"></i> 
+            <i class="fa-sharp fa-solid fa-share-nodes" style="font-size: 130px;"></i> 
           </div>
           <div class="flip-card-back">
-            <h1>Redes Sociales</h1> 
+            <h1 class="pt-3">Redes Sociales</h1> 
             <div class="botonagregar">
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-redes-sociales">
                 <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>

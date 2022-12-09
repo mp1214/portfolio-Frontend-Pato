@@ -5,8 +5,8 @@
    
     <li *ngFor="let experiencia of expe" class="lista-experiencia"> 
         <img [src]="experiencia.imgE"  alt="" height="5%" width="6%">  
-        <h2 class="titulo">{{experiencia.cargo}} {{experiencia.empresa}} - {{experiencia.descripcion}} <i>({{experiencia.inicio}}-  {{experiencia.fin}})</i></h2>
-       
+        <h2 class="titulo">{{experiencia.cargo }} {{"en "+experiencia.empresa}} - {{experiencia.descripcion}} <i>({{experiencia.inicio | date: "dd-MM-yyyy"}} -  {{experiencia.fin| date: "dd-MM-yyyy"}})</i></h2>
+       <h2 class="titulo" *ngIf="experiencia.esTrabajoActual">Actualmente trabajo aquí </h2>
         </li>
    
 </ul>

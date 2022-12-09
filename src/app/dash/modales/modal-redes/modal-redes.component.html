@@ -2,6 +2,102 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
+        <h4 class="taxt-center">Redes Sociales</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-10">
+            <form>
+              <div class="mb-3">
+                <div *ngIf="mje === 'quitar'" >
+                  <h5 id="title text-center">Quitar Red social </h5>
+                            
+                  <div class="row">
+                    <ul *ngFor="let red of redesList" style="list-style:none">
+                      
+                      <li  class="redes" type="button" (click)="borrar(red.id)">{{red.nombre}} - {{red.path}}
+                        <i class="fa-solid fa-xmark"
+                        [ngStyle]="{'color':'red'}"
+                        ></i>
+                      </li>
+                      
+                    </ul>
+                    <button type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
+                  
+                  </div>
+                </div>
+              <div *ngIf="mje === 'agregar'">
+                <h5 class="form text-center">Agregar Certificados</h5>
+                <form (ngSubmit)="OnCreate()" novalidate #f="ngForm">
+                  <div class="mb-3">
+                    <label id="habilidad" for="number">Nombre Red</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="fortalezaHelp" [(ngModel)]="nombre" required>
+                    <div id="fortalezaHelp" class="form-text">Ingrese la habilidad que considera poseer</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Path de red social</label>
+                    <input type="text" class="form-control" name="path" id="exampleInputPassword1" [(ngModel)]="path" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Icono de la red social (formato: fa-brands fa-lg fa-whatsapp fa-2x1)</label>
+                    <input type="text" class="form-control"name="imagen" id="imagen" [(ngModel)]="imagen">
+                  </div>
+                  <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
+               
+              </form>
+              </div>
+              
+            </div>
+            </form>
+           
+            <div *ngIf="mje === 'editar'">
+              <h5 class="form text-center mb-3">Editar Redes</h5>
+              <div *ngFor="let red of redesList" style="list-style:none">
+               <ul>
+                  <li type="button" class="redes" (click)="cargarDetalle(red.id)" >{{red.nombre}}
+                   <i class="fa-solid fa-pen"
+                   [ngStyle]="{'color':'green'}"
+                   ></i>
+                 </li>
+               </ul>
+             </div>
+             <div *ngIf="red">
+             <h5 class="form text-center">Agregar Red Social</h5>
+             <form (ngSubmit)="OnUpdate(red.id)" novalidate #f="ngForm">
+               <div class="mb-3">
+                 <label id="fortaleza" for="number">Red Social</label>
+                 <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="fortalezaHelp" [(ngModel)]="red.nombre" required>
+                 <div id="fortalezaHelp" class="form-text">Ingrese el titulo</div>
+               </div>
+               <div class="mb-3">
+                <label id="fortaleza" for="number">path red social</label>
+                <input type="text" id="img1" name="img1" class="form-control"[(ngModel)]="red.path">
+               
+              </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Cambiar Icono</label>
+                  <input type="text" class="form-control" id="exampleInputPassword1" id="imagen" name="imagen" [(ngModel)]="red.imagen">
+               </div>
+              
+             <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
+           </form>
+         </div>
+        </div>
+          <div class="col-1"></div>
+        
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+<!--<div class="modal fade" id="exampleModal-redes-sociales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
         <h4 >Redes Sociales</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
@@ -10,50 +106,80 @@
           <div class="col-1"></div>
           <div class="col-10">
             <form>
-              <div class="mb-3">
                 <div *ngIf="mje === 'quitar'">
                     <h4 class="text-center mb-3">Quitar Redes</h4>
                     <ul *ngFor="let red of redesList" style="list-style:none">
-           
-                      <li  class="fortDebil">{{red.nombre}} -
-                        {{red.enlace}}
+                      
+                      <li  class="redes" type="button" (click)="borrar(red.id)">{{red.nombre}} -
+                        {{red.path}}
                         <i class="fa-solid fa-xmark"
                         [ngStyle]="{'color':'red'}"
                         ></i>
                       </li>
                       
                     </ul>
+                    <button type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
               </div>
-                
+           
               <div *ngIf="mje === 'agregar'">
                 <h4 class="form text-center mb-3">Agregar Red Social</h4>
-                <form>
+                <form (ngSubmit)="OnCreate()" novalidate #f="ngForm">
                   <div class="mb-3">
                     <label id="habilidad" for="number">Nombre Red</label>
-                    <input type="text" class="form-control" id="habilidad" aria-describedby="fortalezaHelp">
+                    <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="fortalezaHelp" [(ngModel)]="nombre" required>
                     <div id="fortalezaHelp" class="form-text">Ingrese la habilidad que considera poseer</div>
                   </div>
                   <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Enlace</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1">
+                    <label for="exampleInputPassword1" class="form-label">Path de red social</label>
+                    <input type="text" class="form-control" name="path" id="exampleInputPassword1" [(ngModel)]="path" required>
                   </div>
-                  
-
-               
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Icono red social</label>
+                    <input type="file" class="form-control"name="img" id="img" [(ngModel)]="img">
+                  </div>
+                  <button type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
               </form>
               </div>
-                <button type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
+              <div *ngIf="mje === 'editar'">
+                <h5 class="form text-center mb-3">Editar Redes Sociales</h5>
+                <div *ngFor="let red of redesList" style="list-style:none">
+                 <ul>
+                    <li type="button" class="redes" (click)="cargarDetalle(red.id)" >{{red.nombre}}
+                     <i class="fa-solid fa-pen"
+                     [ngStyle]="{'color':'green'}"
+                     ></i>
+                   </li>
+                 </ul>
+               </div>
+               <div *ngIf="red">
+               <h5 class="form text-center">Agregar Red Social</h5>
+               <form (ngSubmit)="OnUpdate(red.id)" novalidate #f="ngForm">
+                 <div class="mb-3">
+                   <label id="nombre" for="nombre">Red Social</label>
+                   <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="fortalezaHelp" [(ngModel)]="red.nombre" required>
+                   <div id="fortalezaHelp" class="form-text">Ingrese el nombre de la red social</div>
+                 </div>
+                 <div class="mb-3">
+                  <label for="icono" class="form-label">icono red social</label>
+                  <input type="file" class="form-control" id="img" name="img" aria-describedby="fortalezaHelp" [(ngModel)]="red.imagen" (change)="uploadImage($event)" required>
+                </div>
+               <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
+             </form>
+           </div>
+
             </div>
             </form>
-            </div>
+          </div>
+            
           <div class="col-1"></div>
-        </div>
+       
       </div>
     
     </div>
   </div>
 </div>
-
+</div>
+-->
 <!--
 
 <div>
