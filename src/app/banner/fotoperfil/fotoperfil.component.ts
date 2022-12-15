@@ -16,7 +16,7 @@ export class FotoperfilComponent implements OnInit {
    
     this.banerDatos.lista().subscribe(data =>{
       this.Perfil= data; 
-      console.log(this.Perfil[0].img);
+      
     })
     }
    

@@ -48,3 +48,6 @@ i.fa-brands.fa-lg.fa-2x1{
     color: #7e78d0;
    
   }
+  .list-group-item{
+    border: none;
+  }

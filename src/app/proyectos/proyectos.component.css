@@ -1,18 +1,21 @@
 .proyectos{
   border-left:3px solid rgb(21, 16, 22) ;
-   
+  font-family: 'Raleway';
     
      padding: 1%;
      
    }
-  
+   .titulo{
+    color: #0e076b;
+    font-size: 2.2rem;
+    }
   .justify{
     display: flex;
     justify-content: space-between;
   }
-   .proyectos h1{
+   .proyectos h2{
      color: #0e076b;
-     font-size: 35px;
+     font-size: 30px;
      
    }
    .imagen{
@@ -27,19 +30,10 @@
   ul{
     margin-left: 2vh;
   } 
-   
-   .proyectos h2{
-   
-    font-size: 25px;
-   }
+    
    .proyecto{
     background: linear-gradient(300deg,rgb(247, 241, 247),rgba(167, 164, 226, 0.8));
-    
-    
-    
-    padding: 1vh 1vh;
-   
-    
+
    }
    .enlace{
     
@@ -50,3 +44,68 @@
     margin-bottom: 20px;
     font-size: 25px;
    }
+
+   .experience__img{
+    width: 60%;
+    margin: 2% 2%;
+ }
+ .experiencie__box{
+    text-align: center;
+    margin: auto;
+ }
+ .experience{
+    width: 100%;
+    padding: 1vh 2vh;
+ }
+ h2 .experience__title{
+  text-align: center;
+ 
+  font-weight: 200;
+ } 
+.experience__info{
+
+  font-weight: 200;
+}
+.experience__description button{
+    background: #2A7AE4;
+   padding: 0 2%;
+    height: 51px;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 19px;
+    border: none;
+    border-radius: 5px;
+    margin: 2% 0;
+    color: #FFFFFF;
+    background: #2A7AE4;
+
+}
+.experience__title,.experience__text{
+    font-family: 'Raleway';
+    font-size: 20px;
+    line-height: 25px;
+}
+/*Mobile*/
+@media (max-width: 378px){
+  .experience__img{
+    width: 200px;
+    height: 100px;
+  }
+  .proyectos h2{
+    font-size: 20px;
+  }
+}
+/*Mobile*/
+@media (min-width: 379px) and (max-width: 767px){
+  .experience__img{
+    width: 500px;
+    height: 250px;
+  }}
+  @media (min-width: 768px) and (max-width: 1600px){
+    .experience__img{
+      width: 650px;
+      max-height: 450px;
+    }
+}

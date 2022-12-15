@@ -19,7 +19,7 @@ export class ModalTrabajoComponent implements OnInit {
   constructor(private sExperiencia:SExperienciaService,private tokenService:TokenService) { }
   expe:Experiencia[]=[];
   experiencia:Experiencia|any=null;
-  isLogged=false;
+
   cargo: string="";
   descripcion: string= "";
   empresa: string="";
@@ -32,12 +32,8 @@ export class ModalTrabajoComponent implements OnInit {
   ngOnInit(): void {
 
     this.cargarExperiencia();
-    if(this.tokenService.getToken()){
-      this.isLogged=true;
-    }else{
-      this.isLogged=false;
-    }
   }
+  
   cargarExperiencia():void{
     this.sExperiencia.lista().subscribe(data =>{this.expe=data;})
     

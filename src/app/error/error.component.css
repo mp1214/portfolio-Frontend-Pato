@@ -1,0 +1,15 @@
+.error{
+    background-image: url(/assets/imagenes/error.png);
+     
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 950px;
+    display: block;
+}
+.pagina, .volver{
+    font-size: 25px;
+    color: #FFFF;
+    text-align: center;
+}

@@ -1,18 +1,14 @@
-<section id="banner">
-          <div class="banner" style="background-image: url({{banerInfo.imgBanner}})">
-            <app-letras-full-stack></app-letras-full-stack>
-            <app-fotoperfil></app-fotoperfil>
-            
-            <div class="contenido-banner">
-             
+<section id="banner" class="banner" style="background-image: url({{banerInfo.imgBanner}})">
+ 
+  <div class="col-2"></div>
+
+        <app-letras-full-stack></app-letras-full-stack>
+        <app-fotoperfil></app-fotoperfil>
+        <div class="col-8"> 
               <h2> {{banerInfo.nombre}} {{banerInfo.apellido}}</h2>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Información Personal
-              </button>
-            </div>
-    
-            </div> 
-           
+
+  </div> 
+  <div class="col-2"></div>
   </section>  
-  <app-boton-personal></app-boton-personal>
+
    

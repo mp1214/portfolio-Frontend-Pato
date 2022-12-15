@@ -53,7 +53,7 @@ export class ModalProyectosComponent implements OnInit {
   }
   OnCreate():void{
     // this.habilidad.icono = this.imageService.url;
-   this.completo= this.imageService.completed;
+   //this.completo= this.imageService.completed[ this.imageService.completed.length-1];
     this.img= this.imageService.url[this.imageService.url.length-1]
    console.log( this.img)
      const habi= new Proyecto(this.proyecto,this.path,this.img)
@@ -67,7 +67,7 @@ export class ModalProyectosComponent implements OnInit {
      
    }
   OnUpdate(id?:number):void{
-    this.completo= this.imageService.completed;
+    //this.completo= this.imageService.completed[ this.imageService.completed.length-1];
       if(id != undefined){
           this.proyectos.update(id,this.proyec).subscribe(data=>{
           alert("certificado modificado"); 
@@ -80,10 +80,8 @@ export class ModalProyectosComponent implements OnInit {
   }
   uploadImage($event:any){
     
-     const name="proyect_"+ this.proyec.id;
-     this.imageService.uploadImage($event,name,3);
-   
-
+    // const name="proyect_"+ this.proyec.id;
+     this.imageService.uploadImage($event,"nada",3);
    }
 
 }

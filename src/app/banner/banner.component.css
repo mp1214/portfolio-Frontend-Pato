@@ -1,8 +1,6 @@
 
 .banner{
-    margin-top: .3%;  
-    
-    /*background-image: url(/assets/imagenes/banner-marmolado.jpg);*/
+     
     background-position: center;
     background-size:cover;
     background-repeat: no-repeat;
@@ -16,11 +14,10 @@
     background-repeat: no-repeat;
    }
  
-    /*imagen pato*/
-   h2{
+ h2{
      
       font-weight: 500;
-      margin-left: 3rem;
+      margin-left: 200px;
       
       color: #f9f1f9;
       font-size: calc(2.5*1.5vw);
@@ -31,21 +28,17 @@
       
     }
    
-   button{
-        margin-left: 200px;
-        margin-top: 0px;
+    @media screen and (max-width:375px) {
+      h2{
+        margin-left: 35px;
         
+        font-size: 30px;
+         
     }
-  
+    }
 
-  /*  @media screen and (min-width:601px) and (max-width: 800px) {
-      button {
-        margin-left: 15vh ;
-
-        
-      }
-      
-
+    @media screen and (min-width:601px) and (max-width: 800px) {
+     
       .banner{
 
         margin-top: 1vh;  
@@ -56,7 +49,7 @@
               
         }
     }
-    @media screen and (min-width:201px) and (max-width: 600px) {
+   /* @media screen and (min-width:201px) and (max-width: 600px) {
       .banner{
    margin-top: 1vh;  
    background-size:cover;

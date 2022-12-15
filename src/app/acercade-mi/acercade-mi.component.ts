@@ -15,7 +15,7 @@ export class AcercadeMiComponent implements OnInit {
     this.cargarPersona();
     }
     cargarPersona(){
-      this.acercaDeMi.detail(2).subscribe(data=>{
+      this.acercaDeMi.detail(1).subscribe(data=>{
         this.AboutMe=data;
        
       })

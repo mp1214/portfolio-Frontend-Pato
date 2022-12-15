@@ -10,7 +10,9 @@
     justify-content: space-between;
     font-size: 2vh;
 }
-
+p.error{
+  color:red;
+}
   .modal-dialog{
     max-width: 50rem;
   }

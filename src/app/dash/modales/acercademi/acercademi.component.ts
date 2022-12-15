@@ -19,7 +19,7 @@ descrip:persona|any=null;
     this.cargarPersona();
     }
     cargarPersona(){
-      this.acercademi.detail(2).subscribe(data=>{
+      this.acercademi.detail(1).subscribe(data=>{
         this.descrip=data;
        
       })
@@ -45,7 +45,7 @@ descrip:persona|any=null;
   }
   cargarDetalle(id?:number){
     if(id != undefined){
-    this.acercademi.detail(2).subscribe(data=>{
+    this.acercademi.detail(id).subscribe(data=>{
       this.descrip=data;
   
     },err=>{

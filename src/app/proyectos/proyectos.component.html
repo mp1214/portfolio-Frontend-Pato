@@ -1,21 +1,26 @@
-<div class="proyecto">
-<div class="proyectos" >
-    
-    <h1>Proyectos</h1>
-    
-    <ul class="list-group" style="list-style:none">
-      <li *ngFor="let proyecto of proyectos" class="lista">
-        <h2 class="titulo">{{proyecto.proyecto}}</h2> 
-        <a class="enlace" [href]="proyecto.path" target="_blanK">Enlace al proyecto</a>
-        <img class="imagen" [src]="proyecto.img" alt="enlace al proyecto">
+<section class="experience proyecto" id="xp">
+<div class="row ">
+<div class="col-1"></div>
+    <div class="col-10">
+    <h2 class="titulo" >Proyectos</h2>
+<div class="progress-outer">
+  <div class="experiencie__box">
+      <div class="">
+        <li *ngFor="let proyecto of proyectos" class="proyectos" style="list-style:none">
+          <h2 class="experience__info">{{proyecto.proyecto}}</h2> 
+          <img class="experience__img" [src]="proyecto.img" alt="enlace al proyecto">
+          <div class="experience__description">
+            <!-- Pon el enlace del proyecto en Github o GithubPages -->
+                <span class="experience__repo"><a href="https://github.com/mp1214/DesafioONE-Encriptador" target="_blanK"><button class="experiencia__botao--repo">Repositorio</button></a></span>
+                <span class="experience__demo">  <a class="enlace" [href]="proyecto.path" target="_blanK"><button class="experiencia__botao--repo">Jugar</button></a></span>
         
-      </li>
-       
-   
-   <!-- <li> <img src="/assets/imagenes/Vector.png"  alt="" height="1.5%" width="1.5%">
-    <h2 class="titulo">{{miPortfolio.proyectos.nombre}}</h2> 
-    <a class="enlace" [href]="miPortfolio.proyectos.enlace" target="_blanK">Enlace al proyecto</a>
-    </li>-->
-</ul>
-    </div>
+              </div>
+        </li>
+          
+      </div>
+  </div>  
 </div>
+</div>
+<div class="col-1"></div>
+</div>
+</section>

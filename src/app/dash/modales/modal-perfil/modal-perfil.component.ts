@@ -46,7 +46,7 @@ completo:boolean=false;
      // const id=this.activatedRouter.snapshot.params['id'];
      this.fotoperfil.img = this.imageService.url[this.imageService.url.length-1];
   
-     this.completo=this.imageService.completed;
+     //this.completo=this.imageService.completed[ this.imageService.completed.length-1];
    
      if(id != undefined){
          this.fotoPerfil.update(id,this.fotoperfil).subscribe(data=>{

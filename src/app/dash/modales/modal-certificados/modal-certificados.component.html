@@ -19,10 +19,10 @@
                     <div class="col-sm-4 certif" *ngFor="let certificado of certificados">
                       <div class="card">
                         <div class="card-body">
-                          <h5 class="card-title">{{certificado.titulo}}</h5>
+                          <h5 class="card-title text-center">{{certificado.titulo}}</h5>
                           <div class="contenedor">
-                          <img [src]="certificado.img" height="100vh">
-                          <button type="button" class="btn btn-primary container-fluid" (click)="borrar(certificado.id)">   
+                          <img [src]="certificado.img" height="100px" width="150px">
+                          <button type="button" class="btn btn-primary container-fluid mt-3" (click)="borrar(certificado.id)">   
                          Quitar
                           </button>
                             </div>
@@ -34,7 +34,42 @@
                 </div>
               <div *ngIf="mje === 'agregar'">
                 <h5 class="form text-center">Agregar Certificados</h5>
-                <form (ngSubmit)="OnCreate()" novalidate #f="ngForm">
+              <form [formGroup]="form" (ngSubmit)="onEnviar($event)" name="certificadoForm">
+                 
+                <!--  <input formControlName="titulo">
+                  <input [(ngModel)]="titulo" [ngModelOptions]="{standalone: true}">-->
+              
+                <div class="mb-3">
+                  <label id="habilidad" for="titulo">Titulo certificado</label>
+                  <input type="text" class="form-control" id="titulo" formControlName="titulo"  [(ngModel)]="titulo"
+                 
+                  [ngClass]="{'is-invalid': Titulo.errors && Titulo.touched, 'is-valid':!Titulo.errors && Titulo.touched}">
+                  <div id="titulo" class="form-text">Ingrese el titulo del certificado que posee</div>
+                
+                  <div *ngIf="Titulo.errors  && Titulo.touched">    
+                    <p *ngIf="Titulo.hasError('required')" class="text-danger">
+                        El titulo del certificado es requerido.
+                    </p>
+                    <p *ngIf="Titulo?.errors?.minlength
+                    " class="error">
+                          El titulo debe tener como mínimo 3 caracteres.
+                        </p>
+                  
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label id="number-label" for="number">Agregar</label>
+                 
+                   <input type="file" class="form-control" id="img" formControlName="img"  (change)="uploadImage($event)">
+                   <div class="label" fxFlex="30" *ngIf="completed">Archivo cargado</div>
+                   <div class="label" fxFlex="30" *ngIf="!completed">Espere a que se cargue el Archivo..</div>
+                </div>
+                <button [disabled]="!completed" type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
+                <button type="submit" class="btn btn-ligth container-fluid mt-3"  (click)="Limpiar();" >Limpiar</button>
+              </form>
+              
+                <!-- <form (ngSubmit)="OnCreate()" novalidate #f="ngForm">
                   <div class="mb-3">
                     <label id="habilidad" for="number">Titulo certificado</label>
                     <input type="text" class="form-control" id="titulo" name="titulo" aria-describedby="fortalezaHelp" [(ngModel)]="titulo" required>
@@ -49,40 +84,43 @@
                   </div>
                   <button [disabled]="!completed" type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
                
-              </form>
+              </form>-->
               </div>
               
             </div>
             </form>
             </div>
             <div *ngIf="mje === 'editar'">
-              <h5 class="form text-center mb-3">Editar Experiencia</h5>
+              <h5 class="form text-center mb-3"> Certificado</h5>
               <div *ngFor="let certificado of certificados" style="list-style:none">
                <ul>
                   <li type="button" class="certificado" (click)="cargarDetalle(certificado.id)" >{{certificado.titulo}}
-                   <i class="fa-solid fa-pen"
+                   <i class="fa-solid fa-pen fa-2x1"
                    [ngStyle]="{'color':'green'}"
                    ></i>
                  </li>
                </ul>
              </div>
              <div *ngIf="cert">
-             <h5 class="form text-center">Agregar Experiencia</h5>
-             <form (ngSubmit)="OnUpdate(cert.id)" novalidate #f="ngForm">
+             <h5 class="form text-center">Editar Certificado</h5>
+            <!-- <form (ngSubmit)="OnUpdate(cert.id)" novalidate #f="ngForm">-->
+              <form [formGroup]="form" (ngSubmit)="onEnviarEdit($event,cert.id)">
                <div class="mb-3">
-                 <label id="fortaleza" for="number">Habilidad</label>
-                 <input type="text" class="form-control" id="cargo" name="cargo" aria-describedby="fortalezaHelp" [(ngModel)]="cert.titulo" required>
+                 <label id="fortaleza" for="number">Titulo Certificado</label>
+                 <input type="text" class="form-control" id="cargo" name="titulo" formControlName="titulo" [(ngModel)]="cert.titulo" required>
                  <div id="fortalezaHelp" class="form-text">Ingrese el titulo</div>
                </div>
                <div class="mb-3">
                 <label id="fortaleza" for="number">Ubicacion actual Imagen Certificado</label>
-                <input type="text" id="img1" name="img1" class="form-control"[(ngModel)]="cert.img" readonly onmousedown="return false;">
+                <input type="text" id="img1" name="img1" class="form-control" formControlName="img" [(ngModel)]="cert.img" readonly onmousedown="return false;">
                
               </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Cambiar Imagen</label>
-                  <input type="file" class="form-control" id="exampleInputPassword1" id="img" name="img" [(ngModel)]="cert.img" (change)="uploadImage($event)">
-               </div>
+                  <input type="file" class="form-control" id="exampleInputPassword1" id="img" name="img" formControlName="img" (change)="uploadImageEdit($event)" [(ngModel)]="cert.img">
+                  <div class="label" fxFlex="30" *ngIf="completed">Archivo cargado</div>
+                  <div class="label" fxFlex="30" *ngIf="!completed">Espere a que se cargue el Archivo..</div>
+                </div>
               
              <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
            </form>

@@ -2,4 +2,14 @@ input{
   width: 90%;
   
 }
+.modal-header{
+  background-color: rgb(236, 226, 244);
+}
+input.is-invalid {
+  border: 1px solid red;
+}
+input.is-valid{
+  border:1px solid green;
+}
+
 

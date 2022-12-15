@@ -3,19 +3,48 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Iniciar Sesion</h5>
+              <h5 class="modal-title">Iniciar Sesion</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+                <form [formGroup]="form" (ngSubmit)="onLogin()"  novalidate>
                     <div class="form-group">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1"> <i class="fa-solid fa-user"></i></span>
-                            <input type="email" name="nombreUsuario" class="form-style" placeholder="Su Usuario" id="nombreUsuario" autocomplete="off" [(ngModel)]="nombreUsuario" required>
+                        <div class="input-group mb-4">
+                            <span class="input-group-text" id="basic-addon1"> <i class="fa-solid fa-user 2x1"></i></span>
+                            <input type="text" name="nombreUsuario"  placeholder="Su Usuario" formControlName="nombreUsuario" [(ngModel)]="nombreUsuario" 
+                            [ngClass]="{'is-invalid': Usuario.errors && Usuario.touched,
+                             'is-valid':!Usuario.errors && Usuario.touched}">
+                            <div *ngIf="Usuario.errors  && Usuario.touched">    
+                              <p *ngIf="Usuario.hasError('required')" class="text-danger">
+                                  El usuario es requerido.
+                              </p>
+                              <p *ngIf="Usuario?.errors?.minlength
+                              " class="error">
+                                    El usuario debe tener como mínimo 3 caracteres.
+                                  </p>
+                            
+                            </div>
+                          
                           </div>
-                          <div class="input-group mb-3">
+                          <div class="input-group mt-3">
                             <span class="input-group-text" id="basic-addon1">  <i class="fa-solid fa-lock"></i></span>
-                            <input type="password" name="password" class="form-style" placeholder="Su password" id="password" autocomplete="off" [(ngModel)]="password" required>
+                            <input type="password" name="password" class="form-style" placeholder="Su password" formControlName="password" [(ngModel)]="password" 
+                            [ngClass]="{'is-invalid': Password.errors && Password.touched, 'is-valid':!Password.errors && Password.touched}">
+                            <div *ngIf="Password.errors  && Password.touched">    
+                              <p *ngIf="Password.hasError('required')" class="text-danger">
+                                  El password es requerido.
+                              </p>
+                              <p *ngIf="Password?.errors?.minlength
+                              " class="error">
+                                    El password debe tener como mínimo 3 caracteres.
+                              </p>
+                              <p *ngIf="Password?.errors?.maxlength
+                              " class="error">
+                                    El password debe tener como maximo 8 caracteres.
+                              </p>
+                            
+                            </div>
+                          
                           </div>
                        
                     </div>	

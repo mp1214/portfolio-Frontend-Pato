@@ -37,5 +37,6 @@ filmIcon = faLink;
   }
   login(){
   this.router.navigate(['/intro']);
+   
   }
   }
