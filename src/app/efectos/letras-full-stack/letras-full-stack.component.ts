@@ -12,7 +12,7 @@ efecto:persona|any=null;
   constructor(private letrasEfecto:PersonaService) { }
 
   ngOnInit(): void {
-    this.letrasEfecto.detail(2).subscribe(data =>{
+    this.letrasEfecto.detail(1).subscribe(data =>{
       this.efecto= data;
     })
   }

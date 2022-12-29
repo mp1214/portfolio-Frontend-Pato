@@ -10,7 +10,7 @@ i.fa-brands.fa-lg.fa-2x1{
     
   }
   .fa-user-lock{
-    font-size: 4vh;
+    font-size: 3vh;
     padding-top: 0.2vh;
     margin-left: 0.2vh;
   }
@@ -47,4 +47,7 @@ i.fa-brands.fa-lg.fa-2x1{
   i.fa-solid.fa-user-lock.fa-2x1:hover{
     color: #7e78d0;
    
+  }
+  .list-group-item{
+    border: none;
   }

@@ -1,28 +1,25 @@
 <div class="estudio">
-<div class="estudios m-2">
-    
-    <h1 class="title">Estudios</h1>
-    <ul class="list-group" style="list-style:none">
-        <li *ngFor="let estudio of educacion" class="list-group"> 
-            <h2 style="text-decoration:underline;">{{estudio.tipoeducacion}}</h2>
-            
-            <h2 class="titulo"><img [src]="estudio.icono"  alt="" width="2%">
-                {{estudio.titulo}}</h2>
-            <h2 class="ml-3"><i>{{estudio.institucion}} ({{estudio.inicio}} | {{estudio.fin}})</i></h2>
-           
-            
-        </li>
-    </ul>
-    <!--<h1>Cursos</h1>
-    <ul class="list-group" style="list-style:none">
-    <li> <img src="/assets/imagenes/Vector.png"  alt="" height="1.5%" width="1.5%">
-    <h2 class="titulo">Programación Web inicial: HTML5- CSS3 - JavaScript - GIT (Oracle-Alura)</h2> </li>
-    </ul>
-    <h1>Bootcamps</h1>
-    <ul class="list-group" style="list-style:none">
-    <li> <img src="/assets/imagenes/devops.png"  alt="" height="4.5%" width="4.5%">
-    <h2 class="titulo">Devops introducción: GIT - Docker - Kubernetes - Terraform (Instructora: Rossana Suarez)</h2> </li>
-    
-</ul>  -->  
+<div class="row ">
+    <div class="col-1"></div>
+    <div class="col-10 mt-3">
+    <h2 class="titulo">Estudios</h2>
+    <div class="row row-cols-1 row-cols-md-3 row-cols-xs-1 g-4 ">
+        <li *ngFor="let estudio of educacion" class="list-group">
+        <div class="col">
+          <div class="card text-center">
+            <h3 class="text-center">{{estudio.tipoeducacion}}</h3><br>
+            <img [src]="estudio.icono" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h4 class="card-title"> {{estudio.titulo}} </h4>
+              <h4 class="card-title"> {{estudio.institucion}}</h4>
+              <p>Inicio {{estudio.inicio}} - Fin {{estudio.fin}}</p>
+              <p class="card-text" *ngIf="estudio.cursando">Actualmente Estoy estudiando aquí</p>
+            </div>
+          </div>
+        </div>
+    </li>
+    </div>
+    </div>
+    <div class="col-1"></div> 
     </div>
 </div>

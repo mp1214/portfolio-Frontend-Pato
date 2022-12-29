@@ -1,52 +1,93 @@
-.proyectos{
-  border-left:3px solid rgb(21, 16, 22) ;
-   
-    
-     padding: 1%;
-     
-   }
-  
-  .justify{
-    display: flex;
-    justify-content: space-between;
-  }
-   .proyectos h1{
-     color: #0e076b;
-     font-size: 35px;
-     
-   }
-   .imagen{
-    width: 50vh;
 
-   }
-  img,.titulo{
+   .titulo{
+    color: #0e076b;
+    margin: 3vh 4vh;
+    font-size: 40px;
+    }
+
+  img{
     display: inline;
     margin-left: 10px;
     vertical-align: middle;
   }
-  ul{
-    margin-left: 2vh;
-  } 
+.col-10{
+  width: 100%;
+
+}
+
+    
+.proyecto{
+  background: linear-gradient(300deg,rgb(247, 241, 247),rgba(167, 164, 226, 0.8));
+  padding: 1vh 2vh;
+}
+
+ .card-img-top{
+ 
+  height: 300px;
+  margin: auto;
+  padding: 2%;
+ }
+ .card{
+  width: 70%;
+  background-color: transparent;
+  border: 2px solid #000;
+  margin: auto;
+  background-image: url(/assets/imagenes/pared-blanca.jpg);
+  background-position: center;
+  background-size:cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 0  10px rgba(40, 111, 198, 0.7);
+ }
+ 
+.experience__description{
+  display: flex;
+  justify-content:space-around;
+}
+.experience__description button{
+    background: #2A7AE4;
+   padding: 0 2%;
+    height: 51px;
+    width: 140px;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 19px;
+    border: none;
+    border-radius: 5px;
+    margin: 2% 0;
+    color: #FFFFFF;
+    background: #2A7AE4;
+
+}
+
+/*Mobile*/
+@media (max-width: 375px){
+  .experience__img{
+    width: 200px;
+    height: 100px;
+  }
+  .experiencie__box{
+    width: 420px;
    
-   .proyectos h2{
-   
-    font-size: 25px;
-   }
-   .proyecto{
-    background: linear-gradient(300deg,rgb(247, 241, 247),rgba(167, 164, 226, 0.8));
-    
-    
-    
-    padding: 1vh 1vh;
-   
-    
-   }
-   .enlace{
-    
-   /* font-size: 2.7vh;*/
-    margin-left: 5vh;
-   }
-   .lista{
-    margin-bottom: 20px;
-    font-size: 25px;
-   }
+ }
+  .proyectos h2{
+    font-size: 20px;
+  }
+  .experience__description{
+    display: flex;
+    flex-direction: column;
+  }
+}
+/*Mobile*/
+@media (min-width: 376px) and (max-width: 767px){
+  .experience__img{
+    width: 500px;
+    height: 250px;
+  }}
+  @media (min-width: 768px) and (max-width: 1600px){
+    .experience__img{
+      width: 650px;
+      max-height: 450px;
+    }
+}

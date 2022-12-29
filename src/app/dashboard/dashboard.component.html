@@ -69,13 +69,14 @@
         <div class="flip-card-back">
           <h1 class="pt-3">Datos Personales</h1> 
           <div class="botonagregar">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-personal">
-              <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-personal">
-                <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-personal">
                   <i class="fa-solid fa-pen" (click)="editar()"> Editar </i></button>
-              </div> 
+              </div>
+          <h1 class="pt-3">Acerca de Mi</h1> 
+              <div class="botonagregar">
+               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-personal">
+                  <i class="fa-solid fa-pen" (click)="quitar()"> Editar </i></button>
+                  </div>  
         </div>
       </div>
     </div>
@@ -116,13 +117,19 @@
               <!--<img src="imagenes/fotoPerfil.png" alt="Avatar" style="width:300px;height:300px;"-->
             </div>
             <div class="flip-card-back">
-              <h1 class="pt-3">Foto Perfil</h1> 
+              <h1 class="pt-3">Foto de Perfil</h1> 
              
               <div class="botonagregar">
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-foto">
                       <i class="fa-solid fa-pen" (click)="editar()"> Cambiar </i>
                   </button>
-              </div> 
+              </div>
+              <h1 class="pt-3">Foto de Banner</h1>
+              <div class="botonagregar">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-foto">
+                    <i class="fa-solid fa-pen" (click)="quitar()"> Cambiar </i>
+                </button>
+            </div> 
             </div>
           </div>
         </div>
@@ -152,59 +159,8 @@
           </div>
           </div>
           </div>
-
-
-          <div class="col">
-            <div class="flip-card">
-              <div class="row g-2 g-lg-3">
-              <div class="flip-card-inner">
-                <div class="flip-card-front" >
-                 <!-- <i class="fa-solid fa-person-dress-simple fa-lg" style="font-size: 20vh;"></i>
-                  -->
-                  <i class="fa-solid fa-id-card-clip" style="font-size: 130px;"></i>
-                </div>
-                <div class="flip-card-back">
-                  <h1 class="pt-3">Acerca de Mi</h1> 
-                  
-                  <div class="botonagregar">
-                  
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-acercademi">
-                      <i class="fa-solid fa-circle-minus" (click)="quitar()"> Quitar </i></button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-acercademi">
-                      <i class="fa-solid fa-pen" (click)="editar()"> Editar </i></button>
-                      </div> 
-                </div>
-              </div>
-            </div>
-            </div>
-            </div>
-
-            <div class="col">
-              <div class="flip-card">
-                <div class="row g-2 g-lg-3">
-                <div class="flip-card-inner">
-                  <div class="flip-card-front" >
-                                   
-                    <i class="fa-solid fa-solid fa-scale-balanced fa-lg" style="font-size: 130px;"></i>
-                   
-                  </div>
-                  <div class="flip-card-back">
-                    <h1 class="pt-3">Fortalezas/<br>Debilidades</h1> 
-                  
-                    <div class="botonagregar">
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-fortalezas-debilidades">
-                        <i class="fa-solid fa-circle-plus" (click)="evento()"> Agregar </i></button>
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-fortalezas-debilidades">
-                        <i class="fa-solid fa-circle-minus" (click)="quitar()" > Quitar </i></button>
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-fortalezas-debilidades">
-                        <i class="fa-solid fa-pen" (click)="editar()"> Editar </i></button>
-                    </div> 
-                  </div>
-                </div>
-              </div>
-              </div>
-              </div>
-              
+        
+        
               <div class="col">
                 <div class="flip-card">
                   <div class="row g-2 g-lg-3">
@@ -291,7 +247,6 @@
        <app-modal-skills [mje]="Agregar"></app-modal-skills>
        <app-modal-trabajo [mje]="Agregar"></app-modal-trabajo>
        <app-acercademi [mje]="Agregar"></app-acercademi>
-       <app-fortalezasydebilidades [mje]="Agregar"></app-fortalezasydebilidades>
        <app-letras-efectos [mje]="Agregar"></app-letras-efectos>
        <app-modal-proyectos [mje]="Agregar"></app-modal-proyectos>
        <app-modal-redes [mje]="Agregar"></app-modal-redes>

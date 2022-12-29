@@ -1,5 +1,20 @@
 
-    <h1 class="titulo" style="color:  #d7e037d0;">Acerca De mi...</h1>
-    <p class="acercademi"> {{AboutMe.acercaDeMi}}
-    </p>   
+    <section id="acerca_de_mi">  
+        <div class="row contenedor"> 
+            <div class="col-md-5"> 
+                <div class="imagen-pato">   
+                    <img [src]="AboutMe.img"  class="rounded-circle w-20" alt="">
+                    <h2> {{AboutMe.nombre}} {{AboutMe.apellido}}</h2>
+                    <h2>{{AboutMe.tituloEfecto}}</h2>
+                </div>
+            </div>
+            <div class="col-md-7"> 
+                <h1 class="titulo" style="color:  #d7e037d0;">Acerca De mi...</h1>
+                <p class="acercademi"> {{AboutMe.acercaDeMi}}
+                </p> 
+            </div>  
+        </div>
+    </section> 
+    
+     
            

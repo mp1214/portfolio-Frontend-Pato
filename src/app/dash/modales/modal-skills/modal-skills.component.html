@@ -35,34 +35,63 @@
                      </li> 
                       
                       </ul>
-                      <button type="button" class="btn btn-primary container-fluid">Guardar Cambios</button>
-                     </div>
+                    <!-- <button type="button" class="btn btn-primary container-fluid">Guardar Cambios</button>
+                     --> 
+                    </div>
                    
               </div>
                 
               <div *ngIf="mje === 'agregar'">
                 <h5 class="form text-center">Agregar Habilidad</h5>
-                <form (ngSubmit)="OnCreate()" novalidate #f="ngForm">
+                <form [formGroup]="form" (ngSubmit)="onEnviar($event)" name="certificadoForm">
                   <div class="mb-3">
                     <label id="habilidad" for="number">habilidad</label>
-                    <input type="text" class="form-control" id="habilidad" name="habilidad" aria-describedby="fortalezaHelp" [(ngModel)]="habilidad" required>
-                    <div id="habilidad" class="form-text">Ingrese la habilidad que considera poseer</div>
+                    <input type="text" class="form-control" id="habilidad" formControlName="habi"  [(ngModel)]="habilidad" placeholder="Ingrese la habilidad que considera poseer"
+                    [ngClass]="{'is-invalid': Habilidad.errors && Habilidad.touched, 'is-valid':!Habilidad.errors && Habilidad.touched}">
+                      <div *ngIf="Habilidad.errors  && Habilidad.touched">    
+                      <p *ngIf="Habilidad.hasError('required')" class="text-danger">
+                          El nombre de la habilidad es requerida.
+                      </p>
+                      <p *ngIf="Habilidad?.errors?.minlength
+                      " class="error">
+                            El titulo debe tener como mínimo 3 caracteres.
+                          </p>
+                    
+                    </div>
                   </div>
                   <div class="mb-3">
-                    <label for="porcentaje" class="form-label">Porcentaje</label>
-                    <input type="number" class="form-control" id="porcentaje" name="porcentaje" [(ngModel)]="porcentaje">
+                    <label for="porcentaje" class="form-label">Porcentaje (escala entre 1 - 100)</label>
+                    <input type="number" min="1" max="100" class="form-control" id="porcentaje" formControlName="porcentaje" 
+                    [(ngModel)]="porcentaje"  [ngClass]="{'is-invalid': Porcentaje.errors && Porcentaje.touched, 'is-valid':!Porcentaje.errors && Porcentaje.touched}">
+                    <div *ngIf="Porcentaje.errors  && Porcentaje.touched">    
+                      <p *ngIf="Porcentaje.hasError('required')" class="text-danger">
+                          El porcentaje es requerido.
+                      </p>
+                      <p *ngIf="Porcentaje?.errors?.minlength" class="error">
+                            El titulo debe tener como mínimo 3 caracteres.
+                          </p>
+                        <p *ngIf="Porcentaje.hasError('min')" class="text-danger">
+                            El porcentaje minimo es 1.
+                        </p>
+                        <p *ngIf="Porcentaje.hasError('max')" class="text-danger">
+                          El porcentaje maximo es 100.
+                      </p>
+                        </div>
                   </div>
                   <div class="mb-3">
                     <label for="icono" class="form-label">icono</label>
-                    <input type="file" class="form-control" id="icono" name="icono" [(ngModel)]="icono" (change)="uploadFile($event,false)">
-                    <div class="label" fxFlex="30" *ngIf="completed">Archivo cargado</div>
+                    <input type="file" class="form-control" id="icono" formControlName="icono" [(ngModel)]="icono" (change)="uploadImage($event)">
+                    <div class="label text-success" fxFlex="30" *ngIf="completed">Archivo cargado</div>
+                    <div class="label text-danger" fxFlex="30" *ngIf="!completed">Espere que el archivo se cargue...</div>
                   </div>
                 <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
+                <button type="submit" class="btn btn-dark container-fluid mt-3"  (click)="Limpiar();" >Limpiar</button>
+          
               </form>
                           
             </div>
             <div *ngIf="mje === 'editar'">
-              <h5 class="form text-center mb-3">Editar Experiencia</h5>
+              <h5 class="form text-center mb-3">Editar Habilidad</h5>
               <div *ngFor="let habilidad of hab" style="list-style:none">
                <ul>
                   <li type="button" class="habilidad" (click)="cargarDetalle(habilidad.id)" >{{habilidad.habilidad}}
@@ -73,23 +102,53 @@
                </ul>
              </div>
              <div *ngIf="habilidad">
-             <h5 class="form text-center">Agregar Experiencia</h5>
-             <form (ngSubmit)="OnUpdate(habilidad.id)" novalidate #f="ngForm">
+             <h5 class="form text-center">Habilidad</h5>
+             <form [formGroup]="form" (ngSubmit)="onEnviarEdit($event,habilidad.id)" name="certificadoForm">
                <div class="mb-3">
-                 <label id="fortaleza" for="number">Habilidad</label>
-                 <input type="text" class="form-control" id="cargo" name="cargo" aria-describedby="fortalezaHelp" [(ngModel)]="habilidad.habilidad" required>
-                 <div id="fortalezaHelp" class="form-text">Ingrese el puesto que posee</div>
-               </div>
+                 <label id="habilidad" for="number">Habilidad</label>
+                 <input type="text" class="form-control" id="habilidad"  formControlName="habi" [(ngModel)]="habilidad.habilidad"  
+                 [ngClass]="{'is-invalid': Habilidad.errors && Habilidad.touched, 'is-valid':!Habilidad.errors && Habilidad.touched}">    
+                        <p *ngIf="Habilidad.hasError('required')" class="text-danger">
+                            El nombre de la habilidad es requerida.
+                        </p>
+                        <p *ngIf="Habilidad?.errors?.minlength" class="error">
+                          El titulo debe tener como mínimo 3 caracteres.
+                        </p>
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="porcentaje" class="form-label">Porcentaje (escala entre 1 - 100)</label>
+                  <input type="number" min="1" max="100" class="form-control" id="porcentaje" formControlName="porcentaje" 
+                  [(ngModel)]="habilidad.porcentaje"  [ngClass]="{'is-invalid': Porcentaje.errors && Porcentaje.touched, 'is-valid':!Porcentaje.errors && Porcentaje.touched}">
+                  <div *ngIf="Porcentaje.errors  && Porcentaje.touched">    
+                    <p *ngIf="Porcentaje.hasError('required')" class="text-danger">
+                        El porcentaje es requerido.
+                    </p>
+                    <p *ngIf="Porcentaje?.errors?.minlength" class="error">
+                          El titulo debe tener como mínimo 3 caracteres.
+                        </p>
+                      <p *ngIf="Porcentaje.hasError('min')" class="text-danger">
+                          El porcentaje minimo es 1.
+                      </p>
+                      <p *ngIf="Porcentaje.hasError('max')" class="text-danger">
+                        El porcentaje maximo es 100.
+                    </p>
+                      </div>
+                </div>
                <div class="mb-3">
-                 <label for="exampleInputPassword1" class="form-label">porcentaje</label>
-                 <input type="text" class="form-control" id="exampleInputPassword1" id="empresa" name="empresa" aria-describedby="fortalezaHelp" [(ngModel)]="habilidad.porcentaje" required>
-               </div>
+                <label id="fortaleza" for="number">Ubicacion actual Imagen Certificado</label>
+                <textarea class="form-control mb-3"  style="height: 100px" formControlName="icono" name="icono" [(ngModel)]="habilidad.icono" readonly onmousedown="return false;"></textarea>
+              </div>
                <div class="mb-3">
-                <label for="icono" class="form-label">icono</label>
-               <input type="file" class="form-control" id="icono" name="icono" aria-describedby="fortalezaHelp" [(ngModel)]="habilidad.icono" (change)="uploadFile($event,false)" required>
+                <label for="icono" class="form-label">icono de la Habilidad</label>
+               <input type="file" class="form-control" id="icono" formControlName="icono" [(ngModel)]="icono" (change)="uploadImageEdit($event)" required>
+               <div class="label text-success" fxFlex="30" *ngIf="completed">Archivo cargado</div>
+               <div class="label text-danger" fxFlex="30" *ngIf="!completed">Espere que el archivo se cargue...</div>
+            
               </div>
              <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
-           </form>
+           
+            </form>
          </div>
            </div>
           <div class="col-1"></div>

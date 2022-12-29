@@ -1,26 +1,61 @@
-.experiencias img{
-    background-color:#73a4eed1
-  }
+
   .experiencia{
-  
-     
+
      padding: 1vh 1vh;
      background-image: url(/assets/imagenes/fondo\ dorado.jpg);
      background-repeat: no-repeat;
     
      background-size: cover;
-    
-    
-     
+
    }
-   
+   .col-10{
+    width: 100%;
+   }
+   .card{
+    width: 80%;
+    background-color: transparent;
+    border: 2px solid #000;
+    margin: auto;
+    background-image: url(/assets/imagenes/pared-blanca.jpg);
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    box-shadow: 0 0  10px rgba(40, 111, 198, 0.7);
+   }
+   h4{
+    color:#000;
+    font-weight: 400;
+    font-size: 25px;
+    font-family: 'Raleway';
+   }
+   h3{
+    color:#000;
+    font-weight: 600;
+    font-size: 25px;
+    font-family: 'Raleway';
+   }
+   p{
+    color:#000;
+    font-weight: 300;
+    font-size: 20px;
+    font-family: 'Raleway';
+   }
+   .card-img-top{
+    width: 30%;
+    max-height: 20%;
+    margin: auto;
+   } 
    .experiencias{
     border-radius: 5vh;
     margin: 1%;
     padding: 1%;
    }
-   
-   img,.titulo{
+   .titulo{
+    color: #0e076b;
+    margin: 3vh 4vh;
+    font-size: 40px;
+    }
+   img{
     display: inline;
     margin-left: 10px;
     vertical-align: middle;
@@ -32,10 +67,7 @@
     font-size: 2.2rem;
     
   }
-  .experiencia h2{
-   
-    font-size: 25px;
-   }
+
    .lista-experiencia{
 margin: 3vh 0;
    }

@@ -12,7 +12,7 @@ export class BannerComponent implements OnInit {
   constructor(private banerDatos:PersonaService) { }
 
   ngOnInit(): void {
-    this.banerDatos.detail(2).subscribe(data =>{
+    this.banerDatos.detail(1).subscribe(data =>{
      this.banerInfo= data;
      
     })

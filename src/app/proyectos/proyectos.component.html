@@ -1,21 +1,30 @@
-<div class="proyecto">
-<div class="proyectos" >
-    
-    <h1>Proyectos</h1>
-    
-    <ul class="list-group" style="list-style:none">
-      <li *ngFor="let proyecto of proyectos" class="lista">
-        <h2 class="titulo">{{proyecto.proyecto}}</h2> 
-        <a class="enlace" [href]="proyecto.path" target="_blanK">Enlace al proyecto</a>
-        <img class="imagen" [src]="proyecto.img" alt="enlace al proyecto">
+<section class="experience proyecto" id="xp">
+<div class="row ">
+<div class="col-1"></div>
+    <div class="col-10">
+    <h2 class="titulo" >Proyectos</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xs-1 g-4 ">
+      <li *ngFor="let proyecto of proyectos" class="list-group">
+      <div class="col">
+        <div class="card text-center">
+          <h3 class="text-center">{{proyecto.proyecto}}</h3><br>
+          <img [src]="proyecto.img" class="card-img-top" alt="...">
+          <br>
+          <div class="experience__description">
+            <!-- Pon el enlace del proyecto en Github o GithubPages -->
+                <span class="experience__repo"><a href={{proyecto.repositorio}} target="_blanK"><button class="experiencia__botao--repo">Repositorio</button></a></span>
+                <span class="experience__demo">  <a class="enlace" [href]="proyecto.path" target="_blanK"><button class="experiencia__botao--repo">Jugar</button></a></span>
         
-      </li>
-       
-   
-   <!-- <li> <img src="/assets/imagenes/Vector.png"  alt="" height="1.5%" width="1.5%">
-    <h2 class="titulo">{{miPortfolio.proyectos.nombre}}</h2> 
-    <a class="enlace" [href]="miPortfolio.proyectos.enlace" target="_blanK">Enlace al proyecto</a>
-    </li>-->
-</ul>
-    </div>
+              </div>
+              <br>
+        </div>
+        
+      </div>
+      
+  </li>
+  </div>
+
 </div>
+<div class="col-1"></div>
+</div>
+</section>

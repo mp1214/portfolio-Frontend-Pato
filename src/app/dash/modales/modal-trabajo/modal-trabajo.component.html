@@ -23,39 +23,98 @@
                   <br>
                   {{experiencia.inicio}}   {{experiencia.fin}}
                   <i class="fa-solid fa-xmark"
-                 
+                  [ngStyle]="{'color':'red'}"
                   ></i>
                 </li> 
                  
                  </ul>
-                 <button type="button" class="btn btn-primary container-fluid">Guardar Cambios</button>
-                </div>
+                 </div>
               <div *ngIf="mje === 'agregar'">
                 <h5 class="form text-center">Agregar Experiencia</h5>
-                <form (ngSubmit)="OnCreate()" novalidate #f="ngForm">
+                <form [formGroup]="form" (ngSubmit)="onEnviar($event)" novalidate >
                   <div class="mb-3">
-                    <label id="fortaleza" for="number">Puesto</label>
-                    <input type="text" class="form-control" id="cargo" name="cargo" aria-describedby="fortalezaHelp" [(ngModel)]="cargo" required>
-                    <div id="fortalezaHelp" class="form-text">Ingrese el puesto que posee</div>
+                    <label id="cargo" for="number">Puesto</label>
+                    <input type="text" id="cargo" class="form-control" formControlName="cargo" name="cargo" [(ngModel)]="cargo"
+                    [ngClass]="{'is-invalid': Cargo.errors && Cargo.touched, 'is-valid':!Cargo.errors && Cargo.touched}">
+                    <div *ngIf="Cargo.errors  && Cargo.touched">    
+                      <p *ngIf="Cargo.hasError('required')" class="text-danger">
+                          El titulo del estudio es requerido.
+                      </p>
+                      <p *ngIf="Cargo?.errors?.minlength" class="error">
+                            El Cargo debe tener como mínimo 3 caracteres.
+                          </p>
+                      <p *ngIf="Cargo?.errors?.maxlength" class="error">
+                            El Cargo debe tener como maximo 25 caracteres.
+                      </p>
+                    </div>
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Empresa</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" id="empresa" name="empresa" aria-describedby="fortalezaHelp" [(ngModel)]="empresa" required>
+                    <input type="text" class="form-control" formControlName="empresa" id="empresa" name="empresa" [(ngModel)]="empresa"
+                    [ngClass]="{'is-invalid': Empresa.errors && Empresa.touched, 'is-valid':!Empresa.errors && Empresa.touched}">
+                    <div *ngIf="Empresa.errors  && Empresa.touched">    
+                      <p *ngIf="Empresa.hasError('required')" class="text-danger">
+                          El nombre de la empresa es requerido.
+                      </p>
+                      <p *ngIf="Empresa?.errors?.minlength" class="error">
+                            El nombre de la empresa debe tener como mínimo 3 caracteres.
+                          </p>
+                      <p *ngIf="Empresa?.errors?.maxlength" class="error">
+                        El nombre de la empresa debe tener como maximo 25 caracteres.
+                      </p>
+                    </div>
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Descripcion del puesto</label>
-                    <textarea type="text" class="form-control" id="exampleInputPassword1" id="descripcion" name="descripcion" aria-describedby="fortalezaHelp" [(ngModel)]="descripcion"></textarea>
+                    <textarea type="text" class="form-control" formControlName="descripcion" name="descripcion" [(ngModel)]="descripcion"
+                    [ngClass]="{'is-invalid': Descripcion.errors && Descripcion.touched, 'is-valid':!Descripcion.errors && Descripcion.touched}"></textarea>
+                    <div *ngIf="Descripcion.errors  && Descripcion.touched">    
+                      <p *ngIf="Descripcion.hasError('required')" class="text-danger">
+                          La descripcion del cargo es requerido.
+                      </p>
+                      <p *ngIf="Descripcion?.errors?.minlength" class="error">
+                            La descripcion del cargo debe tener como mínimo 10 caracteres.
+                          </p>
+                      <p *ngIf="Descripcion?.errors?.maxlength" class="error">
+                        La descripcion del cargo debe tener como maximo 350 caracteres.
+                      </p>
+                    </div>
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Fecha en la que trabajo:</label>
-                    <br><label class="label-fecha"> Inicio</label>
-                    <input type="date" class="form-control input-date" id="Finicio" name="Finicio" aria-describedby="fortalezaHelp" [(ngModel)]="inicio" required>
-                    <label class="label-fecha"> Fin</label>
-                    <input type="date" class="form-control input-date" id="Ffin" name="Ffin" [(ngModel)]="fin">
-                    <label class="label-fecha"><input type="checkbox" id="trabajoAqui"  name="trabajoAqui" [(ngModel)]="es_trabajo_actual">Actualmente trabajo aquí</label>
-                    <input type="file" class="form-control mb-4" id="icono" name="icono" aria-describedby="fortalezaHelp" [(ngModel)]="imgE">
+                    <br><label class="label-fecha">Fecha Inicio</label>
+                    <input type="date" class="form-control input-date" formControlName="inicio" name="inicio" [(ngModel)]="inicio"
+                    [ngClass]="{'is-invalid': Inicio.errors && Inicio.touched, 'is-valid':!Inicio.errors && Inicio.touched}">
+                    <div *ngIf="Inicio.errors  && Inicio.touched">    
+                      <p *ngIf="Inicio.hasError('required')" class="text-danger">
+                          La fecha de inicio del estudio es requerida.
+                      </p>
+                     <p *ngIf="Inicio?.errors?.maxlength" class="error">
+                            la fecha debe tener como maximo 8 numeros.
+                      </p>
+                    </div>
+                    <label class="label-fecha">Fecha Fin</label>
+                    <input type="date" class="form-control input-date" formControlName="fin" name="fin" [(ngModel)]="fin"
+                    [ngClass]="{'is-invalid': Fin.errors && Fin.touched, 'is-valid':!Fin.errors && Fin.touched}">
+                    <div *ngIf="Fin.errors  && Fin.touched">    
+                      <p *ngIf="Fin.hasError('required')" class="text-danger">
+                          La fecha de inicio del estudio es requerida.
+                      </p>
+                     <p *ngIf="Fin?.errors?.maxlength" class="error">
+                            la fecha debe tener como maximo 8 numeros.
+                      </p>
+                    </div>
+                    <label class="label-fecha"><input type="checkbox" formControlName="es_trabajo_actual"  name="es_trabajo_actual" (change)="isDisabled(expression)"  [(ngModel)]="es_trabajo_actual">Actualmente trabajo aquí</label>
+                    <div class="mb-3">
+                    <label class="label-fecha"> Imagen de Empresa</label>
+                    <input type="file" class="form-control mb-4"  formControlName="imgE" name="imgE" [(ngModel)]="imgE" (change)="uploadImage($event)">
+                    <div class="label text-success" fxFlex="30" *ngIf="completed">Archivo cargado</div>
+                    <div class="label text-danger" fxFlex="30" *ngIf="!completed">Espere a que se cargue el Archivo..</div>
                   </div>
+                </div>
                 <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
+                <button type="submit" class="btn btn-dark container-fluid mt-3"  (click)="Limpiar();" >Limpiar</button>
+          
               </form>
               </div>
               <div *ngIf="mje === 'editar'">
@@ -70,32 +129,101 @@
                   </ul>
                 </div>
                 <div *ngIf="experiencia">
-                <h5 class="form text-center">Agregar Experiencia</h5>
-                <form (ngSubmit)="OnUpdate(experiencia.id)" novalidate #f="ngForm">
+                <h5 class="form text-center">Modificar Experiencia</h5>
+                <form  [formGroup]="form" (ngSubmit)="OnUpdate(experiencia.id)" novalidate >
                   <div class="mb-3">
-                    <label id="fortaleza" for="number">Puesto</label>
-                    <input type="text" class="form-control" id="cargo" name="cargo" aria-describedby="fortalezaHelp" [(ngModel)]="experiencia.cargo" required>
-                    <div id="fortalezaHelp" class="form-text">Ingrese el puesto que posee</div>
+                    <label id="fortaleza" for="number">Cargo</label>
+                    <input type="text" class="form-control" name="cargo"  formControlName="cargo" [(ngModel)]="experiencia.cargo" 
+                    [ngClass]="{'is-invalid': Cargo.errors && Cargo.touched, 'is-valid':!Cargo.errors && Cargo.touched}">
+                    <div *ngIf="Cargo.errors  && Cargo.touched">    
+                      <p *ngIf="Cargo.hasError('required')" class="text-danger">
+                          El titulo del estudio es requerido.
+                      </p>
+                      <p *ngIf="Cargo?.errors?.minlength" class="error">
+                            El Cargo debe tener como mínimo 3 caracteres.
+                          </p>
+                      <p *ngIf="Cargo?.errors?.maxlength" class="error">
+                            El Cargo debe tener como maximo 25 caracteres.
+                      </p>
+                    </div>
+
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Empresa</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" id="empresa" name="empresa" aria-describedby="fortalezaHelp" [(ngModel)]="experiencia.empresa" required>
+                    <input type="text" class="form-control"  name="empresa" formControlName="empresa" [(ngModel)]="experiencia.empresa"
+                    [ngClass]="{'is-invalid': Empresa.errors && Empresa.touched, 'is-valid':!Empresa.errors && Empresa.touched}">
+                    <div *ngIf="Empresa.errors  && Empresa.touched">    
+                      <p *ngIf="Empresa.hasError('required')" class="text-danger">
+                          El nombre de la empresa es requerido.
+                      </p>
+                      <p *ngIf="Empresa?.errors?.minlength" class="error">
+                            El nombre de la empresa debe tener como mínimo 3 caracteres.
+                          </p>
+                      <p *ngIf="Empresa?.errors?.maxlength" class="error">
+                        El nombre de la empresa debe tener como maximo 25 caracteres.
+                      </p>
+                    </div>
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Descripcion del puesto</label>
-                    <textarea type="text" class="form-control" id="exampleInputPassword1" id="descripcion" name="descripcion" aria-describedby="fortalezaHelp" [(ngModel)]="experiencia.descripcion"></textarea>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Fecha en la que trabajo:</label>
-                    <br><label class="label-fecha"> Inicio</label>
-                    <input type="date" class="form-control input-date" id="Finicio" name="Finicio" aria-describedby="fortalezaHelp" [(ngModel)]="experiencia.inicio" required>
-                    <label class="label-fecha"> Fin</label>
-                    <input type="date" class="form-control input-date" id="Ffin" name="Ffin" [(ngModel)]="experiencia.fin">
-                    <label class="label-fecha"><input type="checkbox" id="trabajoAqui"  name="trabajoAqui" [(ngModel)]="es_trabajo_actual">Actualmente trabajo aquí</label>
-                    <input type="file" class="form-control mb-4" id="icono" name="icono" aria-describedby="fortalezaHelp" [(ngModel)]="experiencia.imgE">
+                    <textarea type="text" class="form-control"  name="descripcion" formControlName="descripcion" [(ngModel)]="experiencia.descripcion"
+                    [ngClass]="{'is-invalid': Descripcion.errors && Descripcion.touched, 'is-valid':!Descripcion.errors && Descripcion.touched}"></textarea>
+                    <div *ngIf="Descripcion.errors  && Descripcion.touched">    
+                      <p *ngIf="Descripcion.hasError('required')" class="text-danger">
+                          La descripcion del cargo es requerido.
+                      </p>
+                      <p *ngIf="Descripcion?.errors?.minlength" class="error">
+                            La descripcion del cargo debe tener como mínimo 10 caracteres.
+                          </p>
+                      <p *ngIf="Descripcion?.errors?.maxlength" class="error">
+                        La descripcion del cargo debe tener como maximo 250 caracteres.
+                      </p>
+                    </div>
                   </div>
 
+                  <div class="mb-3">
+                    <label  class="form-label">Fecha en la que trabajo:</label>
+                    <br><label class="label-fecha">Fecha Inicio</label>
+                    <input type="date" class="form-control input-date" name="inicio" formControlName="inicio" [(ngModel)]="experiencia.inicio" 
+                    [ngClass]="{'is-invalid': Inicio.errors && Inicio.touched, 'is-valid':!Inicio.errors && Inicio.touched}">
+                    <div *ngIf="Inicio.errors  && Inicio.touched">    
+                      <p *ngIf="Inicio.hasError('required')" class="text-danger">
+                          La fecha de inicio del estudio es requerida.
+                      </p>
+                     <p *ngIf="Inicio?.errors?.maxlength" class="error">
+                            la fecha debe tener como maximo 8 numeros.
+                      </p>
+                    </div>
+                    
+                    <label class="label-fecha">Fecha Fin</label>
+                    
+                    <input type="date" class="form-control input-date"  name="fin" formControlName="fin" [(ngModel)]="experiencia.fin"
+                    [ngClass]="{'is-invalid': Fin.errors && Fin.touched, 'is-valid':!Fin.errors && Fin.touched}">
+                    <div *ngIf="Fin.errors  && Fin.touched">    
+                      <p *ngIf="Fin.hasError('required')" class="text-danger">
+                          La fecha de inicio del estudio es requerida.
+                      </p>
+                     <p *ngIf="Fin?.errors?.maxlength" class="error">
+                            la fecha debe tener como maximo 8 numeros.
+                      </p>
+                    
+                    </div>
+                    <label class="label-fecha"><input type="checkbox"  name="es_trabajo_actual" formControlName="es_trabajo_actual" (change)="isDisabled(expression)" [(ngModel)]="experiencia.esTrabajoActual">Actualmente trabajo aquí</label>
+                    <br>
+                    <label class="label">Url de la Imagen actual Empresa</label>
+                    <!--   <input type="text" class="form-control mb-4" formControlName="icono" name="icono" [(ngModel)]="edu.icono" readonly onmousedown="return false;">-->
+                    <div class="form-floating">
+                     <textarea class="form-control mb-3"  style="height: 100px" formControlName="imgE" name="imgE" [(ngModel)]="experiencia.imgE" readonly onmousedown="return false;"></textarea>
+                    </div>
+                    <div class="mb-3">
+                    <label class="label-fecha"> Imagen de Empresa</label>
+                    <input type="file" class="form-control mb-4" formControlName="imgE" id="imgE" [(ngModel)]="experiencia.imgE" name="imgE"(change)="uploadImageEdit($event)"  >
+                    <div class="label text-success" fxFlex="30" *ngIf="completed">Archivo cargado</div>
+                    <div class="label text-danger" fxFlex="30" *ngIf="!completed">Espere a que se cargue el Archivo..</div>
+                    </div>
+
                 <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
+                </div>
               </form>
             </div>
               </div>

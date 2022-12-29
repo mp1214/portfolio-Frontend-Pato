@@ -3,7 +3,7 @@ import { TokenService } from 'src/app/servicios/token.service';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { Router } from '@angular/router';
 import { LoginUsuario } from 'src/app/model/login-usuario';
-
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -19,9 +19,14 @@ export class LoginComponent implements OnInit {
     password!:string;
     roles : string[]=[];
     errMsj!:string;
+    form: FormGroup|any=null;
    
-   
-  constructor(private tokenService:TokenService, private authService:AuthService,private router:Router) { }
+  constructor(private tokenService:TokenService, private authService:AuthService,private router:Router,private formBuilder: FormBuilder) {
+    this.form=this.formBuilder.group({
+      nombreUsuario:['',[Validators.required, Validators.minLength(3),Validators.maxLength(12)]],
+      password:['',[Validators.required, Validators.minLength(3),Validators.maxLength(12)]]
+    })
+   }
 
   ngOnInit(): void {
     if(this.tokenService.getToken()){
@@ -30,11 +35,25 @@ export class LoginComponent implements OnInit {
       this.roles = this.tokenService.getAuthorities();
 
     }
-
   }
+    get Usuario(){
+      return this.form.get("nombreUsuario");
+    }
+
+    get Password(){
+      return this.form.get("password");
+    }
+    get NombreUsuarioValid(){
+      return this.Usuario.touched && !this.Usuario.valid;
+    }
+    get PasswordValid(){
+      return this.Password.touched && !this.Password.valid;
+    }
     onLogin():void{
       this.loginUsuario= new LoginUsuario(this.nombreUsuario,this.password);
-       this.authService.login(this.loginUsuario).subscribe(data=>{
+    
+      
+      this.authService.login(this.loginUsuario).subscribe(data=>{
         this.isLogged=true;
         this.isLogginFail= false;
         this.tokenService.setToken(data.token);
@@ -45,7 +64,8 @@ export class LoginComponent implements OnInit {
          if(this.nombreUsuario=="user"){
         this.router.navigate(['intro'])
        }else{
-        if(this.nombreUsuario=="admin"){
+        console.log(this.nombreUsuario)
+        if(this.nombreUsuario=="patricia"){
           this.router.navigate(['/dashboard'])
         }
 

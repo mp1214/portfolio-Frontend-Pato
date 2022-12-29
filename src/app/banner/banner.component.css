@@ -1,27 +1,16 @@
 
 .banner{
-    margin-top: .3%;  
-    
-    /*background-image: url(/assets/imagenes/banner-marmolado.jpg);*/
     background-position: center;
     background-size:cover;
     background-repeat: no-repeat;
     width: 100%;
-    max-height: 750px;
+    min-height: 850px;
     display: block;
-       
     }
-   .container{
-    background-size:cover;
-    background-repeat: no-repeat;
-   }
- 
-    /*imagen pato*/
-   h2{
-     
+    
+ h2{
       font-weight: 500;
-      margin-left: 3rem;
-      
+      margin-left: 200px;
       color: #f9f1f9;
       font-size: calc(2.5*1.5vw);
      }
@@ -31,23 +20,17 @@
       
     }
    
-   button{
-        margin-left: 200px;
-        margin-top: 0px;
+    @media screen and (max-width:375px) {
+      h2{
+        margin-left: 35px;
         
+        font-size: 30px;
+
     }
-  
+    }
 
-  /*  @media screen and (min-width:601px) and (max-width: 800px) {
-      button {
-        margin-left: 15vh ;
-
-        
-      }
-      
-
+    @media screen and (min-width:601px) and (max-width: 800px) {
       .banner{
-
         margin-top: 1vh;  
         background-size:cover;
         background-repeat: no-repeat;
@@ -56,37 +39,4 @@
               
         }
     }
-    @media screen and (min-width:201px) and (max-width: 600px) {
-      .banner{
-   margin-top: 1vh;  
-   background-size:cover;
-   background-repeat: no-repeat;
-   min-height: 250px;
-   max-height: 250px;
-         
-   }
-   .contenido-banner{
-    margin-left: calc(1*1.5vw);
-    min-width: 15vh;
-    margin-top: 30vh- calc(1*1.5vw);
-  }
-  .contenido-banner button{
-    margin-left: calc(0.5*1.5vw);
-  }
-    }
-
-  
-
-   @media screen and (min-width:801px) {
-    button{
-      margin-left: calc(19.5*1.5vw);
-      
-       
-  }
-  .contenido-banner{
-    margin-left: calc(1*1.5vw);
-    min-width: 15vh;
-    margin-top: calc(1*1.5vw);
-  }
-}*/
 

@@ -9,9 +9,6 @@ import { RedesComponent } from './redes/redes.component';
 import { BannerComponent } from './banner/banner.component';
 import { LetrasFullStackComponent } from './efectos/letras-full-stack/letras-full-stack.component';
 import { AcercadeMiComponent } from './acercade-mi/acercade-mi.component';
-import { ImagenPatoComponent } from './efectos/imagen-pato/imagen-pato.component';
-import { TarjetaFortalezasComponent } from './efectos/tarjeta-fortalezas/tarjeta-fortalezas.component';
-import { BotonPersonalComponent } from './botones/boton-personal/boton-personal.component';
 import { FooterComponent } from './footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ErrorComponent } from './error/error.component';
@@ -23,16 +20,12 @@ import { ModalTrabajoComponent } from './dash/modales/modal-trabajo/modal-trabaj
 import { ModalPersonalComponent } from './dash/modales/modal-personal/modal-personal.component';
 import { IntroComponent } from './intro/intro.component';
 
-
-
 import { CertificadosComponent } from './certificados-yskills/certificados/certificados.component';
 import { SkillsComponent } from './certificados-yskills/habilidades/skills/skills.component';
 import { EstudiosComponent } from './estudios-experiencia/estudios/estudios.component';
 import { ExperienciaComponent } from './estudios-experiencia/experiencia/experiencia.component';
 import { FotoperfilComponent } from './banner/fotoperfil/fotoperfil.component';
-import { SeccionacercademiComponent } from './acercade-mi/seccionacercademi/seccionacercademi.component';
 import { AcercademiComponent } from './dash/modales/acercademi/acercademi.component';
-import { FortalezasydebilidadesComponent } from './dash/modales/fortalezasydebilidades/fortalezasydebilidades.component';
 import { LetrasEfectosComponent } from './dash/modales/letras-efectos/letras-efectos.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
 import { HttpClientModule} from '@angular/common/http';
@@ -46,6 +39,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,9 +49,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     BannerComponent,
     LetrasFullStackComponent,
     AcercadeMiComponent,
-    ImagenPatoComponent,
-    TarjetaFortalezasComponent,
-    BotonPersonalComponent,
     FooterComponent,
     DashboardComponent,
     ErrorComponent,
@@ -73,9 +64,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     EstudiosComponent,
     ExperienciaComponent,
     FotoperfilComponent,
-    SeccionacercademiComponent,
     AcercademiComponent,
-    FortalezasydebilidadesComponent,
     LetrasEfectosComponent,
     ProyectosComponent,
     ModalProyectosComponent,
@@ -94,10 +83,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     provideStorage(() => getStorage()),
     FontAwesomeModule,
     ReactiveFormsModule,
- 
+   
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+ 
 })
 export class AppModule { }
 
