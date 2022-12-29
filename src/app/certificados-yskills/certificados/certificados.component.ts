@@ -6,7 +6,7 @@ import { CertificadoService } from 'src/app/servicios/certificado.service';
 
 @Component({
   selector: 'app-certificados',
-  templateUrl: './certificados.component.html',
+  templateUrl:'./certificados.component.html',
   styleUrls: ['./certificados.component.css']
 })
 

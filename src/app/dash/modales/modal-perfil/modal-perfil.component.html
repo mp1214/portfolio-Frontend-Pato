@@ -10,9 +10,7 @@
         <div class="row">
           <div class="col-1"></div>
           <div class="col-10">
-           
-             
-                <div *ngIf="mje === 'editar'">
+                <div *ngIf="mje === 'editar'"><!--imagen perfil-->
                 <h5 class="text-center mb-3">Modificar Imagen</h5>
                 <div *ngFor="let foto of fotos" style="list-style:none">
                 <ul >
@@ -26,69 +24,56 @@
               </ul>
                 </div>
               <div *ngIf="fotoperfil">
-                <form (ngSubmit)="OnUpdate(fotoperfil.id)" novalidate #f="ngForm">
+                <form (ngSubmit)="OnUpdatePerfil(fotoperfil.id)" novalidate #f="ngForm">
                   <div class="mb-3">
                   
                     <label class="label">Foto Perfil</label>
-                    <input type="file" class="form-control mb-4" id="img" name="img" aria-describedby="fortalezaHelp" [(ngModel)]="fotoperfil.img" (change)="uploadImage($event)">
-                    <div class="label" fxFlex="30" *ngIf="!completo">Archivo cargado</div>
-                     <div class="label" fxFlex="30" *ngIf="completo">Espere a que se cargue el Archivo..</div>
+                    <input type="file" class="form-control mb-4" accept="image/*" name="img" [(ngModel)]="fotoperfil.img" (change)="uploadImageEdit($event,'perfil')">
+                    <div class="label" fxFlex="30" *ngIf="completed">Archivo cargado</div>
+                     <div class="label" fxFlex="30" *ngIf="!completed">Espere a que se cargue el Archivo..</div>
                   
                   </div>
                   <button  type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
                </form>
               </div>
             </div>
+
+            <div *ngIf="mje === 'quitar'"><!--Imagen Banner -Uso quitar solo para distinguir el ngif-->
+              <h5 class="text-center mb-3">Modificar Imagen de Banner</h5>
+              <div *ngFor="let foto of fotos" style="list-style:none">
+              <ul >
+              <li type="button" class="fortDebil" (click)="cargarDetalle(foto.id)"><img [src]="foto.imgBanner" [ngStyle]="{'width':'50%'}" alt="">
+              <i class="fa-solid fa-pen"
+                 
+              [ngStyle]="{'color':'green'}"
+              
+              ></i>
+            </li>
+            </ul>
+              </div>
+            <div *ngIf="fotoperfil">
+              <form (ngSubmit)="OnUpdateBanner(fotoperfil.id)" novalidate #f="ngForm">
+                <div class="mb-3">
+                
+                  <label class="label">Foto Banner</label>
+                  <input type="file" class="form-control mb-4" id="img" name="img" accept="image/*" [(ngModel)]="fotoperfil.imgBanner" (change)="uploadImageEdit($event,'banner')">
+                  <div class="label" fxFlex="30" *ngIf="completed">Archivo cargado</div>
+                   <div class="label" fxFlex="30" *ngIf="!completed">Espere a que se cargue el Archivo..</div>
+                
+                </div>
+                <button  type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
+             </form>
+            </div>
+          </div>
            
             </div>
+          </div>
           <div class="col-1"></div>
         
       
     
-    </div>
+   
   </div>
 </div>
 
  
- 
- <!-- Modal perfil
- <div>
-    <div class="modal fade" id="exampleModal-foto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <h1>Administrar Foto </h1>
-
-        <div class="container modal-dialog">
-       
-        
-          <div *ngIf="mje === 'quitar'" class="contenedor">
-            <h2> Quitar Foto</h2>
-            <div class="perfil" >
-          <img [src]="fotoperfil" [ngStyle]="{'width':'15%'}" class="rounded-circle" alt="">
-          <i class="fa-solid fa-xmark"
-             
-          [ngStyle]="{'color':'red'}"
-          
-          ></i>
-        </div>
-          </div>
-
-         
-              <div *ngIf="mje === 'agregar'" class="imagen modal-content">
-                <h2>Agregar Foto de Perfil</h2>
-              <label id="imagen-user" for="imagen-user">Cambiar foto</label>
-            <form name="imagen-user" type="POST" enctype="multipart/formdata" >
-              <input type="file" name="imagen-user" />
-              </form>
-            
-           
-            </div>
-                 
-             
-            <div class="form-group">
-              <button type="submit" id="submit">
-                Guardar
-              </button>
-            </div>
-          
-        </div>
-      </div>
-    </div>-->

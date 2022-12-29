@@ -1,75 +1,53 @@
-.proyectos{
-  border-left:3px solid rgb(21, 16, 22) ;
-  font-family: 'Raleway';
-    
-     padding: 1%;
-     
-   }
+
    .titulo{
     color: #0e076b;
-    font-size: 2.2rem;
+    margin: 3vh 4vh;
+    font-size: 40px;
     }
-  .justify{
-    display: flex;
-    justify-content: space-between;
-  }
-   .proyectos h2{
-     color: #0e076b;
-     font-size: 30px;
-     
-   }
-   .imagen{
-    width: 50vh;
 
-   }
-  img,.titulo{
+  img{
     display: inline;
     margin-left: 10px;
     vertical-align: middle;
   }
-  ul{
-    margin-left: 2vh;
-  } 
-    
-   .proyecto{
-    background: linear-gradient(300deg,rgb(247, 241, 247),rgba(167, 164, 226, 0.8));
+.col-10{
+  width: 100%;
 
-   }
-   .enlace{
-    
-   /* font-size: 2.7vh;*/
-    margin-left: 5vh;
-   }
-   .lista{
-    margin-bottom: 20px;
-    font-size: 25px;
-   }
+}
 
-   .experience__img{
-    width: 60%;
-    margin: 2% 2%;
- }
- .experiencie__box{
-    text-align: center;
-    margin: auto;
- }
- .experience{
-    width: 100%;
-    padding: 1vh 2vh;
- }
- h2 .experience__title{
-  text-align: center;
+    
+.proyecto{
+  background: linear-gradient(300deg,rgb(247, 241, 247),rgba(167, 164, 226, 0.8));
+  padding: 1vh 2vh;
+}
+
+ .card-img-top{
  
-  font-weight: 200;
- } 
-.experience__info{
-
-  font-weight: 200;
+  height: 300px;
+  margin: auto;
+  padding: 2%;
+ }
+ .card{
+  width: 70%;
+  background-color: transparent;
+  border: 2px solid #000;
+  margin: auto;
+  background-image: url(/assets/imagenes/pared-blanca.jpg);
+  background-position: center;
+  background-size:cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 0  10px rgba(40, 111, 198, 0.7);
+ }
+ 
+.experience__description{
+  display: flex;
+  justify-content:space-around;
 }
 .experience__description button{
     background: #2A7AE4;
    padding: 0 2%;
     height: 51px;
+    width: 140px;
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
@@ -82,23 +60,27 @@
     background: #2A7AE4;
 
 }
-.experience__title,.experience__text{
-    font-family: 'Raleway';
-    font-size: 20px;
-    line-height: 25px;
-}
+
 /*Mobile*/
-@media (max-width: 378px){
+@media (max-width: 375px){
   .experience__img{
     width: 200px;
     height: 100px;
   }
+  .experiencie__box{
+    width: 420px;
+   
+ }
   .proyectos h2{
     font-size: 20px;
   }
+  .experience__description{
+    display: flex;
+    flex-direction: column;
+  }
 }
 /*Mobile*/
-@media (min-width: 379px) and (max-width: 767px){
+@media (min-width: 376px) and (max-width: 767px){
   .experience__img{
     width: 500px;
     height: 250px;

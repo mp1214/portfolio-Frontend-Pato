@@ -2,6 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import { Redes } from 'src/app/model/redes';
 import { RedesService } from 'src/app/servicios/redes.service';
 import { ImageService } from 'src/app/servicios/image.service';
+import {FormBuilder,FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-modal-redes',
@@ -15,16 +16,43 @@ export class ModalRedesComponent implements OnInit {
   imagen:string="";
   nombre:string="";
   path:string="";
-  
+  form: FormGroup|any=null;
+
   @Input() mje:string=""
 
-  constructor(private redes:RedesService, private imageService:ImageService) { }
-
+  constructor(private redes:RedesService, private imageService:ImageService,private formBuilder:FormBuilder) {
+    this.form=this.formBuilder.group({
+      nombre:['',[Validators.required, Validators.minLength(3),Validators.maxLength(35)]],
+      path:['',[Validators.required, Validators.minLength(10),Validators.maxLength(85)]],
+      imagen:['',[Validators.required,Validators.minLength(5),Validators.maxLength(55)]],
+      
+   })
+  }
   ngOnInit(): void {
     this.redes.lista().subscribe(data =>{
       this.redesList= data;
       console.log(this.mje)
     })
+  }
+
+  get Nombre(){
+    return this.form.get("nombre");
+  }
+  get Path(){
+    return this.form.get("path");
+  }
+  get NombreValid(){
+    return this.Nombre.touched && !this.Nombre.valid;
+  }
+
+  get PathValid(){
+    return this.Path.touched && !this.Path.valid;
+  }
+  get Imagen(){
+    return this.form.get("imagen");
+  }
+  get ImagenValid(){
+    return this.Imagen.touched && !this.Imagen.valid;
   }
   cargarRedes():void{
     this.redes.lista().subscribe(data =>{this.red=data;})
@@ -67,10 +95,7 @@ export class ModalRedesComponent implements OnInit {
   OnUpdate(id?:number):void{
     // this.ids!=id;
      // const id=this.activatedRouter.snapshot.params['id'];
-     
-   
       if(id != undefined){
-        console.log(this.red)
         this.redes.update(id,this.red).subscribe(data=>{
           alert("Red social modificada"); 
           this.cargarRedes();
@@ -80,6 +105,19 @@ export class ModalRedesComponent implements OnInit {
       })
     }
   }
+  onEnviar(event:Event){
+    event.preventDefault;
+    if(this.form.valid){
+    
+      this.OnCreate();
+  
+    }else{
+      this.form.markAllAsTouched(); 
+    }
+  }
+  Limpiar():void{
+    this.form.reset();
+    }
  /* uploadImage($event:any){
      const name="red_"+ this.id;
      this.imageService.uploadImage($event,name);

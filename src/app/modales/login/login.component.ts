@@ -23,8 +23,8 @@ export class LoginComponent implements OnInit {
    
   constructor(private tokenService:TokenService, private authService:AuthService,private router:Router,private formBuilder: FormBuilder) {
     this.form=this.formBuilder.group({
-      nombreUsuario:['',[Validators.required, Validators.minLength(3),Validators.maxLength(8)]],
-      password:['',[Validators.required, Validators.minLength(3),Validators.maxLength(8)]]
+      nombreUsuario:['',[Validators.required, Validators.minLength(3),Validators.maxLength(12)]],
+      password:['',[Validators.required, Validators.minLength(3),Validators.maxLength(12)]]
     })
    }
 
@@ -64,7 +64,8 @@ export class LoginComponent implements OnInit {
          if(this.nombreUsuario=="user"){
         this.router.navigate(['intro'])
        }else{
-        if(this.nombreUsuario=="admin"){
+        console.log(this.nombreUsuario)
+        if(this.nombreUsuario=="patricia"){
           this.router.navigate(['/dashboard'])
         }
 

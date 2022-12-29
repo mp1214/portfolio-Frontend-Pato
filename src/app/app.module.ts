@@ -20,15 +20,12 @@ import { ModalTrabajoComponent } from './dash/modales/modal-trabajo/modal-trabaj
 import { ModalPersonalComponent } from './dash/modales/modal-personal/modal-personal.component';
 import { IntroComponent } from './intro/intro.component';
 
-
-
 import { CertificadosComponent } from './certificados-yskills/certificados/certificados.component';
 import { SkillsComponent } from './certificados-yskills/habilidades/skills/skills.component';
 import { EstudiosComponent } from './estudios-experiencia/estudios/estudios.component';
 import { ExperienciaComponent } from './estudios-experiencia/experiencia/experiencia.component';
 import { FotoperfilComponent } from './banner/fotoperfil/fotoperfil.component';
 import { AcercademiComponent } from './dash/modales/acercademi/acercademi.component';
-import { FortalezasydebilidadesComponent } from './dash/modales/fortalezasydebilidades/fortalezasydebilidades.component';
 import { LetrasEfectosComponent } from './dash/modales/letras-efectos/letras-efectos.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
 import { HttpClientModule} from '@angular/common/http';
@@ -40,6 +37,7 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -67,7 +65,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     ExperienciaComponent,
     FotoperfilComponent,
     AcercademiComponent,
-    FortalezasydebilidadesComponent,
     LetrasEfectosComponent,
     ProyectosComponent,
     ModalProyectosComponent,
@@ -86,10 +83,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     provideStorage(() => getStorage()),
     FontAwesomeModule,
     ReactiveFormsModule,
- 
+   
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+ 
 })
 export class AppModule { }
 

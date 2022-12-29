@@ -1,6 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { persona } from 'src/app/model/persona';
 import { PersonaService } from 'src/app/servicios/persona.service';
+import {FormBuilder,FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-acercademi',
@@ -10,11 +11,13 @@ import { PersonaService } from 'src/app/servicios/persona.service';
 export class AcercademiComponent implements OnInit {
 descripcion: persona[]=[];
 descrip:persona|any=null;
-@Input() mje:string=""
+@Input() mje:string="";
+form:FormBuilder|any=null;
 
-  constructor(private acercademi:PersonaService) { }
- 
+  constructor(private acercademi:PersonaService,private formBuilder:FormBuilder) {
   
+   }
+
   ngOnInit(): void {
     this.cargarPersona();
     }
@@ -24,7 +27,7 @@ descrip:persona|any=null;
        
       })
     }
- 
+  
   cargarDescrip():void{
     this.acercademi.lista().subscribe(data =>{this.descripcion= data; })
   

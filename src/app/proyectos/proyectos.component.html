@@ -3,23 +3,27 @@
 <div class="col-1"></div>
     <div class="col-10">
     <h2 class="titulo" >Proyectos</h2>
-<div class="progress-outer">
-  <div class="experiencie__box">
-      <div class="">
-        <li *ngFor="let proyecto of proyectos" class="proyectos" style="list-style:none">
-          <h2 class="experience__info">{{proyecto.proyecto}}</h2> 
-          <img class="experience__img" [src]="proyecto.img" alt="enlace al proyecto">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xs-1 g-4 ">
+      <li *ngFor="let proyecto of proyectos" class="list-group">
+      <div class="col">
+        <div class="card text-center">
+          <h3 class="text-center">{{proyecto.proyecto}}</h3><br>
+          <img [src]="proyecto.img" class="card-img-top" alt="...">
+          <br>
           <div class="experience__description">
             <!-- Pon el enlace del proyecto en Github o GithubPages -->
-                <span class="experience__repo"><a href="https://github.com/mp1214/DesafioONE-Encriptador" target="_blanK"><button class="experiencia__botao--repo">Repositorio</button></a></span>
+                <span class="experience__repo"><a href={{proyecto.repositorio}} target="_blanK"><button class="experiencia__botao--repo">Repositorio</button></a></span>
                 <span class="experience__demo">  <a class="enlace" [href]="proyecto.path" target="_blanK"><button class="experiencia__botao--repo">Jugar</button></a></span>
         
               </div>
-        </li>
-          
+              <br>
+        </div>
+        
       </div>
-  </div>  
-</div>
+      
+  </li>
+  </div>
+
 </div>
 <div class="col-1"></div>
 </div>

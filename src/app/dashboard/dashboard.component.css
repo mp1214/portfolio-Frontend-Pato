@@ -1,7 +1,8 @@
 .dashboard{
     background-image: url(/assets/imagenes/pared-negra.png);
-    min-height: 120vh;
-    
+    min-height: 70vh;
+    width: 100%;
+   
 }
 .flip-card {
     background-color: transparent;
@@ -55,9 +56,7 @@
   .fa-id-card-clip,.fa-wand-magic-sparkles,.fa-share-nodes,.fa-award{
     margin-top:5.5vh;
   }
-  .efecto{
-    margin:2vh 1vh 2vh 1vh;
-  }
+
   /*botones tarjeta*/
   .fa-circle-plus,.fa-circle-minus{
     margin-top: 0%;
@@ -73,64 +72,37 @@
     margin: 20px auto 
   }
  
-  /*modales*/
-  .container{
+   .container{
     background-image: url(/src/assets/imagenes/pared-negra.png);
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  /*  margin: 20px auto;*/
     }
-    .container .flex{
-      display: flex;
-      justify-content: center;
-    }
-    .list-group-horizontal .list-group-item{
-     
-      background-color: transparent;
-      color: #fff;
-    }
+  
     .fa-user{
       background-color: transparent;
       display: flex;
-     
-      align-items: top;
+        
       align-items: center;
     }
-    .list-group-horizontal{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .modal.fade {
-      box-sizing: border-box;
-      height: 200rem;
-       
-    }
-    .imagen.modal-content{
-      background-color: rgba(233, 233, 243, 0.341);
-      padding: 2vh 2vh 2vh 2vh;
-    }
+  
+    
     h1{
       font-size: 25px;
       margin-bottom: 0.5 rem;
       
     }
-    .modal {
-      font-family: sans-serif;
-      line-height: 1.4;
-      margin: 0;
-      background-color: rgba(220, 239, 127, 0.8);
-      background-position: center;
-      color: rgb(9, 3, 3); 
-     
-    }
+  
     
     .form-group.modal-content{
       background-color:rgba(145, 145, 211, 0.8);
     }
-    .modal-dialog{
-      max-width: 100rem;
-    }
-    
+     
     
     p {
       font-size: 1.125rem;
@@ -145,72 +117,8 @@
       margin-bottom: 0.5rem;
     }
     
-    input, buttom, select, textarea {
-      margin: 0;
-      font-family: inherit;
-      font-size: inherit;
-      line-height: inherit;
-    }
-    
+        
     button {
       border: none;
     }
-    
-    .container {
-      width: 100%;
-      margin: 3.125rem auto 0 auto;
-      padding: 0%;
-    }
-    
-    #title {
-      text-align: center;
-      padding: 0 0.625rem;
-      margin-bottom: 1.875rem;
-    }
-    
-    #description {
-      text-align: center;
-      font-style: italic;
-      font-weight: 200;
-      text-shadow: 1px 1px 1px rgb(0 0 0 / 40%);
-    }
-    .input-textarea {
-      min-height: 120px;
-      width: 100%;
-      padding: 0.625rem;
-      resize: vertical;
-    }
-    
-    #submit {
-      display: block;
-      width: 100%;
-      padding: 0.75rem;
-      background: #8e6ca4;
-      color: inherit;
-      border-radius: 2px;
-      cursor: pointer;
-    }
-    footer{
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-    }
-    .footer{
-      text-align: center;
-    }
-  /*footer*/
-  .footer{
-    margin-top: 1vh;
-    width: 100%;
-   
-    background: linear-gradient(450deg,rgb(171, 171, 247),black);
-    border-radius:10px;
-    box-shadow: 0,20px,30px darkblue;
-    color: white;
   
-  }
-  .efecto{
-    color:#000000;
-    font-size: 5vh;
-    
- 
-  }

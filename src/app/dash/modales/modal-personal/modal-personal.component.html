@@ -6,74 +6,335 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        
         <div class="row">
           <div class="col-1"></div>
           <div class="col-10">
-            <form>
-              <div class="mb-3">
-                <div *ngIf="mje === 'quitar'">
-                    <h5 class="text-center mb-3">Quitar Información Personal</h5>
-                      <h6 class="personal" >Fecha de nacimiento: {{nacimiento}}<i class="fa-solid fa-xmark"
-                        [ngStyle]="{'color':'red'}"
-                        ></i> </h6>
-                      <h6 class="personal">Provincia: {{provincia}}<i class="fa-solid fa-xmark"
-                        [ngStyle]="{'color':'red'}"
-                        ></i></h6>
-                      <h6 class="personal">Telefono: {{telefono}}<i class="fa-solid fa-xmark"
-                        [ngStyle]="{'color':'red'}"
-                        ></i></h6>
-                      <h6 class="personal">E-mail: {{mail}}<i class="fa-solid fa-xmark"
-                        [ngStyle]="{'color':'red'}"
-                        ></i></h6>
-                      <h6 class="personal">Estado Civil: {{estadoCivil}}<i class="fa-solid fa-xmark"
-                        [ngStyle]="{'color':'red'}"
-                        ></i></h6>
+           
+             
+                <div *ngIf="mje === 'editar'">
+                <h5 class="text-center mb-3">Modificar Imagen</h5>
+                <div *ngFor="let per of pers" style="list-style:none">
+                <ul >
+                <li type="button" class="personal" (click)="cargarDetalle(per.id)">{{per.nombre}} {{per.apellido}}
+                <i class="fa-solid fa-pen"
                    
-                      
-                  
-              </div>
+                [ngStyle]="{'color':'green'}"
                 
-              <div *ngIf="mje === 'agregar'">
-                <h5 class="form text-center mb-3">Agregar Información Personal</h5>
-                <form action="./registro_concluido.html">
+                ></i>
+              </li>
+              </ul>
+                </div>
+              <div *ngIf="persona">
+                <form [formGroup]="form" (ngSubmit)="OnUpdatePersonal(persona.id)" novalidate>
                   <div class="mb-3">
-                    <label id="fnac" for="number">Fecha Nacimiento</label>
-                    <input type="date" class="form-control" id="fnac" aria-describedby="fortalezaHelp" required>
-                    <div id="fortalezaHelp" class="form-text">Ingrese la habilidad que considera poseer</div>
+                     <label id="estudio-curso" for="number" class="label">Nombre</label>
+                     <input type="text" class="form-control" id="estudio-curso" formControlName="nombre" name="nombre" [(ngModel)]="persona.nombre" 
+                     [ngClass]="{'is-invalid': Nombre.errors && Nombre.touched, 'is-valid':!Nombre.errors && Nombre.touched}">
+                   <div *ngIf="Nombre.errors  && Nombre.touched">    
+                     <p *ngIf="Nombre.hasError('required')" class="text-danger">
+                         El nombre de la persona es requerido.
+                     </p>
+                     <p *ngIf="Nombre?.errors?.minlength" class="error">
+                           El nombre debe tener como mínimo 3 caracteres.
+                         </p>
+                     <p *ngIf="Nombre?.errors?.maxlength" class="error">
+                           El titulo debe tener como maximo 25 caracteres.
+                     </p>
+                   </div>
                   </div>
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Provincia - País</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" required>
+               <div class="fecha mb-3">
+                 <label class="label">Apellido:</label>
+                  <input type="text" class="form-control mb-4" id="fecha1" formControlName="apellido" name="apellido" [(ngModel)]="persona.apellido" 
+                 [ngClass]="{'is-invalid': Apellido.errors && Apellido.touched, 'is-valid':!Apellido.errors && Apellido.touched}">
+                 <p *ngIf="Nombre.hasError('required')" class="text-danger">
+                   El apellido de la persona es requerido.
+               </p>
+                 <div *ngIf="Apellido.errors  && Apellido.touched">    
+                   <p *ngIf="Apellido?.errors?.maxlength" class="error">
+                        el apellido debe tener como maximo 25 numeros.
+                   </p>   
+                   <p *ngIf="Apellido?.errors?.minlength" class="error">
+                     el apellido debe tener como minimo 3 caracteres.
+                </p>
+                 </div>
+                
+               </div>
+              
+                 <div class="mb-3">
+                 <label class="label">Domicilio</label>
+                 <input type="text" class="form-control mb-4"  name="domicilio"  formControlName="domicilio" [(ngModel)]="persona.domicilio"
+                 [ngClass]="{'is-invalid': Direccion.errors && Direccion.touched, 'is-valid':!Direccion.errors && Direccion.touched}">
+                 <p *ngIf="Direccion.hasError('required')" class="text-danger">
+                   El domicilio de la persona es requerido.
+               </p>
+                 <div *ngIf="Direccion.errors  && Direccion.touched">    
+                   <p *ngIf="Direccion?.errors?.maxlength" class="error">
+                        la direccion debe tener como maximo 25 numeros.
+                   </p>
+                   <p *ngIf="Direccion?.errors?.minlength" class="error">
+                     La direccion debe tener como minimo 3 caracteres.
+               </p>
+                 </div>
+                 </div>
+                 <div class="fecha mb-3">
+                   <label class="label">Email:</label>
+                    <input type="text" class="form-control mb-4"  formControlName="email" name="email" [(ngModel)]="persona.email" 
+                   [ngClass]="{'is-invalid': Email.errors && Email.touched, 'is-valid':!Email.errors && Email.touched}">
+                   <p *ngIf="Email.hasError('required')" class="text-danger">
+                     El email de la persona es requerido.
+                 </p>
+                   <div *ngIf="Email.errors  && Email.touched">    
+                     <p *ngIf="Email?.errors?.maxlength" class="error">
+                         El Email debe tener como maximo 25 caracteres.
+                     </p>   
+                     <p *ngIf="Email?.errors?.minlength" class="error">
+                       El Email debe tener como minimo 10 caracteres.
+                  </p>
+                   </div>
+                  
+                 </div>
+                    
+                 <div class="fecha mb-3">
+                   <label class="label">Telefono:</label>
+                    <input type="text" class="form-control mb-4"  formControlName="telefono" name="telefono" [(ngModel)]="persona.telefono" 
+                   [ngClass]="{'is-invalid': Email.errors && Email.touched, 'is-valid':!Telefono.errors && Telefono.touched}">
+                   <p *ngIf="Telefono.hasError('required')" class="text-danger">
+                     El telefono de la persona es requerido.
+                 </p>
+                   <div *ngIf="Telefono.errors  && Telefono.touched">    
+                     <p *ngIf="Telefono?.errors?.maxlength" class="error">
+                         El telefono debe tener como maximo 15 caracteres.
+                     </p>   
+                     <p *ngIf="Telefono?.errors?.minlength" class="error">
+                       El telefono debe tener como minimo 6 caracteres.
+                  </p>
+                   </div>
+                  
                   </div>
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Telefono</label>
-                    <input type="number" class="form-control" id="exampleInputPassword1" required>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Email</label>
-                    <input type="mail" type="email" class="form-control" id="exampleInputPassword1" required>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Estado Civil</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" required>
-                  </div>
-
                
-              </form>
+               
+               <button type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
+         </form>
+        
               </div>
-                <button type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
             </div>
-            </form>
+
+            <div *ngIf="mje === 'quitar'"><!--Uso quitar solo para distinguir el ngif-->
+              <h5 class="text-center mb-3">Modificar Acerca de mí</h5>
+              <div *ngFor="let per of pers" style="list-style:none">
+              <ul >
+              <li type="button" class="personal" (click)="cargarDetalle(per.id)">{{per.acercaDeMi}}
+              <i class="fa-solid fa-pen"
+                 
+              [ngStyle]="{'color':'green'}"
+              
+              ></i>
+            </li>
+            </ul>
+              </div>
+            <div *ngIf="persona">
+              <form [formGroup]="form" (ngSubmit)="OnUpdateAcerca(persona.id)" novalidate>
+                <div class="mb-3">
+                  <label id="estudio-curso" for="number" class="label">Acerca de Mi</label>
+                  <textarea class="form-control mb-3"  style="height: 100px" formControlName="acerca_de_mi" name="acerca_de_mi" [(ngModel)]="persona.acercaDeMi"
+                  [ngClass]="{'is-invalid': AcercaDeMi.errors && AcercaDeMi.touched, 'is-valid':!AcercaDeMi.errors && AcercaDeMi.touched}">
+                  </textarea>
+                <div *ngIf="AcercaDeMi.errors  && AcercaDeMi.touched">    
+                  <p *ngIf="AcercaDeMi.hasError('required')" class="text-danger">
+                     La Descripcion Acerca de mi es requerido.
+                  </p>
+                  <p *ngIf="AcercaDeMi?.errors?.minlength" class="error">
+                    La Descripcion debe tener como mínimo 3 caracteres.
+                      </p>
+                  <p *ngIf="AcercaDeMi?.errors?.maxlength" class="error">
+                    La Descripcion debe tener como maximo 25 caracteres.
+                  </p>
+                </div>
+               </div>
+                <button  type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
+             </form>
             </div>
+          </div>
+           
+            </div>
+          </div>
           <div class="col-1"></div>
-        </div>
-      </div>
+        
+      
     
+   
+  </div>
+</div>
+<!--<div class="modal fade" id="exampleModal-personal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 >Información Personal</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-10">
+              <div class="mb-3">
+                <div *ngIf="mje === 'editar'">
+                  <h5 class="form text-center mb-3">Editar Persona</h5>
+                 <div *ngFor="let per of pers" style="list-style:none">
+                  <ul>
+                     <li type="button" class="personal"(click)="cargarDetalle(per.id)" >{{per.nombre}} {{per.apellido}}
+                      <i class="fa-solid fa-pen"
+                      [ngStyle]="{'color':'green'}"
+                      
+                      ></i>
+                    </li>
+                  </ul>
+                 
+                </div>
+
+                <div *ngIf="persona">
+                <form [formGroup]="form" (ngSubmit)="OnUpdate(persona.id)" novalidate>
+                     <div class="mb-3">
+                        <label id="estudio-curso" for="number" class="label">Nombre</label>
+                        <input type="text" class="form-control" id="estudio-curso" formControlName="nombre" name="nombre" [(ngModel)]="persona.nombre" 
+                        [ngClass]="{'is-invalid': Nombre.errors && Nombre.touched, 'is-valid':!Nombre.errors && Nombre.touched}">
+                      <div *ngIf="Nombre.errors  && Nombre.touched">    
+                        <p *ngIf="Nombre.hasError('required')" class="text-danger">
+                            El nombre de la persona es requerido.
+                        </p>
+                        <p *ngIf="Nombre?.errors?.minlength" class="error">
+                              El nombre debe tener como mínimo 3 caracteres.
+                            </p>
+                        <p *ngIf="Nombre?.errors?.maxlength" class="error">
+                              El titulo debe tener como maximo 25 caracteres.
+                        </p>
+                      </div>
+                     </div>
+                  <div class="fecha mb-3">
+                    <label class="label">Apellido:</label>
+                     <input type="text" class="form-control mb-4" id="fecha1" formControlName="apellido" name="apellido" [(ngModel)]="persona.apellido" 
+                    [ngClass]="{'is-invalid': Apellido.errors && Apellido.touched, 'is-valid':!Apellido.errors && Apellido.touched}">
+                    <p *ngIf="Nombre.hasError('required')" class="text-danger">
+                      El apellido de la persona es requerido.
+                  </p>
+                    <div *ngIf="Apellido.errors  && Apellido.touched">    
+                      <p *ngIf="Apellido?.errors?.maxlength" class="error">
+                           el apellido debe tener como maximo 25 numeros.
+                      </p>   
+                      <p *ngIf="Apellido?.errors?.minlength" class="error">
+                        el apellido debe tener como minimo 3 caracteres.
+                   </p>
+                    </div>
+                   
+                  </div>
+                 
+                    <div class="mb-3">
+                    <label class="label">Domicilio</label>
+                    <input type="text" class="form-control mb-4"  name="domicilio"  formControlName="domicilio" [(ngModel)]="persona.domicilio"
+                    [ngClass]="{'is-invalid': Direccion.errors && Direccion.touched, 'is-valid':!Direccion.errors && Direccion.touched}">
+                    <p *ngIf="Direccion.hasError('required')" class="text-danger">
+                      El domicilio de la persona es requerido.
+                  </p>
+                    <div *ngIf="Direccion.errors  && Direccion.touched">    
+                      <p *ngIf="Direccion?.errors?.maxlength" class="error">
+                           la direccion debe tener como maximo 25 numeros.
+                      </p>
+                      <p *ngIf="Direccion?.errors?.minlength" class="error">
+                        La direccion debe tener como minimo 3 caracteres.
+                  </p>
+                    </div>
+                    </div>
+                    <div class="fecha mb-3">
+                      <label class="label">Email:</label>
+                       <input type="text" class="form-control mb-4"  formControlName="email" name="email" [(ngModel)]="persona.email" 
+                      [ngClass]="{'is-invalid': Email.errors && Email.touched, 'is-valid':!Email.errors && Email.touched}">
+                      <p *ngIf="Email.hasError('required')" class="text-danger">
+                        El email de la persona es requerido.
+                    </p>
+                      <div *ngIf="Email.errors  && Email.touched">    
+                        <p *ngIf="Email?.errors?.maxlength" class="error">
+                            El Email debe tener como maximo 25 caracteres.
+                        </p>   
+                        <p *ngIf="Email?.errors?.minlength" class="error">
+                          El Email debe tener como minimo 10 caracteres.
+                     </p>
+                      </div>
+                     
+                    </div>
+                       
+                    <div class="fecha mb-3">
+                      <label class="label">Telefono:</label>
+                       <input type="text" class="form-control mb-4"  formControlName="telefono" name="telefono" [(ngModel)]="persona.telefono" 
+                      [ngClass]="{'is-invalid': Email.errors && Email.touched, 'is-valid':!Telefono.errors && Telefono.touched}">
+                      <p *ngIf="Telefono.hasError('required')" class="text-danger">
+                        El telefono de la persona es requerido.
+                    </p>
+                      <div *ngIf="Telefono.errors  && Telefono.touched">    
+                        <p *ngIf="Telefono?.errors?.maxlength" class="error">
+                            El telefono debe tener como maximo 15 caracteres.
+                        </p>   
+                        <p *ngIf="Telefono?.errors?.minlength" class="error">
+                          El telefono debe tener como minimo 6 caracteres.
+                     </p>
+                      </div>
+                     
+                     </div>
+                  
+                  
+                  <button type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
+            </form>
+            
+          </div>
+
+                </div>
+              </div>
+           
+          </div>
+         <div *ngIf="mje ==='quitar'">
+          <h5 class="form text-center mb-3">Editar Acerca de Mí</h5>
+          <div *ngFor="let per of pers" style="list-style:none">
+            <ul>
+              <li type="button" class="personal"(click)="cargarDetalle(per.id)" >{{per.acerca_de_mi}}
+                <i class="fa-solid fa-pen"
+                [ngStyle]="{'color':'green'}"
+                
+                ></i>
+              </li>
+            </ul>
+          
+          </div>
+  
+  
+  <div *ngIf="persona">
+  <form [formGroup]="form" (ngSubmit)="OnUpdate(persona.id)" novalidate>
+       <div class="mb-3">
+          <label id="estudio-curso" for="number" class="label">Acerca de Mi</label>
+          <input type="text" class="form-control" id="estudio-curso" formControlName="acerca_de_mi" name="acerca_de_mi" [(ngModel)]="persona.acerca_de_mi" 
+          [ngClass]="{'is-invalid': AcercaDeMi.errors && AcercaDeMi.touched, 'is-valid':!Nombre.errors && Nombre.touched}">
+        <div *ngIf="AcercaDeMi.errors  && AcercaDeMi.touched">    
+          <p *ngIf="Nombre.hasError('required')" class="text-danger">
+             La Descripcion Acerca de mi es requerido.
+          </p>
+          <p *ngIf="AcercaDeMi?.errors?.minlength" class="error">
+            La Descripcion debe tener como mínimo 3 caracteres.
+              </p>
+          <p *ngIf="AcercaDeMi?.errors?.maxlength" class="error">
+            La Descripcion debe tener como maximo 25 caracteres.
+          </p>
+        </div>
+       </div>
+    <button type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
+  
+  </form>
+</div>
+        </div>      
+  
+          </div>
+</div>
     </div>
   </div>
 </div>
-
-
+-->
 <!--
 <div>
     <div class="modal fade" id="exampleModal-personal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:auto">

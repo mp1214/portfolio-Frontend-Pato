@@ -52,7 +52,7 @@ export class ModalCertificadosComponent implements OnInit {
     this.certifi.detail(id).subscribe(data=>{
       this.cert=data;
       this.urlActual=this.cert.img;
-     
+      this.completed=false;
     },err=>{
       alert("error al modificar");
     })
@@ -73,15 +73,10 @@ export class ModalCertificadosComponent implements OnInit {
     }
   }
   OnCreate():void{
-     //this.img = this.imageService.url;
-   // this.images.push(this.img)
-    this.img=this.url;
-
-   // this.titulo1=this.titulo;
-     const habi= new Certificado(this.titulo,this.img)
-    
+    this.img=this.imageService.url[this.imageService.url.length-1];
+     const habi= new Certificado(this.titulo,this.img) 
      this.certifi.save(habi).subscribe(data=>{
-       alert("certificado añadida");
+       alert("certificado añadido");
        this.cargarCertificado();
        
      },err=>{
@@ -90,38 +85,43 @@ export class ModalCertificadosComponent implements OnInit {
      
    }
   OnUpdate(id?:number):void{
-    // this.ids!=id;
-     // const id=this.activatedRouter.snapshot.params['id'];
-        
-     this.cert.img = this.url;
-    
+     this.cert.img = this.imageService.url[this.imageService.url.length-1];
       if(id != undefined){
           this.certifi.update(id,this.cert).subscribe(data=>{
-           
             alert("certificado modificado"); 
           this.cargarCertificado();
       },err =>{
         alert("Error al modificar certificado");
-        
       })
     }
   }
-  
   uploadImage($event:any){
-
+    this.imageService.uploadImage($event,1);
+   // this.completed=this.imageService.completed[this.imageService.completed.length-1];
+    setTimeout(() => {
+      this.completed = true;
+    }, 8000);
+  }
+  uploadImageEdit($event:any){
+    if(this.urlActual==null||this.urlActual==""){
+      this.imageService.uploadImage($event,1);
+    }else{
+    this.imageService.uploadImageEdit($event,1,this.urlActual);
+    }
+  //  this.completed=this.imageService.completed[this.imageService.completed.length-1];
+  setTimeout(() => {
+    this.completed = true;
+  }, 8000);
+  }
+  /*
+  uploadImage($event:any){
      const file=$event.target.files[0];
-    // const name="certif_"+ (this.images.length+1);
     const filePath = file.name;
-    // this.imageService.uploadImage($event,filePath,1);
-     const fileRef= ref(this.storage,`imagen/Certificado/`+ filePath);
-     //  const fileRef= ref(this.storage,`imagen/Skill/`+ filePath);
-         uploadBytes(fileRef,file)
-       .then(response=>{this.getImages(file);
-        /* this.completed = true;*/})
+    const fileRef= ref(this.storage,`imagen/Certificado/`+ filePath);
+    uploadBytes(fileRef,file)
+    .then(response=>{this.getImages(file);
+  })
        .catch(error=> console.log(error))
-    
-  
-    // }
    }
    getImages(file:any){
     const imagesRef=ref(this.storage,'imagen/Certificado/');
@@ -142,7 +142,8 @@ export class ModalCertificadosComponent implements OnInit {
     console.log(urlActual)
     this.uploadImageEdit($event,urlActual)
   }*/
-  uploadImageEdit($event:any){
+ 
+/*  uploadImageEdit($event:any){
     const file=$event.target.files[0];
    // const name="certif_"+ (this.images.length+1);
    const filePath = file.name;
@@ -185,7 +186,7 @@ export class ModalCertificadosComponent implements OnInit {
    
  
    // }
-  }
+  }*/
   onEnviar(event:Event){
     event.preventDefault;
     if(this.form.valid){

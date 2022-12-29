@@ -4,6 +4,7 @@ import { Habilidad } from 'src/app/model/habilidad';
 import { ImageService } from 'src/app/servicios/image.service';
 import { Storage,ref,uploadBytes,list,getDownloadURL,deleteObject } from '@angular/fire/storage';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { DefaultUrlSerializer } from '@angular/router';
 
 @Component({
   selector: 'app-modal-skills',
@@ -24,7 +25,7 @@ export class ModalSkillsComponent implements OnInit {
   $even:Event|any;
   form: FormGroup|any=null;
   habi : string="";
-
+  band:boolean=false;
   constructor(private skills:HabilidadService,public imageService:ImageService,public storage : Storage,private formBuilder:FormBuilder) {
     this.form=this.formBuilder.group({
       icono:[''],
@@ -60,7 +61,8 @@ cargarDetalle(id?:number){
   if(id != undefined){
   this.skills.detail(id).subscribe(data=>{
     this.habilidad=data;
-    
+    this.urlActual=this.habilidad.icono;
+    this.completed=false;
   },err=>{
     alert("error al modificar");
   })
@@ -70,9 +72,7 @@ this.urlActual=this.habilidad.icono;
 OnCreate():void{
   
  // this.icono=this.imageService.url;
- if(this.imageService.completed[this.imageService.completed.length-1]=="true")
- {this.completed= true;
-} 
+
  this.icono=this.imageService.url[this.imageService.url.length-1];
   const habi= new Habilidad(this.habilidad,this.porcentaje,this.icono);
 
@@ -97,10 +97,12 @@ borrar(id?:number){
 }
 
 OnUpdate(id?:number):void{
-  
-  // this.ids!=id;
-   // const id=this.activatedRouter.snapshot.params['id'];
-   //this.completed= this.imageService.completed[ this.imageService.completed.length-1];
+  if(this.band==false){
+    this.habilidad.icono=this.urlActual;
+  }else{
+   this.habilidad.icono=this.imageService.url[this.imageService.url.length-1];
+  }
+ 
   this.habilidad.icono = this.imageService.url[this.imageService.url.length-1];
     if(id != undefined){
         this.skills.update(id,this.habilidad).subscribe(data=>{
@@ -112,19 +114,19 @@ OnUpdate(id?:number):void{
   }
 }
 uploadImage($event:any) {
- // this.$even=$event;
-  this.file = $event.target.files[0];
-  const filePath = this.file.name;
-  this.imageService.uploadImage($event,filePath,0);
- 
+  
+  this.imageService.uploadImage($event,0);
+  console.log( setTimeout(() => {
+    this.completed = true;
+  }, 6000));
+  // this.completed=this.imageService.completado;
+  
 }
 
 onEnviar(event:Event){
   event.preventDefault;
   if(this.form.valid){
-  
     this.OnCreate();
-
   }else{
     this.form.markAllAsTouched(); 
   }
@@ -141,45 +143,20 @@ onEnviarEdit($event:any,id:number){
   }
 }
 uploadImageEdit($event:any){
-  const file=$event.target.files[0];
- // const name="certif_"+ (this.images.length+1);
- const filePath = file.name;
- // this.imageService.uploadImage($event,filePath,1);
-  //const fileRef= ref(this.storage,`imagen/Certificado/`+ filePath);
-  //  const fileRef= ref(this.storage,`imagen/Skill/`+ filePath);
-  const imagesRef=ref(this.storage,'imagen/Certificado/');
-  
-  list(imagesRef)
-  
-  .then(async response=>{
+  this.band=true;
+  if(this.urlActual==null){
+    this.imageService.uploadImage($event,0);
     
-    for(let item of response.items){
-     const path= await getDownloadURL(item);
-      if(this.urlActual==path){
-       
-        //  this.url=await getDownloadURL(item);
+  }else{
+  this.imageService.uploadImageEdit($event,0,this.urlActual);
+  }
 
-          const fileRef= ref(this.storage,`imagen/Certificado/`+ file.name);
-          
-          //  const fileRef= ref(this.storage,`imagen/Skill/`+ filePath);
-              uploadBytes(fileRef,file.name)
-            .then(response=>{this.imageService.getImages(0,file);
-              this.completed = true;})
-            .catch(error=> console.log(error))
-
-            deleteObject(item).then(() => {
-              console.log("la imagen se elimino");
-            }).catch((error) => {
-               console.log("ocurrio un error: ", error);
-            });        
-        }
-    }  
-  })
-  .catch(error=> console.log(error))
-     
-    .then(response=>{
-      })
-    .catch(error=> console.log(error))
+  console.log( setTimeout(() => {
+    this.completed = true;
+  }, 6000));
 
 }
+Limpiar():void{
+  this.form.reset();
+  }
 }

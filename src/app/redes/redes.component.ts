@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { RedesService } from '../servicios/redes.service';
 import { Redes } from '../model/redes';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
+import { RouterLink } from '@angular/router';
+import { AcercadeMiComponent } from '../acercade-mi/acercade-mi.component';
 
 @Component({
   selector: 'app-redes',
@@ -39,4 +41,6 @@ filmIcon = faLink;
   this.router.navigate(['/intro']);
    
   }
+  
+
   }

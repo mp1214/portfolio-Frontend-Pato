@@ -12,7 +12,8 @@ export class GuardianGuard implements CanActivate {
   constructor(private tokenService:TokenService,private router: Router) {    }
   canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     this.tokenService.getUserName()
-    if(this.tokenService.getToken()&& this.tokenService.getUserName()=='admin'){
+    console.log(this.tokenService.getUserName())
+    if(this.tokenService.getToken()&& this.tokenService.getUserName()=='patricia'){
       this.isLogged=true;
       return true;
     }else{

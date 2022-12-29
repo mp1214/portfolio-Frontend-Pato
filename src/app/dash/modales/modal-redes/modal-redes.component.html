@@ -31,22 +31,59 @@
                 </div>
               <div *ngIf="mje === 'agregar'">
                 <h5 class="form text-center">Agregar Certificados</h5>
-                <form (ngSubmit)="OnCreate()" novalidate #f="ngForm">
+                <form [formGroup]="form" (ngSubmit)="onEnviar($event)"novalidate>
                   <div class="mb-3">
                     <label id="habilidad" for="number">Nombre Red</label>
-                    <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="fortalezaHelp" [(ngModel)]="nombre" required>
+                    <input type="text" class="form-control" name="nombre" formControlName="nombre" [(ngModel)]="nombre"
+                    [ngClass]="{'is-invalid': Nombre.errors && Nombre.touched, 'is-valid':!Nombre.errors && Nombre.touched}">
                     <div id="fortalezaHelp" class="form-text">Ingrese la habilidad que considera poseer</div>
+                    <div *ngIf="Nombre.errors  && Nombre.touched">    
+                      <p *ngIf="Nombre.hasError('required')" class="text-danger">
+                          El nombre de la red social es requerido.
+                      </p>
+                      <p *ngIf="Nombre?.errors?.minlength" class="error">
+                            El nombre debe tener como mínimo 3 caracteres.
+                          </p>
+                      <p *ngIf="Nombre?.errors?.maxlength" class="error">
+                            El nombre debe tener como maximo 35 caracteres.
+                      </p>
+                    </div>
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Path de red social</label>
-                    <input type="text" class="form-control" name="path" id="exampleInputPassword1" [(ngModel)]="path" required>
+                    <input type="text" class="form-control" name="path" id="exampleInputPassword1" formControlName="path"  [(ngModel)]="path"
+                    [ngClass]="{'is-invalid': Path.errors && Path.touched, 'is-valid':!Path.errors && Path.touched}">
+                    <div *ngIf="Path.errors  && Path.touched">    
+                      <p *ngIf="Path.hasError('required')" class="text-danger">
+                          El nombre de la red social es requerido.
+                      </p>
+                      <p *ngIf="Path?.errors?.minlength" class="error">
+                            El path debe tener como mínimo 10 caracteres.
+                          </p>
+                      <p *ngIf="Path?.errors?.maxlength" class="error">
+                            El path debe tener como maximo 85 caracteres.
+                      </p>
+                    </div>
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Icono de la red social (formato: fa-brands fa-lg fa-whatsapp fa-2x1)</label>
-                    <input type="text" class="form-control"name="imagen" id="imagen" [(ngModel)]="imagen">
+                    <input type="text" class="form-control"name="imagen" id="imagen" formControlName="imagen" [(ngModel)]="imagen"
+                    [ngClass]="{'is-invalid': Imagen.errors && Imagen.touched, 'is-valid':!Imagen.errors && Imagen.touched}">
+                    <div *ngIf="Imagen.errors  && Imagen.touched">    
+                      <p *ngIf="Imagen.hasError('required')" class="text-danger">
+                          El nombre de la red social es requerido.
+                      </p>
+                      <p *ngIf="Imagen?.errors?.minlength" class="error">
+                            la imagen debe tener como mínimo 5 caracteres.
+                          </p>
+                      <p *ngIf="Imagen?.errors?.maxlength" class="error">
+                            la imagen debe tener como maximo 55 caracteres.
+                      </p>
+                    </div>
                   </div>
                   <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
-               
+                  <button type="submit" class="btn btn-dark container-fluid mt-3"  (click)="Limpiar();" >Limpiar</button>
+           
               </form>
               </div>
               

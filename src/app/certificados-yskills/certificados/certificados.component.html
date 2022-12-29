@@ -1,45 +1,26 @@
 
  <div class="certificados">
- 
-
- <!--<ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
-  <ng-template ngbSlide *ngFor="let item of certificadoList">
-    <div class="picsum-img-wrapper">
-      <img [src]="item.enlace" alt="Random slide">
+ <div class="row">
+    <div class="col-1"></div>
+      <div class="col-10">
+        <h2 class="titulo">Mis Certificados</h2>
+        <div class="carouselExample">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <div   class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleDark" *ngFor="let item of certificados;let index = index;let isFirst = first" [attr.aria-label]="index" [attr.data-bs-slide-to]="index"  
+          [ngClass]="isFirst ? 'aria-current true' : 'aria-current'" [ngClass]="isFirst ? 'class active' : 'class'" 
+          [ngStyle]="{'background-color': '#0e076b','margin-bottom': '-1vh', 'height':'0.5vh' }"
+          ></button>
+        </div>
+      <div class="carousel-inner">
+        <div  class="carousel-item" *ngFor="let item of certificados;let index = index;let isFirst = first" [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item' ">
+          <img [src]="item.img" class="d-block w-100 certif"  alt="{{item.titulo}}">
+        <br><br>
+        </div>
+      </div>
     </div>
-    <div class="carousel-caption">
-      <h3>No mouse navigation</h3>
-      <p>This carousel hides navigation arrows and indicators.</p>
-    </div>
-  </ng-template>
-</ngb-carousel>
-
-<hr>
-
-<div class="btn-group" role="group" aria-label="Carousel toggle controls">
-  <button type="button" (click)="showNavigationArrows = !showNavigationArrows" class="btn btn-outline-dark btn-sm">Toggle navigation arrows</button>
-  <button type="button" (click)="showNavigationIndicators = !showNavigationIndicators" class="btn btn-outline-dark btn-sm">Toggle navigation indicators</button>
-</div>-->
-<div class="carouselExample">
-  <h2 class="titulo">Mis Certificados</h2>
- <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-   <div   class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleDark" *ngFor="let item of certificados;let index = index;let isFirst = first" [attr.aria-label]="index" [attr.data-bs-slide-to]="index"  
-    [ngClass]="isFirst ? 'aria-current true' : 'aria-current'" [ngClass]="isFirst ? 'class active' : 'class'" 
-    [ngStyle]="{'background-color': '#0e076b','margin-bottom': '-1vh', 'height':'0.5vh' }"
-    ></button>
-        
-    
-   </div>
-   <div class="carousel-inner">
-     <div  class="carousel-item" *ngFor="let item of certificados;let index = index;let isFirst = first" [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item' ">
-       <img [src]="item.img" class="d-block w-100 certif"  alt="{{item.titulo}}">
-      
-      
-     </div>
-        
-   </div>
+  </div>
  </div>
+ <div class="col-1"></div>
 </div>
  </div>
- 

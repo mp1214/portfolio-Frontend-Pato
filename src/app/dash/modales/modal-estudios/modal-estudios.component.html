@@ -10,7 +10,6 @@
         <div class="row">
           <div class="col-1"></div>
           <div class="col-10">
-            
               <div class="mb-3">
                 <div *ngIf="mje == 'quitar'" class="lista-estudio">
                   <h5 class="form text-center mb-3">Quitar Estudio</h5>
@@ -49,15 +48,15 @@
                             El titulo debe tener como mínimo 3 caracteres.
                           </p>
                       <p *ngIf="Titulo?.errors?.maxlength" class="error">
-                            El titulo debe tener como maximo 25 caracteres.
+                            El titulo debe tener como maximo 55 caracteres.
                       </p>
                     </div>
                     </div>
                     
                     <div class="fecha mb-3">
-                    <label class="label">Fecha en que fue realizado:</label>
-                    <label id="fecha1">Inicio</label>
-                    <input type="date" class="form-control mb-4" id="fecha1" formControlName="inicio" name="fecha1" [(ngModel)]="inicio"
+                    <label class="label mb-2">Fecha en que fue realizado:</label><br>
+                    <label id="fecha1">Fecha Inicio</label>
+                    <input type="date" class="form-control mb-4" id="fecha1" formControlName="inicio" name="fecha1" [(ngModel)]="inicio" onkeydown="return false"
                     [ngClass]="{'is-invalid': Inicio.errors && Inicio.touched, 'is-valid':!Inicio.errors && Inicio.touched}">
                     <div *ngIf="Inicio.errors  && Inicio.touched">    
                       <p *ngIf="Inicio.hasError('required')" class="text-danger">
@@ -70,8 +69,8 @@
                     </div>
 
                     <div class="mb-3">
-                    <label id="fecha2">Fin</label>
-                    <input type="date" class="form-control mb-4" formControlName="fin"  name="fin" [(ngModel)]="fin" 
+                    <label id="fecha2">Fecha Fin</label>
+                    <input type="date" class="form-control mb-4" formControlName="fin" min="1950-01-01" max="2023-01-31" [disabled]="expression" onkeydown="return false" name="fin" [(ngModel)]="fin" 
                     [ngClass]="{'is-invalid': Fin.errors && Fin.touched, 'is-valid':!Fin.errors && Fin.touched}">
                     <div *ngIf="Fin.errors  && Fin.touched">    
                       <p *ngIf="Fin?.errors?.maxlength" class="error">
@@ -82,7 +81,7 @@
 
                     <div class="mb-3">
                       <div class="form-check">
-                        <input type="checkbox" class="form-check-input" formControlName="cursando"  id="cursando"  [(ngModel)]="cursando">
+                        <input type="checkbox" class="form-check-input" formControlName="cursando" id="checkbox" (change)="isDisabled(expression)" [(ngModel)]="cursando">
                         <label class="form-check-label mb-3" for="exampleCheck1">Cursando</label>
                       </div>
                     </div>
@@ -100,14 +99,14 @@
                   <div class="mb-3">
                     <label class="label">Imagen de la Institución</label>
                     <input type="file" class="form-control mb-4"  formControlName="icono" name="icono" (change)="uploadImage($event)" [(ngModel)]="icono">
-                    <div class="label" fxFlex="30" *ngIf="completed">Archivo cargado</div>
-                    <div class="label" fxFlex="30" *ngIf="!completed">Espere a que se cargue el Archivo..</div>
+                    <div class="label text-success" fxFlex="30" *ngIf="completed">Archivo cargado</div>
+                    <div class="label text-danger" fxFlex="30" *ngIf="!completed">Espere a que se cargue el Archivo..</div>
                 
                   </div>
                   
                  
                  <button type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
-                 <button type="submit" class="btn btn-ligth container-fluid mt-3"  (click)="Limpiar();" >Limpiar</button>
+                 <button type="submit" class="btn btn-dark container-fluid mt-3"  (click)="Limpiar();" >Limpiar</button>
             </form>
               </div>
 
@@ -157,7 +156,7 @@
                 <div class="fecha mb-3">
                   <label class="label">Fecha en que fue realizado:</label>
                   <label id="fecha1">Inicio</label>
-                  <input type="date" class="form-control mb-4" id="fecha1" formControlName="inicio" name="fecha1" [(ngModel)]="edu.inicio" 
+                  <input type="date" class="form-control mb-4" id="fecha1" formControlName="inicio" name="fecha1" [(ngModel)]="edu.inicio" onkeydown="return false"
                   [ngClass]="{'is-invalid': Inicio.errors && Inicio.touched, 'is-valid':!Inicio.errors && Inicio.touched}">
                   <div *ngIf="Inicio.errors  && Inicio.touched">    
                     <p *ngIf="Fin?.errors?.maxlength" class="error">
@@ -165,7 +164,7 @@
                     </p>
                   </div>
                   <label id="fecha2">Fin</label>
-                  <input type="date" class="form-control mb-4" id="fecha2" formControlName="fin" (change)="avisar('fecha')" [disabled]="AvisarFecha" name="fecha2" [(ngModel)]="edu.fin" 
+                  <input type="date" class="form-control mb-4" id="fecha2" formControlName="fin" name="fin" [(ngModel)]="edu.fin" onkeydown="return false"
                   [ngClass]="{'is-invalid': Fin.errors && Fin.touched, 'is-valid':!Fin.errors && Fin.touched}">
                   <div *ngIf="Fin.errors  && Fin.touched">    
                     <p *ngIf="Fin?.errors?.maxlength" class="error">
@@ -176,7 +175,7 @@
 
                   <div class="mb-3">
                     <div class="form-check">
-                      <input type="checkbox" class="form-check-input" (change)="avisar('check')" formControlName="cursando" name="exampleCheck1" [attr.disabled]="AvisarFecha ? true : null"  ng-model="edu.cursando" [(ngModel)]="edu.cursando">
+                      <input type="checkbox" class="form-check-input" formControlName="cursando" name="exampleCheck1" (change)="isDisabled(expression)"  ng-model="edu.cursando" [(ngModel)]="edu.cursando">
                       <label class="form-check-label mb-3" for="exampleCheck1">Cursando</label>
                     </div>
                   </div>
@@ -203,10 +202,10 @@
               </div>
                        
                   <label class="label">Imagen de la Institución</label>
-                  <input type="file" class="form-control mb-4" formControlName="icono" name="icono" (change)="uploadImageEdit($event)" [(ngModel)]="edu.icono">
-                  <div class="label" fxFlex="30" *ngIf="completed">Archivo cargado</div>
-                  <div class="label" fxFlex="30" *ngIf="!completed">Espere a que se cargue el Archivo..</div>
-                </div>
+                  <input type="file" class="form-control mb-4" formControlName="icono" name="icono" (change)="uploadImageEdit($event)" >
+                  <div class="label text-success" fxFlex="30" *ngIf="completed">Archivo cargado</div>
+                  <div class="label text-danger" fxFlex="30" *ngIf="!completed">Espere a que se cargue el Archivo..</div>
+               </div>
                 
                 
                 <button type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>

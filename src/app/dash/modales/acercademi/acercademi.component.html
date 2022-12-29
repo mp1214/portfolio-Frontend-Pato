@@ -12,19 +12,6 @@
           <div class="col-10">
             <form>
               <div class="mb-3">
-                <div *ngIf="mje === 'quitar'" >
-                  <h4> Quitar Texto</h4>
-                
-                  <div class="fortDebil mb-5" (click)="borrar(descrip.id)">
-        
-                  <p>{{descrip.acercaDeMi}}  </p>
-                  <i class="fa-solid fa-xmark"
-                    [ngStyle]="{'color':'red'}"
-                    ></i>
-              
-                </div>
-             
-              </div>
               <div *ngIf="mje === 'editar'">
                 <h4 >Editar Descripción</h4>
                 <h5 class="form text-center mb-3">Editar Descripción</h5>
@@ -32,14 +19,12 @@
                     <li type="button" class="fortDebil mb-5" (click)="cargarDetalle(descrip.id)" >{{descrip.acercaDeMi}}
                      <i class="fa-solid fa-pen"
                      [ngStyle]="{'color':'green'}"
-                     
                      ></i>
                    </li>
                  </ul>
-                
                  <div *ngIf="descrip">
                   <div  class="textarea modal-content pb-4">
-                    <form (ngSubmit)="OnUpdate(descrip.id)" novalidate #f="ngForm">      
+                    <form [formGroup]="form" (ngSubmit)="OnUpdate(descrip.id)" novalidate>      
                       <div class="form-floating">
                         <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 300px" [(ngModel)]="descrip.acercaDeMi"></textarea>
                         <label for="floatingTextarea2">ingrese la descripción</label>

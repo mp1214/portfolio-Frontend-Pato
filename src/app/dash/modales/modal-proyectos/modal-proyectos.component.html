@@ -16,7 +16,7 @@
                       <h5 class="text-center">Quitar Proyecto</h5>
                       <ul *ngFor="let proyecto of proyectoList" style="list-style:none">
            
-                        <li  class="proyecto">{{proyecto.proyecto}}
+                        <li  class="proyecto" (click)="borrar(proyecto.id)">{{proyecto.proyecto}}
                           <i class="fa-solid fa-xmark"
                           [ngStyle]="{'color':'red'}"
                           ></i>
@@ -30,25 +30,78 @@
                   
                 <div *ngIf="mje === 'agregar'">
                   <h5 class="form text-center">Agregar Proyecto</h5>
-                  <form (ngSubmit)="OnCreate()" novalidate #f="ngForm">
+                  <form [formGroup]="form1" (ngSubmit)="onEnviar($event)" novalidate>
                     <div class="mb-3">
                       <label id="proyecto" for="number">Proyecto</label>
-                      <input type="text" class="form-control" id="proyecto" name="proyecto" aria-describedby="fortalezaHelp" [(ngModel)]="proyecto" required>
+                      <input type="text" class="form-control" name="proyecto" id="proyecto" formControlName="proyecto" [(ngModel)]="proyecto"
+                      [ngClass]="{'is-invalid': Proyecto.errors && Proyecto.touched, 'is-valid':!Proyecto.errors && Proyecto.touched}">
                       <div id="proyecto" class="form-text">Ingrese el proyecto</div>
+                      <div *ngIf="Proyecto?.errors  && Proyecto?.touched">    
+                        <p *ngIf="Proyecto?.hasError('required')" class="text-danger">
+                            El titulo del estudio es requerido.
+                        </p>
+                        <p *ngIf="Proyecto?.errors.minlength" class="error">
+                              El titulo debe tener como mínimo 3 caracteres.
+                            </p>
+                        <p *ngIf="Proyecto?.errors.maxlength" class="error">
+                              El titulo debe tener como maximo 25 caracteres.
+                        </p>
+                      </div>
                     </div>
                     <div class="mb-3">
                       <label id="proyecto" for="number">Path al Proyecto</label>
-                      <input type="text" class="form-control" id="path" name="path" aria-describedby="fortalezaHelp" [(ngModel)]="path" required>
-                      <div id="proyecto" class="form-text">Ingrese el path</div>
+                      <input type="text" class="form-control" name="path" formControlName="path" [(ngModel)]="path" required
+                      [ngClass]="{'is-invalid': Proyecto?.errors && Proyecto?.touched, 'is-valid':!Proyecto?.errors && Proyecto?.touched}">
+                      <div *ngIf="Proyecto?.errors  && Proyecto?.touched">    
+                        <p *ngIf="Proyecto?.hasError('required')" class="text-danger">
+                            El titulo del estudio es requerido.
+                        </p>
+                        <p *ngIf="Proyecto?.errors?.minlength" class="error">
+                              El path debe tener como mínimo 5 caracteres.
+                            </p>
+                        <p *ngIf="Proyecto?.errors?.maxlength" class="error">
+                              El path debe tener como maximo 25 caracteres.
+                        </p>
+                      </div>
+                      
                     </div>
                     <div class="mb-3">
-                      <label for="porcentaje" class="form-label">Imagen Proyecto</label>
-                      <input type="file" class="form-control" id="img" name="img" [(ngModel)]="img" (change)="uploadImage($event)">
-                      <div class="label" fxFlex="30" *ngIf="completo">Archivo cargado</div>
-                      <div class="label" fxFlex="30" *ngIf="!completo">Espere a que se cargue el Archivo..</div>
+                        <label class="label">Fecha en que fue Terminado el Proyecto:</label>
+                       
+                        <input type="date" class="form-control mb-4" id="fecha" formControlName="fecha" name="fecha" [(ngModel)]="fecha" 
+                        [ngClass]="{'is-invalid': Fecha.errors && Fecha.touched, 'is-valid':!Fecha.errors && Fecha.touched}">
+                        <div *ngIf="Fecha.errors  && Fecha.touched">    
+                          <p *ngIf="Fecha?.errors?.maxlength" class="error">
+                                la fecha debe tener como maximo 8 numeros.
+                          </p>
+                        </div>
                     </div>
-                   
+                    <div class="mb-3">
+                      <label for="img" class="form-label">Imagen Proyecto</label>
+                      <input type="file" class="form-control" name="img" formControlName="img" [(ngModel)]="img" (change)="uploadImage($event)">
+                      <div class="label text-success" fxFlex="30" *ngIf="completed">Archivo cargado</div>
+                      <div class="label text-danger" fxFlex="30" *ngIf="!completed">Espere a que se cargue el Archivo..</div>
+                    </div>
+                    <div class="mb-3">
+                      <label id="img" for="repositorio">Enlace al repositorio de proyecto</label>
+                      <input type="text" class="form-control" name="repositorio" formControlName="repositorio" [(ngModel)]="repositorio"
+                      [ngClass]="{'is-invalid': Repositorio.errors && Repositorio.touched, 'is-valid':!Repositorio.errors && Repositorio.touched}">
+                      <div id="img" class="form-text">Ingrese el path al repo</div>
+                      <div *ngIf="Repositorio?.errors  && Repositorio?.touched">    
+                        <p *ngIf="Repositorio?.hasError('required')" class="text-danger">
+                            El enlace del estudio es requerido.
+                        </p>
+                        <p *ngIf="Repositorio?.errors.minlength" class="error">
+                              El enlace debe tener como mínimo 10 caracteres.
+                            </p>
+                        <p *ngIf="Repositorio?.errors.maxlength" class="error">
+                              El enlace debe tener como maximo 100 caracteres.
+                        </p>
+                      </div>
+                    </div>
                   <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
+                  <button type="submit" class="btn btn-dark container-fluid mt-3"  (click)="Limpiar();" >Limpiar</button>
+          
                 </form>
                             
               </div>
@@ -65,17 +118,63 @@
                </div>
                <div *ngIf="proyec">
                <h5 class="form text-center">Agregar Proyecto</h5>
-               <form (ngSubmit)="OnUpdate(proyec.id)" novalidate #f="ngForm">
+               <form [formGroup]="form1" (ngSubmit)="OnUpdate(proyec.id)" novalidate>
                  <div class="mb-3">
                    <label id="fortaleza" for="number">Proyecto</label>
-                   <input type="text" class="form-control" id="cargo" name="cargo" aria-describedby="fortalezaHelp" [(ngModel)]="proyec.proyecto" required>
-                   <div id="fortalezaHelp" class="form-text">Ingrese el nombre del proyecto</div>
+                   <input type="text" class="form-control" id="cargo" name="cargo"formControlName="proyecto" [(ngModel)]="proyec.proyecto" 
+                   [ngClass]="{'is-invalid': Proyecto.errors && Proyecto.touched, 'is-valid':!Proyecto.errors && Proyecto.touched}">
+                   <div *ngIf="Proyecto?.errors  && Proyecto?.touched">    
+                    <p *ngIf="Proyecto?.hasError('required')" class="text-danger">
+                        El titulo del estudio es requerido.
+                    </p>
+                    <p *ngIf="Proyecto?.errors?.minlength" class="error">
+                          El path debe tener como mínimo 5 caracteres.
+                        </p>
+                    <p *ngIf="Proyecto?.errors?.maxlength" class="error">
+                          El path debe tener como maximo 25 caracteres.
+                    </p>
+                  </div>
                  </div>
                  <div class="mb-3">
+                  <label class="label">Fecha en que fue Terminado el Proyecto:</label>
+                 
+                  <input type="date" class="form-control mb-4" id="fecha" formControlName="fecha" name="fecha" [(ngModel)]="proyec.fecha" 
+                  [ngClass]="{'is-invalid': Fecha.errors && Fecha.touched, 'is-valid':!Fecha.errors && Fecha.touched}">
+                  <div *ngIf="Fecha.errors  && Fecha.touched">    
+                    <p *ngIf="Fecha?.errors?.maxlength" class="error">
+                          la fecha debe tener como maximo 8 numeros.
+                    </p>
+                  </div>
+              </div>
+                 <div class="mb-3">
+                  <label class="label">Url de la Imagen actual del proyecto</label>
+                  <div class="form-floating">
+                   <textarea class="form-control mb-3"  style="height: 100px" formControlName="img" name="img" [(ngModel)]="proyec.img" readonly onmousedown="return false;"></textarea>
                   <label for="icono" class="form-label">imagen Proyecto</label>
-                  <input type="file" class="form-control" id="img" name="img" aria-describedby="fortalezaHelp" [(ngModel)]="proyec.img" (change)="uploadImage($event)" required>
+                  <input type="file" class="form-control mb-3" name="img" formControlName="img" (change)="uploadImageEdit($event)" required>
+                  <div class="label text-success" fxFlex="30" *ngIf="completed">Archivo cargado</div>
+                    <div class="label text-danger" fxFlex="30" *ngIf="!completed">Espere a que se cargue el Archivo..</div>
+                   
                 </div>
-               <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
+                 </div>
+                 <div class="mb-3">
+                  <label id="img" for="repositorio">Enlace al repositorio de proyecto</label>
+                  <input type="text" class="form-control" name="repositorio" formControlName="repositorio" [(ngModel)]="proyec.repositorio"
+                  [ngClass]="{'is-invalid': Repositorio.errors && Repositorio.touched, 'is-valid':!Repositorio.errors && Repositorio.touched}">
+                  <div id="img" class="form-text">Ingrese el path al repo</div>
+                  <div *ngIf="Repositorio?.errors  && Repositorio?.touched">    
+                    <p *ngIf="Repositorio?.hasError('required')" class="text-danger">
+                        El enlace del estudio es requerido.
+                    </p>
+                    <p *ngIf="Repositorio?.errors.minlength" class="error">
+                          El enlace debe tener como mínimo 10 caracteres.
+                        </p>
+                    <p *ngIf="Repositorio?.errors.maxlength" class="error">
+                          El enlace debe tener como maximo 100 caracteres.
+                    </p>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
              </form>
            </div>
              </div>
@@ -85,44 +184,5 @@
       
       </div>
     </div>
-   
-   
-   
-   <!--<div class="modal fade" id="exampleModal-proyectos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:auto" >
-      
-        <div class="container modal-dialog">
-          <h1>Proyectos </h1>
-          <div *ngIf="mje === 'quitar'" class="lista-fortalezaDebilidad">
-            <h2 >Quitar Proyecto</h2>
-          <ul *ngFor="let proyecto of proyectoList" style="list-style:none">
-           
-            <li  class="fortDebil">{{proyecto.nombre}}
-              <i class="fa-solid fa-xmark"
-              [ngStyle]="{'color':'red'}"
-              ></i>
-            </li>
-            
-          </ul>
-          </div>
-         
-
-         </div>
-          
-          <div *ngIf="mje === 'agregar'" class="lista-fortalezaDebilidad">
-            <h2>Agregar Proyectos</h2>
-            <label id="estudio-curso" for="number">Nombre Proyecto</label>
-            <input type="text" name="estudio-curso" />
-           
-            <label id="enlace" for="number">Enlace</label>
-            <input type="text" name="enlace" />
-          </div>
-       
-               
-            <div class="form-group">
-            <button class="boton" type="submit" id="submit">
-              Guardar
-              </button>
-            </div>
-          </div>-->
-  
-        
+    </div>
+  </div>

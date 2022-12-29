@@ -81,10 +81,12 @@
                   <div class="mb-3">
                     <label for="icono" class="form-label">icono</label>
                     <input type="file" class="form-control" id="icono" formControlName="icono" [(ngModel)]="icono" (change)="uploadImage($event)">
-                    <div class="label" fxFlex="30" *ngIf="completed">Archivo cargado</div>
-                    <div class="label" fxFlex="30" *ngIf="!completed">Espere que el archivo se cargue...</div>
+                    <div class="label text-success" fxFlex="30" *ngIf="completed">Archivo cargado</div>
+                    <div class="label text-danger" fxFlex="30" *ngIf="!completed">Espere que el archivo se cargue...</div>
                   </div>
                 <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
+                <button type="submit" class="btn btn-dark container-fluid mt-3"  (click)="Limpiar();" >Limpiar</button>
+          
               </form>
                           
             </div>
@@ -135,11 +137,14 @@
                 </div>
                <div class="mb-3">
                 <label id="fortaleza" for="number">Ubicacion actual Imagen Certificado</label>
-                <input type="text" id="icono" class="form-control" formControlName="icono" [(ngModel)]="habilidad.icono" readonly onmousedown="return false;">
+                <textarea class="form-control mb-3"  style="height: 100px" formControlName="icono" name="icono" [(ngModel)]="habilidad.icono" readonly onmousedown="return false;"></textarea>
               </div>
                <div class="mb-3">
                 <label for="icono" class="form-label">icono de la Habilidad</label>
-               <input type="file" class="form-control" id="icono" [(ngModel)]="icono" (change)="uploadImageEdit($event)" required>
+               <input type="file" class="form-control" id="icono" formControlName="icono" [(ngModel)]="icono" (change)="uploadImageEdit($event)" required>
+               <div class="label text-success" fxFlex="30" *ngIf="completed">Archivo cargado</div>
+               <div class="label text-danger" fxFlex="30" *ngIf="!completed">Espere que el archivo se cargue...</div>
+            
               </div>
              <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
            
