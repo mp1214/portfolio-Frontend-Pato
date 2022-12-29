@@ -10,8 +10,8 @@ export class RedesService {
   
 
   constructor(private httpClient : HttpClient) { }
-  URL='http://localhost:8080/redes/';
- 
+ // URL='http://localhost:8080/redes/';
+  URL='https://portfolio-service-3.onrender.com/redes/';
 
   public lista():Observable <Redes[]>{
     return this.httpClient.get<Redes[]>(this.URL+'lista');

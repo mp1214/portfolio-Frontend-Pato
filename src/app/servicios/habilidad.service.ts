@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HabilidadService {
-  URL='http://localhost:8080/habilidad/';
+ // URL='http://localhost:8080/habilidad/';
+  URL='https://portfolio-service-3.onrender.com/habilidad/';
   constructor(private httpClient : HttpClient) { }
 
   public lista():Observable <Habilidad[]>{

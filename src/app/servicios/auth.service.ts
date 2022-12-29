@@ -10,8 +10,8 @@ import { JwtDto } from '../model/jwt-dto';
   providedIn: 'root'
 })
 export class AuthService {
-authURL= 'http://localhost:8080/auth/';
-
+//authURL= 'http://localhost:8080/auth/';
+authURL= 'https://portfolio-service-3.onrender.com/auth/';
   constructor(private httpClient : HttpClient) { }
   public nuevo(nuevoUsuario: NuevoUsuario): Observable<any>{
     return this.httpClient.post<any>(this.authURL+'nuevo',nuevoUsuario)

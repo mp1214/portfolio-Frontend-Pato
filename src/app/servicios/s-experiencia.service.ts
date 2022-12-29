@@ -7,8 +7,8 @@ import { Experiencia } from '../model/experiencia';
   providedIn: 'root'
 })
 export class SExperienciaService {
-  expURL='http://localhost:8080/explab/';
-
+ // expURL='http://localhost:8080/explab/';
+ expURL='https://portfolio-service-3.onrender.com/explab/';
   constructor(private httpClient:HttpClient) { }
 public lista(): Observable<Experiencia[]>{
   return this.httpClient.get<Experiencia[]>(this.expURL+'lista');

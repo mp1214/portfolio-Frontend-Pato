@@ -7,7 +7,8 @@ import { Certificado } from '../model/certificado';
   providedIn: 'root'
 })
 export class CertificadoService {
-  URL='http://localhost:8080/certificado/';
+ // URL='http://localhost:8080/certificado/';
+  URL='https://portfolio-service-3.onrender.com/certificado/';
   constructor(private httpClient : HttpClient) { }
   public lista():Observable <Certificado[]>{
     return this.httpClient.get<Certificado[]>(this.URL+'lista');
