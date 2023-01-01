@@ -16,6 +16,5 @@ datos:persona|any=null;
   }
   cargarDatos():void{
     this.personaS.lista().subscribe(data =>{this.datos= data; })
-   console.log(this.datos)
   }
 }

@@ -13,7 +13,7 @@ export class GuardianGuard implements CanActivate {
   canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     this.tokenService.getUserName()
     console.log(this.tokenService.getUserName())
-    if(this.tokenService.getToken()&& this.tokenService.getUserName()=='patricia'){
+    if(this.tokenService.getToken()&& this.tokenService.getUserName()=='patriciaadmin'){
       this.isLogged=true;
       return true;
     }else{

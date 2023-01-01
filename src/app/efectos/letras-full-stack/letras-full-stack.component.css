@@ -11,8 +11,8 @@ svg {
     display:block;
     block-size: auto;
     font: 8.5em 'Montserrat';
-    width: 80%;
-    margin: 0 auto;
+  /*  width: 80%;*/
+    margin: 0 5%;
    
 }
 
@@ -54,8 +54,8 @@ svg {
 	100% {stroke-dashoffset: -35%;}
 }
 @media screen and (max-width: 600px) {
-  .letras-moviendose{
+ /* .letras-moviendose{
     margin-left: 10vh ;
     
-  }
+  }*/
 }

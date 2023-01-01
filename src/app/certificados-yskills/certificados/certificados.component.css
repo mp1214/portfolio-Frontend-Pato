@@ -1,52 +1,46 @@
 .certificados{
-  
-  background-color: #f6f1f8ea;
+ background-color: #f6f1f8ea;
  border-color: #0e076b;
  background: linear-gradient(300deg,rgb(247, 241, 247),rgba(167, 164, 226, 0.8));
  width: 100%;
-  padding: 1vh 3vh;
-  
+ padding: 1vh 1.4vh;
 }
 .col-10{
   width: 100%;
 }
 .carousel-item img{
   width: 600px;
-  height: 800px;
+  
  
 }
 .carouselExample{
- width: 70%;
+ width: 60%;
  margin: auto;
 }
 .carousel-inner{
-     margin: auto;
-   
+  margin: auto;
     }
-    .titulo{
-      color: #0e076b;
-      font-size: 40px;
-      margin: 3vh 4vh;
-      }
- 
- 
+
+.titulo{
+  color: #0e076b;
+  font-size: 40px;
+  margin: 3vh 4vh;
+}
+
       /*Mobile*/
-      @media (max-width: 475px){
-        .certific{
-          width: 200px;
-          height: 250px;
-        }
-        #carouselExampleDark{
-         height: 300px;
-          
-        }
-        .carousel-item img{
-          width: 400px;
-          height: 200px;
-        }
-        .carousel-inner{
-         width:320px;
-        }
+      @media (max-width: 768px){
        
+       .carousel-inner{
+         width:90%;
+        }
+       .carouselExample{
+        width: 100%;
+       }
+       .titulo{
+        font-size: 23px;
+       }
+       .carousel-indicators button{
+        width: 20px;
+       }
       }
-      
+    

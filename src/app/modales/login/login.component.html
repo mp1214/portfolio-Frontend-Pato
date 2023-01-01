@@ -22,7 +22,10 @@
                               " class="error">
                                     El usuario debe tener como mínimo 3 caracteres.
                                   </p>
-                            
+                                  <p *ngIf="Usuario?.errors?.maxlength
+                                  " class="error">
+                                        El nombre-usuario debe tener como maximo 15 caracteres.
+                                      </p>
                             </div>
                           
                           </div>

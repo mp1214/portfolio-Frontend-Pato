@@ -1,7 +1,7 @@
 
   .experiencia{
 
-     padding: 1vh 1vh;
+     padding: 1vh 0vh;
      background-image: url(/assets/imagenes/fondo\ dorado.jpg);
      background-repeat: no-repeat;
     
@@ -71,4 +71,9 @@
    .lista-experiencia{
 margin: 3vh 0;
    }
-   
+
+   @media screen and (max-width:775px) {
+  .titulo{
+    font-size: 23px;
+   }
+  }

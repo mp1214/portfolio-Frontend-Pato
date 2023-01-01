@@ -27,7 +27,7 @@
     .certificados{
       background-image: url(/assets/imagenes/fondo\ dorado.jpg);
       background-repeat: repeat;
-      padding: 1vh 4vh;
+      padding: 1vh 1vh;
     }
     .certificados .progress-outer{
      margin: auto;
@@ -62,4 +62,14 @@
     @keyframes animate-positive {
       0% { width: 0%; }
     }
- 
+    @media screen and (max-width:600px) {
+     .progress-outer{
+       width: 100%;
+    }
+
+    @media (max-width: 775px){
+      .titulo{
+        font-size: 23px;
+       }
+    }
+  }

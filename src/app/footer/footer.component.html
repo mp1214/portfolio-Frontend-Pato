@@ -2,10 +2,9 @@
     <footer >
         <div class="footer">
            <app-descargar-pdf></app-descargar-pdf>
-               <a href="#top"><button type="submit" class="btn btn-close-white"><i class="fa-solid fa-arrow-turn-up"></i></button></a>
-       
+         <!--     <a href="#top"><button type="submit" class="btn btn-close-white"><i class="fa-solid fa-arrow-turn-up"></i></button></a>
+            -->
         <div class="section__footer" *ngFor="let dato of datos">
-           
             <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i>{{dato.domicilio}}</p>
             <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> {{dato.telefono}}</p>
             <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> {{dato.email}}</p>

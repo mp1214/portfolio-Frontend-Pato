@@ -1,39 +1,44 @@
 
 .acercademi{
   text-align: justify;
-  padding-left: 5vh;
+ /* padding-left: 5vh;*/
   font-size: 1.8rem; 
-  
+  width: 100%;
 }
 .imagen-pato img{
   border-style:solid;
   border-color: rgba(145, 145, 6, 0.722);
-  
   box-shadow: 6px 6px 5px 2px #0b0a09;
-  width:calc(10*1.5vw);
+  width: 30%;
+ 
+ /* width:calc(10*1.5vw);*/
 
 }
 .imagen-pato{
-  justify-content: center;
-  margin: auto;
+  width: 100%;
+}
+.imagen-pato h2{
+  text-align: center;
 }
 .col-md-7{
-  margin-top: 10%;
   margin: auto;
+  padding: 10%;
+
 }
 
 .col-md-5{
   margin: auto;
+  text-align: center;
+  padding: 0 2%;
 }
 .contenedor {
  /* margin-top: .2vh;*/
- padding: 0 100px;
+/* padding: 0 100px;*/
  /* padding: 30px 30px 50px;*/
   border-radius:10px;
   color: white;
-
   background-image: url(/assets/imagenes/pared-negra.png);
-  height: 500px;
+  
   }
  
  
@@ -50,6 +55,10 @@
       padding: 3%;
       text-align: center;
       
+    }
+    .imagen-pato img{
+      width: 50%;
+    
     }
     }/*
     @media screen and(min-width:401) and (max-width: 800px){
