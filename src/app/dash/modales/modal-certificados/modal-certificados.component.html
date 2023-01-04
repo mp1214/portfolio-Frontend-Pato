@@ -45,6 +45,10 @@
                     " class="error">
                           El titulo debe tener como mínimo 3 caracteres.
                         </p>
+                    <p *ngIf="Titulo?.errors?.maxlength
+                        " class="error">
+                         El titulo debe tener como maximo 60 caracteres.
+                    </p>
                   </div>
                 </div>
                 <div class="mb-3">

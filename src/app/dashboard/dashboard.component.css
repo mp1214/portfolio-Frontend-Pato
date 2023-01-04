@@ -1,7 +1,7 @@
 .dashboard{
     background-image: url(/assets/imagenes/pared-negra.png);
     min-height: 70vh;
-    width: 100%;
+    
    
 }
 .flip-card {
@@ -32,7 +32,6 @@
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    
   }
   
   .flip-card-front {
@@ -40,7 +39,6 @@
     color: rgb(7, 0, 0);
     width:250px;
     height:250px;
-   
   }
   
   .flip-card-back {
@@ -66,9 +64,8 @@
     width: 130px;
    margin: 12px auto ;
   }
-
+ 
   .botonagregar>button:not(:last-child){
-  
     margin: 20px auto 
   }
  
@@ -81,44 +78,40 @@
     flex-wrap: wrap;
     padding-top: 20px;
     padding-bottom: 20px;
+    
   /*  margin: 20px auto;*/
     }
-  
     .fa-user{
       background-color: transparent;
       display: flex;
-        
       align-items: center;
     }
-  
-    
     h1{
       font-size: 25px;
       margin-bottom: 0.5 rem;
-      
     }
-  
-    
     .form-group.modal-content{
       background-color:rgba(145, 145, 211, 0.8);
     }
-     
-    
     p {
       font-size: 1.125rem;
     }
-    
-   
-    
     label {
       display: flex;
       align-items: center;
       font-size: 1.125rem;
       margin-bottom: 0.5rem;
-    }
-    
-        
+    }   
     button {
       border: none;
     }
-  
+    @media (max-width: 300px){
+      .container{
+        margin-left: 0px;
+      }
+    }
+  @media screen and (min-width:301px) and (max-width: 533px)  {
+    .container{
+      margin-left: 50px;
+    }
+  }

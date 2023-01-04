@@ -10,21 +10,17 @@
           <div class="row">
             <div class="col-1"></div>
             <div class="col-10">
-              
                 <div class="mb-3">
                   <div *ngIf="mje === 'quitar'">
                       <h5 class="text-center">Quitar Proyecto</h5>
                       <ul *ngFor="let proyecto of proyectoList" style="list-style:none">
-           
                         <li  class="proyecto" (click)="borrar(proyecto.id)">{{proyecto.proyecto}}
                           <i class="fa-solid fa-xmark"
                           [ngStyle]="{'color':'red'}"
                           ></i>
                         </li>
-                        
                       </ul>
-                        <button type="button" class="btn btn-primary container-fluid">Guardar Cambios</button>
-                       </div>
+                        </div>
                      
                 </div>
                   
@@ -38,36 +34,34 @@
                       <div id="proyecto" class="form-text">Ingrese el proyecto</div>
                       <div *ngIf="Proyecto?.errors  && Proyecto?.touched">    
                         <p *ngIf="Proyecto?.hasError('required')" class="text-danger">
-                            El titulo del estudio es requerido.
+                            El titulo del proyecto es requerido.
                         </p>
                         <p *ngIf="Proyecto?.errors.minlength" class="error">
-                              El titulo debe tener como mínimo 3 caracteres.
+                              El nombre del proyecto debe tener como mínimo 3 caracteres.
                             </p>
                         <p *ngIf="Proyecto?.errors.maxlength" class="error">
-                              El titulo debe tener como maximo 25 caracteres.
+                          El nombre del proyecto tener como maximo 25 caracteres.
                         </p>
                       </div>
                     </div>
                     <div class="mb-3">
                       <label id="proyecto" for="number">Path al Proyecto</label>
                       <input type="text" class="form-control" name="path" formControlName="path" [(ngModel)]="path" required
-                      [ngClass]="{'is-invalid': Proyecto?.errors && Proyecto?.touched, 'is-valid':!Proyecto?.errors && Proyecto?.touched}">
-                      <div *ngIf="Proyecto?.errors  && Proyecto?.touched">    
-                        <p *ngIf="Proyecto?.hasError('required')" class="text-danger">
-                            El titulo del estudio es requerido.
+                      [ngClass]="{'is-invalid': Path?.errors && Path?.touched, 'is-valid':!Path?.errors && Path?.touched}">
+                      <div *ngIf="Path?.errors  && Path?.touched">    
+                        <p *ngIf="Path?.hasError('required')" class="text-danger">
+                            El path del proyecto es requerido.
                         </p>
-                        <p *ngIf="Proyecto?.errors?.minlength" class="error">
+                        <p *ngIf="Path?.errors?.minlength" class="error">
                               El path debe tener como mínimo 5 caracteres.
                             </p>
-                        <p *ngIf="Proyecto?.errors?.maxlength" class="error">
-                              El path debe tener como maximo 25 caracteres.
+                        <p *ngIf="Path?.errors?.maxlength" class="error">
+                              El path debe tener como maximo 100 caracteres.
                         </p>
                       </div>
-                      
                     </div>
                     <div class="mb-3">
                         <label class="label">Fecha en que fue Terminado el Proyecto:</label>
-                       
                         <input type="date" class="form-control mb-4" id="fecha" formControlName="fecha" name="fecha" [(ngModel)]="fecha" 
                         [ngClass]="{'is-invalid': Fecha.errors && Fecha.touched, 'is-valid':!Fecha.errors && Fecha.touched}">
                         <div *ngIf="Fecha.errors  && Fecha.touched">    
@@ -99,11 +93,10 @@
                         </p>
                       </div>
                     </div>
+                     
                   <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
                   <button type="submit" class="btn btn-dark container-fluid mt-3"  (click)="Limpiar();" >Limpiar</button>
-          
                 </form>
-                            
               </div>
               <div *ngIf="mje === 'editar'">
                 <h5 class="form text-center mb-3">Editar Proyecto</h5>
@@ -117,7 +110,7 @@
                  </ul>
                </div>
                <div *ngIf="proyec">
-               <h5 class="form text-center">Agregar Proyecto</h5>
+               <h5 class="form text-center">Editar el Proyecto</h5>
                <form [formGroup]="form1" (ngSubmit)="OnUpdate(proyec.id)" novalidate>
                  <div class="mb-3">
                    <label id="fortaleza" for="number">Proyecto</label>
@@ -135,6 +128,23 @@
                     </p>
                   </div>
                  </div>
+                 <div class="mb-3">
+                  <label id="proyecto" for="number">Path al Proyecto</label>
+                  <input type="text" class="form-control" name="path" formControlName="path" [(ngModel)]="proyec.path" required
+                  [ngClass]="{'is-invalid': Proyecto?.errors && Proyecto?.touched, 'is-valid':!Proyecto?.errors && Proyecto?.touched}">
+                  <div *ngIf="Proyecto?.errors  && Proyecto?.touched">    
+                    <p *ngIf="Proyecto?.hasError('required')" class="text-danger">
+                        El titulo del estudio es requerido.
+                    </p>
+                    <p *ngIf="Proyecto?.errors?.minlength" class="error">
+                          El path debe tener como mínimo 5 caracteres.
+                        </p>
+                    <p *ngIf="Proyecto?.errors?.maxlength" class="error">
+                          El path debe tener como maximo 100 caracteres.
+                    </p>
+                  </div>
+                  
+                </div>
                  <div class="mb-3">
                   <label class="label">Fecha en que fue Terminado el Proyecto:</label>
                  
@@ -154,7 +164,6 @@
                   <input type="file" class="form-control mb-3" name="img" formControlName="img" (change)="uploadImageEdit($event)" required>
                   <div class="label text-success" fxFlex="30" *ngIf="completed">Archivo cargado</div>
                     <div class="label text-danger" fxFlex="30" *ngIf="!completed">Espere a que se cargue el Archivo..</div>
-                   
                 </div>
                  </div>
                  <div class="mb-3">
@@ -181,7 +190,6 @@
             <div class="col-1"></div>
           </div>
         </div>
-      
       </div>
     </div>
     </div>

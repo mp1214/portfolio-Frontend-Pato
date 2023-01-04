@@ -29,11 +29,11 @@
                   
                     <label class="label">Foto Perfil</label>
                     <input type="file" class="form-control mb-4" accept="image/*" name="img" [(ngModel)]="fotoperfil.img" (change)="uploadImageEdit($event,'perfil')">
-                    <div class="label" fxFlex="30" *ngIf="completed">Archivo cargado</div>
-                     <div class="label" fxFlex="30" *ngIf="!completed">Espere a que se cargue el Archivo..</div>
+                    <div class="label text-success" fxFlex="30" *ngIf="completed">Archivo cargado</div>
+                     <div class="label text-danger" fxFlex="30" *ngIf="!completed">Espere a que se cargue el Archivo..</div>
                   
                   </div>
-                  <button  type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
+                  <button [disabled]="!completed" type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
                </form>
               </div>
             </div>
@@ -57,11 +57,11 @@
                 
                   <label class="label">Foto Banner</label>
                   <input type="file" class="form-control mb-4" id="img" name="img" accept="image/*" [(ngModel)]="fotoperfil.imgBanner" (change)="uploadImageEdit($event,'banner')">
-                  <div class="label" fxFlex="30" *ngIf="completed">Archivo cargado</div>
-                   <div class="label" fxFlex="30" *ngIf="!completed">Espere a que se cargue el Archivo..</div>
+                  <div class="label text-success" fxFlex="30" *ngIf="completed">Archivo cargado</div>
+                   <div class="label text-danger" fxFlex="30" *ngIf="!completed">Espere a que se cargue el Archivo..</div>
                 
                 </div>
-                <button  type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
+                <button [disabled]="!completed" type="submit" class="btn btn-primary container-fluid mt-3">Guardar Cambios</button>
              </form>
             </div>
           </div>

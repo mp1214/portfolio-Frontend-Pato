@@ -22,8 +22,8 @@
 }
 
  .card-img-top{
- 
-  height: 450px;
+
+  max-height: 450px;
   margin: auto;
   padding: 2%;
  }
@@ -38,12 +38,19 @@
   background-repeat: no-repeat;
   box-shadow: 0 0  10px rgba(40, 111, 198, 0.7);
   padding-top: 2%;
+  min-height: 650px;
  }
  
 .experience__description{
   display: flex;
   justify-content:space-around;
 }
+h3{
+  color:#000;
+  font-weight: 600;
+  font-size: 25px;
+  font-family: 'Raleway';
+ }
 .experience__description button{
     background: #2A7AE4;
    padding: 0 2%;
@@ -80,6 +87,9 @@
     margin: auto;
     padding: 2%;
    }
+   .card{
+    width: 90%;
+   }
 }
 /*Mobile*/
 @media (min-width: 376px) and (max-width: 867px){
@@ -92,6 +102,13 @@
     height: 300px;
     margin: auto;
     padding: 2%;
+   }
+   
+   .card{
+    width: 90%;
+   }
+   .titulo{
+    font-size: 23px;
    }
 }
   @media (min-width: 868px) and (max-width: 1600px){

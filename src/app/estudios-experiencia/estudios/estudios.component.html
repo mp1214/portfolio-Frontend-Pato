@@ -11,8 +11,8 @@
             <img [src]="estudio.icono" class="card-img-top" alt="...">
             <div class="card-body">
               <h4 class="card-title"> {{estudio.titulo}} </h4>
-              <h4 class="card-title"> {{estudio.institucion}}</h4>
-              <p>Inicio {{estudio.inicio}} - Fin {{estudio.fin}}</p>
+              <h4> {{estudio.institucion}}</h4>
+              <p>Inicio {{estudio.inicio | date: "dd-MM-yyyy"}} - Fin {{estudio.fin | date: "dd-MM-yyyy"}}</p>
               <p class="card-text" *ngIf="estudio.cursando">Actualmente Estoy estudiando aquí</p>
             </div>
           </div>

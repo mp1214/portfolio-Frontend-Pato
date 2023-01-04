@@ -3,6 +3,7 @@ import { Proyecto } from 'src/app/model/proyecto';
 import { ProyectoService } from 'src/app/servicios/proyecto.service';
 import { ImageService } from 'src/app/servicios/image.service';
 import {FormBuilder,FormGroup, Validators} from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-modal-proyectos',
@@ -23,7 +24,9 @@ export class ModalProyectosComponent implements OnInit {
   url:string[]=[];
   fecha:string="";
   repositorio:string="";
- form1:FormGroup|any=null;
+  form1:FormGroup|any=null;
+  band:boolean=false;
+  band2:number=0;
 
   constructor(private proyectos:ProyectoService,private imageService:ImageService,private formBuilder:FormBuilder) {
     this.form1=this.formBuilder.group({
@@ -31,7 +34,7 @@ export class ModalProyectosComponent implements OnInit {
       img:[''],
       path:['',[Validators.required,Validators.minLength(5),Validators.maxLength(100)]],
       fecha:['',Validators.required],
-      repositorio:['',[Validators.required,Validators.minLength(10),Validators.maxLength(60)]],
+      repositorio:['',[Validators.required,Validators.minLength(10),Validators.maxLength(100)]],
      
     })
    }
@@ -77,6 +80,7 @@ export class ModalProyectosComponent implements OnInit {
     this.proyectos.detail(id).subscribe(data=>{
       this.proyec=data;
       this.urlActual=this.proyec.imgE;
+      this.completed=false;
     },err=>{
       alert("error al modificar");
     })
@@ -87,35 +91,33 @@ export class ModalProyectosComponent implements OnInit {
     
   }
   borrar(id?:number){
-    if(id != undefined){
+    this.showModal(id);
+    /* if(id != undefined){
       this.proyectos.delete(id).subscribe(data =>{
         alert("se pudo eliminar satisfactoriamente");
         this.cargarProyecto();
       },err =>{
         alert("No se pudo eliminar");
       })
-    }
+    }*/
   }
   OnCreate():void{
-    // this.habilidad.icono = this.imageService.url;
-   //this.completo= this.imageService.completed[ this.imageService.completed.length-1];
+    if(this.band2!=0)
     this.img= this.imageService.url[this.imageService.url.length-1]
- 
      const proye= new Proyecto(this.proyecto,this.path,this.img,this.fecha,this.repositorio)
-    
      this.proyectos.save(proye).subscribe(data=>{
        alert("Proyecto añadido");
        this.cargarProyecto();
-       
      },err=>{
        alert("Fallo al añadir");
      })
      
    }
   OnUpdate(id?:number):void{
-    //this.completo= this.imageService.completed[ this.imageService.completed.length-1];
+    if(this.band==false){
+      this.proyec.img=this.urlActual;
+    }else{
     this.proyec.img=this.imageService.url[this.imageService.url.length-1];
- 
     if(id != undefined){
           this.proyectos.update(id,this.proyec).subscribe(data=>{
           alert("certificado modificado"); 
@@ -124,7 +126,7 @@ export class ModalProyectosComponent implements OnInit {
         alert("Error al modificar certificado");
         
       })
-    }
+    }}
   }
   onEnviar(event:Event){
     event.preventDefault;
@@ -135,20 +137,51 @@ export class ModalProyectosComponent implements OnInit {
     }
   }
   uploadImage($event:any){
+    this.band2=1;
      this.imageService.uploadImage($event,3);
+     setTimeout(() => {
+      this.completed = true;
+    }, 8000);
    }
    uploadImageEdit($event:any){
+    this.band2=1;
     const file=$event.target.files[0];
+    this.band=true;
     if(this.urlActual==null||this.urlActual==""){
-      console.log("url null")
-      this.imageService.uploadImage($event,3);
+       this.imageService.uploadImage($event,3);
     }else{
-      console.log("url si existe")
     this.imageService.uploadImageEdit($event,3,this.urlActual);
     }
     this.completed=this.imageService.completed[this.imageService.completed.length-1];
+    setTimeout(() => {
+      this.completed = true;
+    }, 8000);
   }
   Limpiar():void{
     this.form1.reset();
+    }
+    showModal(id?:number){
+      Swal.fire({
+        title: 'realmente quiere eliminar este proyecto?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Borrar',
+        denyButtonText: `Conservar`,
+      }).then((result) => {
+       
+        if (result.isConfirmed) {
+          if(id != undefined){
+            this.proyectos.delete(id).subscribe(data =>{
+              alert("se pudo eliminar satisfactoriamente");
+              this.cargarProyecto();
+            },err =>{
+              alert("No se pudo eliminar");
+            })
+          }
+          Swal.fire('Borrado!', '', 'success')
+        } else if (result.isDenied) {
+          Swal.fire('Los cambios fueron descartados', '', 'info')
+        }
+      })
     }
 }

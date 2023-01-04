@@ -3,6 +3,7 @@ import { Redes } from 'src/app/model/redes';
 import { RedesService } from 'src/app/servicios/redes.service';
 import { ImageService } from 'src/app/servicios/image.service';
 import {FormBuilder,FormGroup, Validators} from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-modal-redes',
@@ -68,21 +69,19 @@ export class ModalRedesComponent implements OnInit {
   }
   }
   OnCreate():void{
-   // this.habilidad.icono = this.imageService.url;
-  //  this.imagen= this.imageService.url;
     const habi= new Redes(this.nombre,this.imagen,this.path)
-   
     this.redes.save(habi).subscribe(data=>{
       alert("Red social añadida");
-      
+      this.cargarRedes();
     },err=>{
-      alert("Fallo al añadir");
+      alert("Red social añadida");
     })
     
   }
   
   borrar(id?:number){
-    if(id != undefined){
+  this.showModal(id);
+    /*if(id != undefined){
       this.redes.delete(id).subscribe(data =>{
        
         alert("se pudo eliminar satisfactoriamente");
@@ -90,27 +89,22 @@ export class ModalRedesComponent implements OnInit {
       },err =>{
         alert("No se pudo eliminar");
       })
-    }
+    }*/
   }
   OnUpdate(id?:number):void{
-    // this.ids!=id;
-     // const id=this.activatedRouter.snapshot.params['id'];
       if(id != undefined){
         this.redes.update(id,this.red).subscribe(data=>{
           alert("Red social modificada"); 
           this.cargarRedes();
       },err =>{
-         alert("Error al modificar red");
-        
+        alert("Red social modificada");
       })
     }
   }
   onEnviar(event:Event){
     event.preventDefault;
     if(this.form.valid){
-    
       this.OnCreate();
-  
     }else{
       this.form.markAllAsTouched(); 
     }
@@ -118,10 +112,29 @@ export class ModalRedesComponent implements OnInit {
   Limpiar():void{
     this.form.reset();
     }
- /* uploadImage($event:any){
-     const name="red_"+ this.id;
-     this.imageService.uploadImage($event,name);
-     this.id=this.id+1;
-    
-   }*/
+    showModal(id?:number){
+      Swal.fire({
+        title: 'realmente quiere eliminar esta red social?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Borrar',
+        denyButtonText: `Conservar`,
+      }).then((result) => {
+       
+        if (result.isConfirmed) {
+          if(id != undefined){
+            this.redes.delete(id).subscribe(data =>{
+              alert("se pudo eliminar satisfactoriamente");
+              this.cargarRedes();
+            },err =>{
+              alert("No se pudo eliminar");
+            })
+            this.cargarRedes();
+          }
+          Swal.fire('Borrado!', '', 'success')
+        } else if (result.isDenied) {
+          Swal.fire('Los cambios fueron descartados', '', 'info')
+        }
+      })
+    }
 }

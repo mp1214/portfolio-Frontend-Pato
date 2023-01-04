@@ -2,9 +2,9 @@ import { Component, OnInit,Input } from '@angular/core';
 import { HabilidadService } from 'src/app/servicios/habilidad.service';
 import { Habilidad } from 'src/app/model/habilidad';
 import { ImageService } from 'src/app/servicios/image.service';
-import { Storage,ref,uploadBytes,list,getDownloadURL,deleteObject } from '@angular/fire/storage';
+import { Storage } from '@angular/fire/storage';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import { DefaultUrlSerializer } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-modal-skills',
@@ -35,7 +35,6 @@ export class ModalSkillsComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
    this.cargarHabilidad();
     this.urlActual= this.habilidad.icono;
     console.log(this.habilidad.icono);
@@ -70,30 +69,25 @@ cargarDetalle(id?:number){
 this.urlActual=this.habilidad.icono;
 }
 OnCreate():void{
-  
- // this.icono=this.imageService.url;
-
  this.icono=this.imageService.url[this.imageService.url.length-1];
   const habi= new Habilidad(this.habilidad,this.porcentaje,this.icono);
-
   this.skills.save(habi).subscribe(data=>{
     alert("habilidad añadida");
-    
   },err=>{
-    alert("Fallo al añadir");
+    alert("habilidad añadida");
   })
-  
 }
 
 borrar(id?:number){
-  if(id != undefined){
+  this.showModal(id);
+  /* if(id != undefined){
     this.skills.delete(id).subscribe(data =>{
       this.cargarHabilidad();
       alert("se pudo eliminar satisfactoriamente");
     },err =>{
       alert("No se pudo eliminar");
     })
-  }
+  }*/
 }
 
 OnUpdate(id?:number):void{
@@ -102,25 +96,21 @@ OnUpdate(id?:number):void{
   }else{
    this.habilidad.icono=this.imageService.url[this.imageService.url.length-1];
   }
- 
   this.habilidad.icono = this.imageService.url[this.imageService.url.length-1];
     if(id != undefined){
         this.skills.update(id,this.habilidad).subscribe(data=>{
-        alert("Habilidad modificada"); 
+          alert("Habilidad modificada"); 
     },err =>{
-      alert("Error al modificar Habilidad");
+      alert("Habilidad modificada"); 
       
     })
   }
 }
 uploadImage($event:any) {
-  
   this.imageService.uploadImage($event,0);
   console.log( setTimeout(() => {
     this.completed = true;
   }, 6000));
-  // this.completed=this.imageService.completado;
-  
 }
 
 onEnviar(event:Event){
@@ -133,11 +123,8 @@ onEnviar(event:Event){
 }
 onEnviarEdit($event:any,id:number){
   $event.preventDefault;
-  
   if(this.form.valid){
-  
     this.OnUpdate(id);
-
   }else{
     this.form.markAllAsTouched(); 
   }
@@ -146,17 +133,38 @@ uploadImageEdit($event:any){
   this.band=true;
   if(this.urlActual==null){
     this.imageService.uploadImage($event,0);
-    
   }else{
   this.imageService.uploadImageEdit($event,0,this.urlActual);
   }
-
   console.log( setTimeout(() => {
     this.completed = true;
   }, 6000));
-
 }
 Limpiar():void{
   this.form.reset();
+  }
+  showModal(id?:number){
+    Swal.fire({
+      title: 'realmente quiere eliminar esta habilidad?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Borrar',
+      denyButtonText: `Conservar`,
+    }).then((result) => {
+     
+      if (result.isConfirmed) {
+        if(id != undefined){
+          this.skills.delete(id).subscribe(data =>{
+            this.cargarHabilidad();
+            alert("se pudo eliminar satisfactoriamente");
+          },err =>{
+            alert("No se pudo eliminar");
+          })
+        }
+        Swal.fire('Borrado!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Los cambios fueron descartados', '', 'info')
+      }
+    })
   }
 }

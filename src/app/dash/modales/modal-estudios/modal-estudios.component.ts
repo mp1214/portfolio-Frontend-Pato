@@ -4,6 +4,7 @@ import { EducacionService } from 'src/app/servicios/educacion.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {FormBuilder,FormGroup, Validators} from '@angular/forms';
 import { ImageService } from 'src/app/servicios/image.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-modal-estudios',
@@ -33,7 +34,7 @@ export class ModalEstudiosComponent implements OnInit {
   constructor(private educacionS:EducacionService,private router:Router,private formBuilder:FormBuilder,private imageService:ImageService) {
     this.datos = ['Formal','Informal-curso','Informal-bootcamp'];
     this.form=this.formBuilder.group({
-      institucion:['',[Validators.required, Validators.minLength(3),Validators.maxLength(25)]],
+      institucion:['',[Validators.required, Validators.minLength(3),Validators.maxLength(50)]],
       icono:[''],
       inicio:['',[Validators.required,/* Validators.pattern('(0[1-9]|[1-2][0-9]|3[0-1])/(0[1-9]|1[0-2])/[0-9]{4}'),*/Validators.maxLength(10)]],
       fin:['',[Validators.minLength(3),Validators.maxLength(10)]],
@@ -78,9 +79,7 @@ export class ModalEstudiosComponent implements OnInit {
     return this.TipoEducacion.touched && !this.TipoEducacion.valid;
   }
  
- 
   cargarDetalle(id?:number){
-    
     if(id != undefined){
     this.educacionS.detail(id).subscribe(data=>{
       this.edu=data;
@@ -101,7 +100,8 @@ export class ModalEstudiosComponent implements OnInit {
    
   }
   borrar(id?:number){
-    if(id != undefined){
+    this.showModal(id);
+   /* if(id != undefined){
       this.educacionS.delete(id).subscribe(data =>{
         this.cargarEducacion();
         alert("se pudo eliminar satisfactoriamente");
@@ -109,7 +109,7 @@ export class ModalEstudiosComponent implements OnInit {
       },err =>{
         alert("No se pudo eliminar");
       })
-    }
+    }*/
   }
 
   OnCreate():void{
@@ -118,6 +118,7 @@ export class ModalEstudiosComponent implements OnInit {
     const expe= new Educacion(this.titulo,this.tipoeducacion,this.institucion,this.icono,this.inicio,this.fin,this.cursando);
     this.educacionS.save(expe).subscribe(data=>{
       alert("Estudio añadido");
+      this.cargarEducacion();
       
     },err=>{
       alert("Fallo al añadir");
@@ -125,9 +126,6 @@ export class ModalEstudiosComponent implements OnInit {
     
   }
   OnUpdate(id?:number):void{
-  // this.ids!=id;
-   // const id=this.activatedRouter.snapshot.params['id'];
-   
    if(this.band==false){
     this.edu.icono=this.urlActual;
   }else{
@@ -139,7 +137,6 @@ export class ModalEstudiosComponent implements OnInit {
         this.cargarEducacion();
     },err =>{
       alert("Error al modificar Educacion");
-      
     })
   }
 }
@@ -178,7 +175,6 @@ capturar() {
 this.tipoeducacion=this.form.get('tipoeducacion').value;
  
 }
-
 Limpiar():void{
   this.form.reset();
   this.form.controls['fin'].enable();
@@ -189,11 +185,35 @@ isDisabled(value:boolean) {
     if(!value){
     this.form.controls['fin'].disable(); 
     this.form.controls['fin'].setValue('');
-      
   }
     else{
      this.form.controls['fin'].enable();
     }
     this.expression=!this.expression;
+  }
+  showModal(id?:number){
+    Swal.fire({
+      title: 'realmente quiere eliminar este estudio?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Borrar',
+      denyButtonText: `Conservar`,
+    }).then((result) => {
+     
+      if (result.isConfirmed) {
+        if(id != undefined){
+          this.educacionS.delete(id).subscribe(data =>{
+            this.cargarEducacion();
+            alert("se pudo eliminar satisfactoriamente");
+            this.cargarEducacion();
+          },err =>{
+            alert("No se pudo eliminar");
+          })
+        }
+        Swal.fire('Borrado!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Los cambios fueron descartados', '', 'info')
+      }
+    })
   }
 }

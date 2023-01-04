@@ -92,7 +92,7 @@
                     [ngClass]="{'is-invalid': Institucion.errors && Institucion.touched, 'is-valid':!Institucion.errors && Institucion.touched}">
                     <div *ngIf="Institucion.errors  && Institucion.touched">    
                       <p *ngIf="Institucion?.errors?.maxlength" class="error">
-                            El nombre de la institucion debe tener como maximo 25 numeros.
+                            El nombre de la institucion debe tener como maximo 50 caracteres.
                       </p>
                     </div>
                     </div>

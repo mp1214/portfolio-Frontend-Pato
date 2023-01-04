@@ -1,8 +1,4 @@
  /*modales del dashboard*/
-
- 
-
-
   .experiencia{
     background: #f4f4f4;
     margin: 5px;
@@ -23,15 +19,11 @@
 .input-date{
   width: 60%;
 }
-  
- 
+
   .lista-fortalezaDebilidad{
     border:1px solid #8e6ca4;
     margin: 1vh 1vh;
     border-radius: 1vh;
     width: 99%;
-      
-      padding: 2%;
-      
-    
+    padding: 2%;
   }

@@ -2,9 +2,9 @@ import { Component, OnInit,Input } from '@angular/core';
 import { Certificado } from 'src/app/model/certificado';
 import { CertificadoService } from 'src/app/servicios/certificado.service';
 import { ImageService } from 'src/app/servicios/image.service';
-import { Storage,ref, uploadBytes, list, getDownloadURL,deleteObject } from '@angular/fire/storage';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-
+import { Storage } from '@angular/fire/storage';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-modal-certificados',
@@ -27,7 +27,7 @@ export class ModalCertificadosComponent implements OnInit {
   constructor(private certifi:CertificadoService,public imageService:ImageService,private storage:Storage,private formBuilder: FormBuilder) {
     this.form=this.formBuilder.group({
       img:[''],
-      titulo:['',[Validators.required, Validators.minLength(3),Validators.maxLength(20)]]
+      titulo:['',[Validators.required, Validators.minLength(3),Validators.maxLength(60)]]
     })
    }
 
@@ -63,14 +63,15 @@ export class ModalCertificadosComponent implements OnInit {
     
   }
   borrar(id?:number){
-    if(id != undefined){
+   this.showModal(id);
+    /* if(id != undefined){
       this.certifi.delete(id).subscribe(data =>{
         this.cargarCertificado();
         alert("se pudo eliminar satisfactoriamente");
       },err =>{
         alert("No se pudo eliminar");
       })
-    }
+    }*/
   }
   OnCreate():void{
     this.img=this.imageService.url[this.imageService.url.length-1];
@@ -108,109 +109,53 @@ export class ModalCertificadosComponent implements OnInit {
     }else{
     this.imageService.uploadImageEdit($event,1,this.urlActual);
     }
-  //  this.completed=this.imageService.completed[this.imageService.completed.length-1];
-  setTimeout(() => {
+   setTimeout(() => {
     this.completed = true;
   }, 8000);
   }
-  /*
-  uploadImage($event:any){
-     const file=$event.target.files[0];
-    const filePath = file.name;
-    const fileRef= ref(this.storage,`imagen/Certificado/`+ filePath);
-    uploadBytes(fileRef,file)
-    .then(response=>{this.getImages(file);
-  })
-       .catch(error=> console.log(error))
-   }
-   getImages(file:any){
-    const imagesRef=ref(this.storage,'imagen/Certificado/');
-    console.log("si llega a getimages")
-    list(imagesRef).then(async response=>{
-      for(let item of response.items){
-          if(file.name==item.name){
-            this.url=await getDownloadURL(item);
-            this.completed = true;
-          }
-      }  
-    })
-    .catch(error=> console.log(error))
-  }
-
- /* captarUrlActual($event:any){
-    const urlActual= this.cert.img;
-    console.log(urlActual)
-    this.uploadImageEdit($event,urlActual)
-  }*/
  
-/*  uploadImageEdit($event:any){
-    const file=$event.target.files[0];
-   // const name="certif_"+ (this.images.length+1);
-   const filePath = file.name;
-   // this.imageService.uploadImage($event,filePath,1);
-    //const fileRef= ref(this.storage,`imagen/Certificado/`+ filePath);
-    //  const fileRef= ref(this.storage,`imagen/Skill/`+ filePath);
-    const imagesRef=ref(this.storage,'imagen/Certificado/');
-    
-    list(imagesRef)
-    
-    .then(async response=>{
-      
-      for(let item of response.items){
-       const path= await getDownloadURL(item);
-        if(this.urlActual==path){
-         
-          //  this.url=await getDownloadURL(item);
-
-            const fileRef= ref(this.storage,`imagen/Certificado/`+ file.name);
-            
-            //  const fileRef= ref(this.storage,`imagen/Skill/`+ filePath);
-                uploadBytes(fileRef,file.name)
-              .then(response=>{this.getImages(file);
-                this.completed = true;})
-              .catch(error=> console.log(error))
-
-              deleteObject(item).then(() => {
-                console.log("la imagen se elimino");
-              }).catch((error) => {
-                 console.log("ocurrio un error: ", error);
-              });        
-          }
-      }  
-    })
-    .catch(error=> console.log(error))
-       
-      .then(response=>{
-        })
-      .catch(error=> console.log(error))
-   
- 
-   // }
-  }*/
   onEnviar(event:Event){
     event.preventDefault;
     if(this.form.valid){
-    
       this.OnCreate();
-
     }else{
       this.form.markAllAsTouched(); 
     }
   }
   onEnviarEdit($event:any,id:number){
     $event.preventDefault;
-    
     if(this.form.valid){
-    
       this.OnUpdate(id);
-
     }else{
       this.form.markAllAsTouched(); 
     }
   }
   Limpiar():void{
   this.form.reset();
- // window.opener.getElementById('img').value=" ";
+  this.completed=false;
   }
- 
+  showModal(id?:number){
+    Swal.fire({
+      title: 'realmente quiere eliminar este certificado?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Borrar',
+      denyButtonText: `Conservar`,
+    }).then((result) => {
+     
+      if (result.isConfirmed) {
+        if(id != undefined){
+          this.certifi.delete(id).subscribe(data =>{
+            this.cargarCertificado();
+            alert("se pudo eliminar satisfactoriamente");
+          },err =>{
+            alert("No se pudo eliminar");
+          })
+        }
+        Swal.fire('Borrado!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Los cambios fueron descartados', '', 'info')
+      }
+    })
+  }
 }

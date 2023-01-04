@@ -9,38 +9,27 @@
         <div class="row">
           <div class="col-1"></div>
           <div class="col-10">
-            
               <div class="mb-3">
                 <div *ngIf="mje === 'quitar'">
                     <h5 class="text-center">Quitar Habilidad</h5>
                     <ul  *ngFor="let skill of hab">
-                      <li type="button" class="experiencia" (click)="borrar(skill.id)">
-                  
-                       {{skill.habilidad}}
-                       <br>
-                       <div class="progress" class="cuadro">
-                     
-                        <div  class="progress-value progress-bar progress-bar-success progress-bar-striped progreso" 
-                        
-                        [style.width.%]="skill.porcentaje" 
-                        [ngStyle]="{'box-shadow': '-1px 10px 10px rgba(240, 173, 78,0.7)'}" 
-                        >{{skill.porcentaje}}% 
-                      </div>
-                        <i class="fa-solid fa-xmark"
-                   
-                        [ngStyle]="{'color':'red'}"
-                        
-                        ></i>
-                      </div>
-                     </li> 
-                      
+                        <li type="button" class="experiencia" (click)="borrar(skill.id)">
+                          {{skill.habilidad}}
+                          <br>
+                          <div class="progress" class="cuadro">
+                            <div  class="progress-value progress-bar progress-bar-success progress-bar-striped progreso" 
+                            [style.width.%]="skill.porcentaje" 
+                            [ngStyle]="{'box-shadow': '-1px 10px 10px rgba(240, 173, 78,0.7)'}" 
+                            >{{skill.porcentaje}}% 
+                          </div>
+                            <i class="fa-solid fa-xmark"
+                            [ngStyle]="{'color':'red'}"
+                            ></i>
+                          </div>
+                        </li> 
                       </ul>
-                    <!-- <button type="button" class="btn btn-primary container-fluid">Guardar Cambios</button>
-                     --> 
                     </div>
-                   
               </div>
-                
               <div *ngIf="mje === 'agregar'">
                 <h5 class="form text-center">Agregar Habilidad</h5>
                 <form [formGroup]="form" (ngSubmit)="onEnviar($event)" name="certificadoForm">
@@ -56,7 +45,6 @@
                       " class="error">
                             El titulo debe tener como mínimo 3 caracteres.
                           </p>
-                    
                     </div>
                   </div>
                   <div class="mb-3">
@@ -86,7 +74,6 @@
                   </div>
                 <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
                 <button type="submit" class="btn btn-dark container-fluid mt-3"  (click)="Limpiar();" >Limpiar</button>
-          
               </form>
                           
             </div>
@@ -114,7 +101,6 @@
                         <p *ngIf="Habilidad?.errors?.minlength" class="error">
                           El titulo debe tener como mínimo 3 caracteres.
                         </p>
-                  
                 </div>
                 <div class="mb-3">
                   <label for="porcentaje" class="form-label">Porcentaje (escala entre 1 - 100)</label>
@@ -136,79 +122,22 @@
                       </div>
                 </div>
                <div class="mb-3">
-                <label id="fortaleza" for="number">Ubicacion actual Imagen Certificado</label>
+                <label id="fortaleza" for="number">Ubicacion actual de Imagen de Habilidad</label>
                 <textarea class="form-control mb-3"  style="height: 100px" formControlName="icono" name="icono" [(ngModel)]="habilidad.icono" readonly onmousedown="return false;"></textarea>
               </div>
                <div class="mb-3">
-                <label for="icono" class="form-label">icono de la Habilidad</label>
+                <label for="icono" class="form-label">Icono de la Habilidad</label>
                <input type="file" class="form-control" id="icono" formControlName="icono" [(ngModel)]="icono" (change)="uploadImageEdit($event)" required>
                <div class="label text-success" fxFlex="30" *ngIf="completed">Archivo cargado</div>
                <div class="label text-danger" fxFlex="30" *ngIf="!completed">Espere que el archivo se cargue...</div>
-            
               </div>
              <button type="submit" class="btn btn-primary container-fluid">Guardar Cambios</button>
-           
             </form>
          </div>
            </div>
           <div class="col-1"></div>
         </div>
       </div>
-    
     </div>
   </div>
-
-
-  <!--modal skills
-  
-    <div style="height: 100%;overflow-y: auto;" class="modal fade" id="exampleModal-skills" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-     
-        <div class="container modal-dialog">
-          <h1>Habilidades</h1>
-          <div *ngIf="mje === 'quitar'" class="container modal-content" >
-            
-            <p>Quitar Habilidades</p>
-            <div *ngFor="let skill of Skills">
-              <h4 > {{skill.habilidad}}</h4>
-                  
-                <div class="progress" class="cuadro">
-                     
-                  <div  class="progress-value progress-bar progress-bar-success progress-bar-striped progreso" 
-                  
-                  [style.width.%]="skill.porcentaje" 
-                  [ngStyle]="{'box-shadow': '-1px 10px 10px rgba(240, 173, 78,0.7)'}" 
-                  >{{skill.porcentaje}}% 
-                </div>
-                  <i class="fa-solid fa-xmark"
-             
-                  [ngStyle]="{'color':'red'}"
-                  
-                  ></i>
-                </div>
-                  <div class="progress progress-value">{{skill.porcentaje}}</div>
-                  
-          </div>
-
-          </div>
-           
-        </div>
-            <div *ngIf="mje === 'agregar'" class="container modal-content">
-              <p >Agregar Habilidad</p>
-              <label id="habilidad" for="number">Habilidad</label>
-              <input type="text" name="habilidad" />
-              <label id="porcentaje" for="number">Porcentaje</label>
-              <input type="number" name="porcentaje" />
-             
-              
-            </div>
-             
-            <div class="form-group">
-              <button type="submit" id="submit">
-                Guardar
-              </button>
-            </div>
-          </div>-->
-       
-      
-      
-
+  </div>

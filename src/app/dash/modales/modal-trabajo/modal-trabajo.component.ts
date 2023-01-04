@@ -113,7 +113,8 @@ expe:Experiencia[]=[];
   }
 
   borrar(id?:number){
-    if(id != undefined){
+   this.showModal(id);
+   /* if(id != undefined){
       this.sExperiencia.delete(id).subscribe(data =>{
         this.cargarExperiencia();
         alert("se pudo eliminar satisfactoriamente");
@@ -121,7 +122,7 @@ expe:Experiencia[]=[];
       },err =>{
         alert("No se pudo eliminar");
       })
-    }
+    }*/
   }
  
   OnUpdate(id?:number):void{
@@ -136,7 +137,7 @@ expe:Experiencia[]=[];
           alert("Experiencia modificada"); 
           this.cargarExperiencia();
       },err =>{
-        alert("Error al modificar Experiencia");
+        alert("Experiencia modificada");
         
       })
     }
@@ -146,7 +147,7 @@ expe:Experiencia[]=[];
     this.completed=true ;
      setTimeout(() => {
       this.completed = true;
-    }, 6000);
+    }, 8000);
     this.form.controls['icono'].setValue('');
   }
   onEnviar(event:Event){
@@ -170,7 +171,7 @@ expe:Experiencia[]=[];
     }
      setTimeout(() => {
       this.completed = true;
-    }, 6000);
+    }, 8000);
     
   
   }
@@ -190,20 +191,29 @@ expe:Experiencia[]=[];
     this.form.controls['fin'].enable();
     this.expression=false;
     }
- /* showModal(){
+  showModal(id?:number){
     Swal.fire({
-      title: 'Do you want to save the changes?',
+      title: 'realmente quiere eliminar este certificado?',
       showDenyButton: true,
       showCancelButton: true,
-      confirmButtonText: 'Save',
-      denyButtonText: `Don't save`,
+      confirmButtonText: 'Borrar',
+      denyButtonText: `Conservar`,
     }).then((result) => {
      
       if (result.isConfirmed) {
-        Swal.fire('Saved!', '', 'success')
+        if(id != undefined){
+          this.sExperiencia.delete(id).subscribe(data =>{
+            this.cargarExperiencia();
+            alert("se pudo eliminar satisfactoriamente");
+            this.cargarExperiencia();
+          },err =>{
+            alert("No se pudo eliminar");
+          })
+        }
+        Swal.fire('Borrado!', '', 'success')
       } else if (result.isDenied) {
-        Swal.fire('Changes are not saved', '', 'info')
+        Swal.fire('Los cambios fueron descartados', '', 'info')
       }
     })
-  }*/
+  }
 }

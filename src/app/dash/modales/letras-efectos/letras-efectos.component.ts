@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { persona } from 'src/app/model/persona';
 import { PersonaService } from 'src/app/servicios/persona.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-letras-efectos',
@@ -12,7 +13,6 @@ export class LetrasEfectosComponent implements OnInit {
 efectosList:persona|any=null;
 titulo:string="";
 efecto: persona[]=[];
-
 @Input() mje:string=""
 
 
@@ -20,7 +20,6 @@ efecto: persona[]=[];
 
   ngOnInit(): void {
     this.cargarletras();
-  
   }
   cargarDetalle(id?:number){
     if(id != undefined){
@@ -37,8 +36,6 @@ cargarletras():void{
 
 }
 OnUpdate(id?:number):void{
-  // this.ids!=id;
-   // const id=this.activatedRouter.snapshot.params['id'];
     if(id != undefined){
        this.letras.update(id,this.efectosList).subscribe(data=>{
         alert("Estudio modificado"); 
@@ -48,10 +45,10 @@ OnUpdate(id?:number):void{
       
     })
   }
-  
 }
   borrar(id?:number){
-    if(id != undefined){
+   this.showModal(id);
+  /*  if(id != undefined){
       this.letras.delete(id).subscribe(data =>{
        this.cargarletras();
         alert("se pudo eliminar satisfactoriamente");
@@ -59,7 +56,31 @@ OnUpdate(id?:number):void{
       },err =>{
         alert("No se pudo eliminar");
       })
-    }
-   
+    }*/
+  }
+  showModal(id?:number){
+    Swal.fire({
+      title: 'realmente quiere eliminar este efecto?luego no podrá agregarlo ni editarlo',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Borrar',
+      denyButtonText: `Conservar`,
+    }).then((result) => {
+     
+      if (result.isConfirmed) {
+        if(id != undefined){
+          this.letras.delete(id).subscribe(data =>{
+           this.cargarletras();
+            alert("se pudo eliminar satisfactoriamente");
+            this.cargarletras();
+          },err =>{
+            alert("No se pudo eliminar");
+          })
+        }
+        Swal.fire('Salvado!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Los cambios fueron descartados', '', 'info')
+      }
+    })
   }
 }

@@ -20,9 +20,6 @@ export class SkillsComponent implements OnInit {
     }else{
       this.isLogged=false;
     }
-   
-   
-   
   }
 cargarHabilidad(){
   this.skills.lista().subscribe(data =>{
