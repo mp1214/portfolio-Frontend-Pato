@@ -96,7 +96,7 @@ OnUpdate(id?:number):void{
   }else{
    this.habilidad.icono=this.imageService.url[this.imageService.url.length-1];
   }
-  this.habilidad.icono = this.imageService.url[this.imageService.url.length-1];
+  
     if(id != undefined){
         this.skills.update(id,this.habilidad).subscribe(data=>{
           alert("Habilidad modificada"); 
@@ -131,14 +131,14 @@ onEnviarEdit($event:any,id:number){
 }
 uploadImageEdit($event:any){
   this.band=true;
-  if(this.urlActual==null){
+  if(this.urlActual==null || this.urlActual==""){
     this.imageService.uploadImage($event,0);
   }else{
   this.imageService.uploadImageEdit($event,0,this.urlActual);
   }
   console.log( setTimeout(() => {
     this.completed = true;
-  }, 6000));
+  }, 8000));
 }
 Limpiar():void{
   this.form.reset();
