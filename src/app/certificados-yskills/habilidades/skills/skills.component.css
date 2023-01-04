@@ -67,9 +67,9 @@
        width: 100%;
     }
 
-    @media (max-width: 775px){
+    @media screen and(max-width: 775px){
       .titulo{
-        font-size: 23px;
+        font-size: 25px;
        }
     }
   }

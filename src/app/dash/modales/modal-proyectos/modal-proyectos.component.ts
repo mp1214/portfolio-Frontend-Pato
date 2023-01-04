@@ -42,7 +42,7 @@ export class ModalProyectosComponent implements OnInit {
   ngOnInit(): void {
     this.proyectos.lista().subscribe(data =>{
       this.proyectoList= data;
-      
+     
     })
   }
   get Proyecto(){
@@ -78,9 +78,11 @@ export class ModalProyectosComponent implements OnInit {
   cargarDetalle(id?:number){
     if(id != undefined){
     this.proyectos.detail(id).subscribe(data=>{
+    
       this.proyec=data;
-      this.urlActual=this.proyec.imgE;
+      this.urlActual=this.proyec.img;
       this.completed=false;
+      this.band=false;
     },err=>{
       alert("error al modificar");
     })
@@ -114,19 +116,21 @@ export class ModalProyectosComponent implements OnInit {
      
    }
   OnUpdate(id?:number):void{
+    console.log("urlActual es "+this.urlActual);
     if(this.band==false){
       this.proyec.img=this.urlActual;
     }else{
     this.proyec.img=this.imageService.url[this.imageService.url.length-1];
+    }
     if(id != undefined){
-          this.proyectos.update(id,this.proyec).subscribe(data=>{
-          alert("certificado modificado"); 
-          this.cargarProyecto();
+      this.proyectos.update(id,this.proyec).subscribe(data=>{
+      alert("certificado modificado"); 
+      this.cargarProyecto();
       },err =>{
         alert("Error al modificar certificado");
         
       })
-    }}
+    }
   }
   onEnviar(event:Event){
     event.preventDefault;
@@ -145,6 +149,7 @@ export class ModalProyectosComponent implements OnInit {
    }
    uploadImageEdit($event:any){
     this.band2=1;
+    this.band=true;
     const file=$event.target.files[0];
     this.band=true;
     if(this.urlActual==null||this.urlActual==""){

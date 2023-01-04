@@ -75,7 +75,7 @@
                  </li>
                </ul>
              </div>
-             <div *ngIf="cert">
+             <div class="formulario" *ngIf="cert">
              <h5 class="form text-center">Editar Certificado</h5>
               <form [formGroup]="form" (ngSubmit)="onEnviarEdit($event,cert.id)">
                <div class="mb-3">

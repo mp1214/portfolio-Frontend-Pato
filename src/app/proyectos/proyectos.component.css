@@ -71,10 +71,7 @@ h3{
 
 /*Mobile*/
 @media (max-width: 375px){
- 
-  .proyectos h2{
-    font-size: 20px;
-  }
+
   .experience__description{
     display: flex;
     flex-direction: column;
@@ -91,6 +88,11 @@ h3{
     width: 90%;
    }
 }
+@media screen and (max-width:775px) {
+  .titulo{
+    font-size: 25px;
+   }
+  }
 /*Mobile*/
 @media (min-width: 376px) and (max-width: 867px){
  
@@ -107,9 +109,7 @@ h3{
    .card{
     width: 90%;
    }
-   .titulo{
-    font-size: 23px;
-   }
+  
 }
   @media (min-width: 868px) and (max-width: 1600px){
     .experience__img{

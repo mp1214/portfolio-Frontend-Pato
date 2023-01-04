@@ -64,7 +64,6 @@ export class LoginComponent implements OnInit {
          if(this.nombreUsuario=="user"){
         this.router.navigate(['intro'])
        }else{
-        console.log(this.nombreUsuario)
         if(this.nombreUsuario=="patriciaadmin"){
           this.router.navigate(['/dashboard'])
         }

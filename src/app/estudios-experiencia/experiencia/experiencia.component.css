@@ -29,12 +29,17 @@
     font-weight: 400;
     font-size: 25px;
     font-family: 'Raleway';
+    
+   }
+   .card-title{
+    text-align:justify;
    }
    h3{
     color:#000;
     font-weight: 600;
     font-size: 25px;
     font-family: 'Raleway';
+    
    }
    p{
     color:#000;
@@ -76,6 +81,6 @@ margin: 3vh 0;
 
    @media screen and (max-width:775px) {
   .titulo{
-    font-size: 23px;
+    font-size: 25px;
    }
   }

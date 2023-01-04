@@ -2,6 +2,7 @@
 
   .certif{
 margin-top: 2vh;
+
   }
   .imagen.modal-content{
     background-color: transparent;
@@ -15,13 +16,15 @@ margin-top: 2vh;
   .certificado{
     background: #f4f4f4;
     margin: 5px;
-    padding: 10px 20px;
+    padding: 1vh 2%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
    
   }
-  
+  .formulario{
+    padding: 0 5%;
+  }
   
  
