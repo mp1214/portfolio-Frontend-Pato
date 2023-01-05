@@ -12,13 +12,13 @@
       
     }
     .habilidad{
-      font-size: 25px;
+      font-size: 1.4rem;
     }
    
     .titulo{
       color: #0e076b;
       margin: 3vh 4vh;
-      font-size: 40px;
+      font-size: 2rem;
       }
 .col-10{
   width: 100%;
@@ -28,6 +28,7 @@
       background-image: url(/assets/imagenes/fondo\ dorado.jpg);
       background-repeat: repeat;
       padding: 1vh 1vh;
+      font-size: 100%;
     }
     .certificados .progress-outer{
      margin: auto;
@@ -67,9 +68,5 @@
        width: 100%;
     }
 
-    @media screen and(max-width: 775px){
-      .titulo{
-        font-size: 25px;
-       }
-    }
+   
   }

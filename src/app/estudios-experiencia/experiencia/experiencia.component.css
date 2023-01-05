@@ -4,7 +4,7 @@
      padding: 1vh 0vh;
      background-image: url(/assets/imagenes/fondo\ dorado.jpg);
      background-repeat: no-repeat;
-    
+    font-size: 100%;
      background-size: cover;
 
    }
@@ -12,7 +12,7 @@
     width: 100%;
    }
    .card{
-    width: 80%;
+    width: 70%;
     padding-top: 6px;
     background-color: transparent;
     border: 2px solid #000;
@@ -22,12 +22,12 @@
     background-size:cover;
     background-repeat: no-repeat;
     box-shadow: 0 0  10px rgba(40, 111, 198, 0.7);
-    min-height: 500px;
+    min-height: 300px;
    }
    h4{
     color:#000;
     font-weight: 400;
-    font-size: 25px;
+    font-size: 1.3rem;
     font-family: 'Raleway';
     
    }
@@ -37,14 +37,14 @@
    h3{
     color:#000;
     font-weight: 600;
-    font-size: 25px;
+    font-size: 1.5rem;
     font-family: 'Raleway';
     
    }
    p{
     color:#000;
     font-weight: 300;
-    font-size: 20px;
+    font-size: 1rem;
     font-family: 'Raleway';
    }
    .card-img-top{
@@ -59,8 +59,8 @@
    }
    .titulo{
     color: #0e076b;
-    margin: 3vh 4vh;
-    font-size: 40px;
+    margin: 3vh 6vw;
+    font-size: 2rem;
     }
    img{
     display: inline;
@@ -69,18 +69,11 @@
     padding-bottom: 2vh;
    
   }
-   .experiencia h1{
-    color: #0e076b;
-    font-size: 2.2rem;
-    
-  }
 
    .lista-experiencia{
-margin: 3vh 0;
+  margin: 3vh 0;
    }
 
-   @media screen and (max-width:775px) {
-  .titulo{
-    font-size: 25px;
-   }
-  }
+ 
+  
+  

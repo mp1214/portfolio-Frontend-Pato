@@ -1,7 +1,6 @@
 
 .banner{
     background-position: center;
-    
     background-size:cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -9,17 +8,6 @@
     display: block;
     }
     
- h2{
-      font-weight: 500;
-      margin-left: 200px;
-      color: #f9f1f9;
-      font-size: calc(2.5*1.5vw);
-     }
-    .banner h2 {
-      color: #f7f1f7;
-      font-weight: bold;
-      
-    }
     @media screen and (max-width:576px){
       .banner{
           
@@ -32,12 +20,9 @@
 
     @media screen and (min-width:577px) and (max-width: 867px) {
       .banner{
-          
         background-size:cover;
         background-repeat: no-repeat;
         min-height: 400px;
-       
-              
         }
     }
 

@@ -10,8 +10,6 @@
 }
 .carousel-item img{
   width: 600px;
-  
- 
 }
 .carouselExample{
  width: 60%;
@@ -23,7 +21,7 @@
 
 .titulo{
   color: #0e076b;
-  font-size: 40px;
+  font-size: 2rem;
   margin: 3vh 4vh;
 }
 
@@ -36,9 +34,7 @@
        .carouselExample{
         width: 100%;
        }
-       .titulo{
-        font-size: 25px;
-       }
+      
        .carousel-indicators button{
         width: 20px;
        }

@@ -1,29 +1,30 @@
 
 .acercademi{
   text-align: justify;
- /* padding-left: 5vh;*/
-  font-size: 1.8rem; 
+  font-size: 1.5rem; 
   width: 100%;
 }
 .imagen-pato img{
   border-style:solid;
   border-color: rgba(145, 145, 6, 0.722);
-  box-shadow: 6px 6px 5px 2px #0b0a09;
-  width: 30%;
- 
- /* width:calc(10*1.5vw);*/
-
+  box-shadow: 6px 6px 5px 2px #8e8e2e;
+  width: 15vw;
+}
+.nombre{
+  font-size: 2rem;
 }
 .imagen-pato{
   width: 100%;
+}
+h2{
+  font-size: 1.3rem;
 }
 .imagen-pato h2{
   text-align: center;
 }
 .col-md-7{
   margin: auto;
-  padding: 10%;
-
+  padding: 4%;
 }
 
 .col-md-5{
@@ -32,16 +33,16 @@
   padding: 0 2%;
 }
 .contenedor {
- /* margin-top: .2vh;*/
-/* padding: 0 100px;*/
- /* padding: 30px 30px 50px;*/
   border-radius:10px;
+  font-size: 100%;
   color: white;
   background-image: url(/assets/imagenes/pared-negra.png);
-  
+  padding-bottom: 2%;
+  padding-top: 2%;
   }
- 
- 
+ .titulo{
+  font-size: 1.8rem;
+ }
   @media screen and (max-width: 500px) {
     #acerca_de_mi{
       display: flex;
@@ -54,18 +55,10 @@
     .contenedor{
       padding: 3%;
       text-align: center;
-      
     }
     .imagen-pato img{
       width: 50%;
-    
     }
-    }/*
-    @media screen and(min-width:401) and (max-width: 800px){
-      .contenedor{
-          margin-top: 1vh;  
-                     
-          }
-    } */
+    }
 
 
