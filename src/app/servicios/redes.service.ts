@@ -7,29 +7,21 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class RedesService {
-  
-
   constructor(private httpClient : HttpClient) { }
- // URL='http://localhost:8080/redes/';
   URL='https://portfolio-service-3.onrender.com/redes/';
 
   public lista():Observable <Redes[]>{
     return this.httpClient.get<Redes[]>(this.URL+'lista');
-
   }
   public detail(id:number):Observable<Redes>{
-
     return this.httpClient.get<Redes>(this.URL+ `detail/${id}`);
-
   }
   public save(red:Redes):Observable<any>{
 return this.httpClient.post<any>(this.URL+ 'create',red);
-
   }
 
   public update(id:number, red: Redes):Observable<any>{
 return this.httpClient.put<any>(this.URL +`update/${id}`,red)
-
   }
   public delete(id :number):Observable<any>{
     return this.httpClient.delete<any>(this.URL+ `delete/${id}`);

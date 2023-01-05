@@ -193,7 +193,7 @@ expe:Experiencia[]=[];
     }
   showModal(id?:number){
     Swal.fire({
-      title: 'realmente quiere eliminar este certificado?',
+      title: 'Realmente quiere eliminar esta experiencia?',
       showDenyButton: true,
       showCancelButton: true,
       confirmButtonText: 'Borrar',

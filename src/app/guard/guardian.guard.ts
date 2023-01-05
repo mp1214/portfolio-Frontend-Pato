@@ -20,7 +20,6 @@ export class GuardianGuard implements CanActivate {
       this.router.navigate(['/intro']);
       this.isLogged=false;
       return false;
-      
     }
   }
   

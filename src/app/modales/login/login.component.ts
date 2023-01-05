@@ -51,8 +51,6 @@ export class LoginComponent implements OnInit {
     }
     onLogin():void{
       this.loginUsuario= new LoginUsuario(this.nombreUsuario,this.password);
-    
-      
       this.authService.login(this.loginUsuario).subscribe(data=>{
         this.isLogged=true;
         this.isLogginFail= false;
@@ -60,14 +58,12 @@ export class LoginComponent implements OnInit {
         this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
-    
          if(this.nombreUsuario=="user"){
         this.router.navigate(['intro'])
        }else{
         if(this.nombreUsuario=="patriciaadmin"){
           this.router.navigate(['/dashboard'])
         }
-
        } 
   
       },err =>{
@@ -77,7 +73,6 @@ export class LoginComponent implements OnInit {
         console.log(this.errMsj);   
         
       }
-
       )
     }
    
