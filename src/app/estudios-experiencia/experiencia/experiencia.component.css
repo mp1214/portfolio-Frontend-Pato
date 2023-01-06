@@ -48,7 +48,7 @@
     font-family: 'Raleway';
    }
    .card-img-top{
-    width: 30%;
+    width: 10vw;
     max-height: 20%;
     margin: auto;
    } 
@@ -73,7 +73,13 @@
    .lista-experiencia{
   margin: 3vh 0;
    }
-
- 
+   .card-img-top:hover{
+    width: 13vw;
+    transition: width 1s;
+  }
+  .card:hover{
+    transform: scale(1.1);
+    transition: transform .2s;
+  }
   
   

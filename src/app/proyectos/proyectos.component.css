@@ -1,22 +1,20 @@
 
-   .titulo{
+.titulo{
     color: #0e076b;
     margin: 1vw 4vw;
     font-size: 2rem;
     margin-bottom: 2%;
-    }
+}
 
-  img{
+img{
     display: inline;
     margin-left: 10px;
     vertical-align: middle;
-  }
+}
 .col-10{
   width: 100%;
-
 }
 
-    
 .proyecto{
   background: linear-gradient(300deg,rgb(247, 241, 247),rgba(167, 164, 226, 0.8));
   padding: 1vh 0vh;
@@ -29,7 +27,7 @@
   padding: 2%;
  }
  .card{
-  width: 70%;
+  width: 80%;
   background-color: transparent;
 /*  border: 2px solid #000;*/
   margin: auto;
@@ -39,7 +37,8 @@
   background-repeat: no-repeat;
   box-shadow: 0 0  10px rgba(40, 111, 198, 0.7);
   padding-top: 2%;
-  min-height: 650px;
+  min-height: 450px;
+  padding-bottom: 2%;
  }
  
 .experience__description{
@@ -72,7 +71,10 @@ h3{
     background: #2A7AE4;
 
 }
-
+.card:hover{
+  transform: scale(1.1);
+  transition: transform .2s;
+}
 /*Mobile*/
 @media (max-width: 375px){
 

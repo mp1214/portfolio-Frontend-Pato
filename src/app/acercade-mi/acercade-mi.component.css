@@ -43,6 +43,11 @@ h2{
  .titulo{
   font-size: 1.8rem;
  }
+ .acercademi:hover{
+  transform: scale(1.1);
+  transition: transform .2s;
+}
+
   @media screen and (max-width: 500px) {
     #acerca_de_mi{
       display: flex;
@@ -51,6 +56,7 @@ h2{
     }
     .acercademi{
       padding: 1% 2%;
+      transition: width 2s;
     }
     .col-md-7,.col-md-5{
 	    width: 540px;
@@ -63,5 +69,6 @@ h2{
       width: 50%;
     }
     }
+  
 
 

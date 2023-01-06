@@ -77,6 +77,7 @@ band2:number=0;
          this.fotoPerfil.update(id,this.fotoperfil).subscribe(data=>{
           alert("foto de Banner modificada"); 
           this.cargarFoto();
+        
       },err =>{
         alert("Error al modificar foto banner");
       })
@@ -102,7 +103,7 @@ band2:number=0;
 }
  setTimeout(() => {
   this.completed = true;
-}, 10000);
+}, 15000);
 }else{
   alert("seleccione el lapiz verde por favor...")
 }
