@@ -54,8 +54,10 @@ band2:number=0;
 
   OnUpdatePerfil(id?:number):void{
     if(this.band2!=0)
-    this.fotoperfil.img = this.imageService.url[this.imageService.url.length-1];
-     if(id != undefined){
+    {this.fotoperfil.img = this.imageService.url[this.imageService.url.length-1];
+    this.fotoperfil.imgBanner=this.urlActual;
+    } 
+    if(id != undefined){
          this.fotoPerfil.update(id,this.fotoperfil).subscribe(data=>{
           alert("foto perfil modificada"); 
           this.cargarFoto(); 
@@ -63,11 +65,14 @@ band2:number=0;
         alert("Error al modificar foto perfil");
         
       })
-    }
+    }  this.completed=false;
   }
   OnUpdateBanner(id?:number):void{
     if(this.band2!=0)  
-    this.fotoperfil.imgBanner = this.imageService.url[this.imageService.url.length-1];
+    {this.fotoperfil.imgBanner = this.imageService.url[this.imageService.url.length-1];
+    this.fotoperfil.img =this.urlActual1;
+    }
+    console.log(this.fotoperfil)
        if(id != undefined){
          this.fotoPerfil.update(id,this.fotoperfil).subscribe(data=>{
           alert("foto de Banner modificada"); 
@@ -75,7 +80,7 @@ band2:number=0;
       },err =>{
         alert("Error al modificar foto banner");
       })
-    }
+    }  this.completed=false;
   }
   
   uploadImageEdit($event:any,band:string){
@@ -88,17 +93,18 @@ band2:number=0;
   }else{ this.imageService.uploadImageEdit($event,2,this.urlActual1);
   }
 }else{
-    if(this.urlActual==""||this.urlActual==null){
+    if(this.urlActual==""||this.urlActual==null ||this.urlActual==undefined){
       this.imageService.uploadImage($event,6);
     }else{
+      console.log("la imagen actual es "+this.urlActual)
     this.imageService.uploadImageEdit($event,6,this.urlActual);
     }
 }
  setTimeout(() => {
   this.completed = true;
-}, 8000);
+}, 10000);
 }else{
-  alert("seleccione el lapiz verdde por favor...")
+  alert("seleccione el lapiz verde por favor...")
 }
    }
   }

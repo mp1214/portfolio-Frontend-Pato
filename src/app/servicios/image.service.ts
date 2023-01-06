@@ -71,7 +71,6 @@ urlActual:string="";
   }
   }
   getImages(band:number,file:any){
-    
     if(band==0)
     {const imagesRef=ref(this.storage,'imagen/Skill/');
     list(imagesRef)

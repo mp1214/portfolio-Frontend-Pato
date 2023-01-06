@@ -141,6 +141,7 @@ export class ModalProyectosComponent implements OnInit {
     }
   }
   uploadImage($event:any){
+    this.completed = false;
     this.band2=1;
      this.imageService.uploadImage($event,3);
      setTimeout(() => {
@@ -151,13 +152,11 @@ export class ModalProyectosComponent implements OnInit {
     this.band2=1;
     this.band=true;
     const file=$event.target.files[0];
-    this.band=true;
     if(this.urlActual==null||this.urlActual==""){
        this.imageService.uploadImage($event,3);
     }else{
     this.imageService.uploadImageEdit($event,3,this.urlActual);
     }
-    this.completed=this.imageService.completed[this.imageService.completed.length-1];
     setTimeout(() => {
       this.completed = true;
     }, 8000);
@@ -167,7 +166,7 @@ export class ModalProyectosComponent implements OnInit {
     }
     showModal(id?:number){
       Swal.fire({
-        title: 'realmente quiere eliminar este proyecto?',
+        title: 'Realmente quiere eliminar este proyecto?',
         showDenyButton: true,
         showCancelButton: true,
         confirmButtonText: 'Borrar',

@@ -26,8 +26,9 @@
      
     .certificados{
       background-image: url(/assets/imagenes/fondo\ dorado.jpg);
-      background-repeat: repeat;
-      padding: 1vh 1vh;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 1vh 0vh;
       font-size: 100%;
     }
     .certificados .progress-outer{

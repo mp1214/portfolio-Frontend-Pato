@@ -145,7 +145,7 @@ uploadImage($event:any){
   this.imageService.uploadImage($event,4);
   setTimeout(() => {
     this.completed = true;
-  }, 6000);
+  }, 8000);
 }
 uploadImageEdit($event:any){
   this.band2=1;
@@ -159,7 +159,7 @@ uploadImageEdit($event:any){
   this.form.controls['icono'].setValue('');
   setTimeout(() => {
     this.completed = true;
-  }, 6000);
+  }, 8000);
 }
 onEnviar(event:Event){
   event.preventDefault;
