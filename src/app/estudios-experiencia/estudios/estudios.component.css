@@ -1,7 +1,7 @@
 
    .estudio{
     background: linear-gradient(300deg,rgb(247, 241, 247),rgba(167, 164, 226, 0.8));
-    padding: 1vh 2vh;
+    padding: 1vh 0vh;
     font-size: 100%;
    }
    .card{
@@ -56,9 +56,10 @@
     width:100%;
    } 
 .titulo {
-      color: #0e076b;
-      margin: 3vh 4vh;
-      font-size: 2rem;
+  color: #0e076b;
+  margin: 1vw 4vw;
+  font-size: 2rem;
+  margin-bottom: 2%;
       }
 
     @media screen and (max-width:375px) {
